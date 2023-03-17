@@ -1,0 +1,16 @@
+.popup__title-profile {
+    text-align: center;
+    padding: 0 0 124px;
+}
+
+@media screen and (max-width: 769px) {
+    .popup__title-profile {
+        padding: 0 0 96px;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .popup__title-profile {
+        padding: 0 0 80px;
+    }
+}

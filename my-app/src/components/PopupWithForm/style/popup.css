@@ -1,0 +1,19 @@
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    margin: 74px auto 0;
+}
+
+@media screen and (max-width: 769px) {
+    .popup {
+        margin: 232px auto 0;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .popup {
+        margin: 56px auto 0;
+    }
+}

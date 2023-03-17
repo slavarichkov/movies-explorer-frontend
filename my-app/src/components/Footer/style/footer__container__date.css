@@ -1,0 +1,21 @@
+.footer__container__date {
+    height: 16px;
+    color: #000000;
+    margin: 0;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0px;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 430px) {
+    .footer__container__date {
+        font-size: 12px;
+        line-height: 14px;
+        color: #A0A0A0;
+        padding: 30px 0 0;
+    }
+}

@@ -1,0 +1,11 @@
+.app {
+  background-color: #FFFFFF;
+  margin: 0 auto 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  min-height: 100vh;
+}

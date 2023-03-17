@@ -1,0 +1,17 @@
+.header__button-color {
+    background-color: #2BE080;
+    border: 0;
+    border-radius: 3px;
+    height: 32px;
+    width: 76px;
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 590px) {
+    .header__button-color {
+        font-size: 10px;
+        height: 26px;
+        width: 54px;
+        margin-left: 14px;
+    }
+}

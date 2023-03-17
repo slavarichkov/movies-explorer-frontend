@@ -1,0 +1,11 @@
+.header__button-nav_line {
+    background-color: black;
+    height: 3px;
+    width: 100%;
+}
+
+@media screen and (max-width: 590px) {
+    .header__button-nav_line {
+        height: 2.5px;
+    }
+}

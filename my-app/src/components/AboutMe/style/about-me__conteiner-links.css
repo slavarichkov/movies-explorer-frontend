@@ -1,0 +1,11 @@
+.about-me__conteiner-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .about-me__conteiner-links {
+        align-items: center;
+    }
+}

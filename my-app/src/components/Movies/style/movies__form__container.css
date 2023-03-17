@@ -1,0 +1,18 @@
+.movies__form__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 72px;
+    width: 100%;
+    margin: 70px 0 80px;
+}
+
+@media screen and (max-width: 580px) {
+    .movies__form__container {
+        width: 100%;
+        flex-direction: column;
+        border-radius: 9px 0 0 9px;
+        margin: 80px 0 45px;
+    }
+}

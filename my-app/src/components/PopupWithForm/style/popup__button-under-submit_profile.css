@@ -1,0 +1,11 @@
+.popup__button-under-submit_profile {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+}
+
+.popup__button-under-submit_profile:nth-child(1) {
+    color: #000000;
+    padding: 0 0 16px;
+}

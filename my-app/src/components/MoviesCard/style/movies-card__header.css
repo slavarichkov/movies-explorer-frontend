@@ -1,0 +1,7 @@
+.movies-card__header {
+    display: flex;
+    flex-direction: row;
+    background-color: #FDFDFD;
+    padding: 14px 14px 0;
+    justify-content: space-between;
+}

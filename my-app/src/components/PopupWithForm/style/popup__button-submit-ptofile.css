@@ -1,0 +1,27 @@
+.popup__button-submit-ptofile {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    margin: 196px auto 0;
+    transition: opacity 1s;
+}
+
+.popup__button-submit-ptofile:hover {
+    background-color: white;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 769px) {
+    .popup__button-submit-ptofile {
+        margin: 186px auto 0;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .popup__button-submit-ptofile {
+        margin: 355px auto 0;
+    }
+}

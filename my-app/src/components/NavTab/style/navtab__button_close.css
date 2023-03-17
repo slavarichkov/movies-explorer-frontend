@@ -1,0 +1,8 @@
+.navtab__button_close {
+    background-image: url(./../../../images/Group.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    margin: 22px 22px 0 0px;
+}

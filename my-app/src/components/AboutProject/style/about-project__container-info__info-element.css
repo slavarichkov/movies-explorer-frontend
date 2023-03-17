@@ -1,0 +1,42 @@
+.about-project__container-info__info-element {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    text-align: left;
+    margin: 0;
+}
+
+.about-project__container-info__info-element:nth-child(2) {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    margin: 26px 0 0;
+}
+
+@media screen and (max-width: 769px) {
+    .about-project__container-info__info-element:nth-child(2) {
+        margin: 22px 0 0;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .about-project__container-info__info-element {
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: -0.04em;
+        color: #000000;
+        text-align: left;
+    }
+
+    .about-project__container-info__info-element:nth-child(2) {
+        margin: 16px 0 0;
+        font-size: 11px;
+        line-height: 16px;
+    }
+}

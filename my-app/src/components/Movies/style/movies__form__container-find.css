@@ -1,0 +1,7 @@
+.movies__form__container-find {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 72px;
+    width: 100%;
+}

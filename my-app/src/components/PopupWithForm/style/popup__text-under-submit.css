@@ -1,0 +1,17 @@
+.popup__text-under-submit {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    color: #A0A0A0;
+    padding: 0 6px 0 0;
+    margin: 0;
+}
+
+@media screen and (max-width: 475px) {
+    .popup__text-under-submit {
+        font-size: 12px;
+        line-height: 14.5px;
+    }
+}

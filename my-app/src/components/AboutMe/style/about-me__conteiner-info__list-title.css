@@ -1,0 +1,31 @@
+.about-me__conteiner-info__list-title {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: start;
+    width: 100%;
+    margin: 101px 0 0;
+    color: #A0A0A0;
+}
+
+@media screen and (max-width: 769px) {
+    .about-me__conteiner-info__list-title {
+        margin: 91px 0 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about-me__conteiner-info__list-title {
+        width: calc(100vw - 58px);
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .about-me__conteiner-info__list-title {
+        font-size: 14px;
+        margin: 70px 0 0;
+        width: calc(100vw - 28px);
+    }
+}

@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-function Movies({ child }) {
+import { movies } from '../../utils/movies';
+let shortMoviesArray = movies.filter((movie) =>
+    movie.duration <= 40
+)
 
-    const [isCheckMovies, setIsCheckMovies] = useState(false); // переключение на короткометражки
+function Movies({ child, handlerShortFilm }) {
 
-    function changeFilms(e) {
-        e.preventDefault();
-        isCheckMovies ? setIsCheckMovies(false) : setIsCheckMovies(true);
+    const [isShortMovies, setIsShortMovies] = useState(false);
+
+    function handleIsShortMovies() {
+        isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
     }
 
     return (
         <div className="movies">
-            <SearchForm changeFilms={changeFilms} isCheckMovies={isCheckMovies} />
+            <SearchForm handleShort={handleIsShortMovies} />
+            <MoviesCardList moviesArray={!isShortMovies ? movies : shortMoviesArray} />
             {child}
         </div>
     )

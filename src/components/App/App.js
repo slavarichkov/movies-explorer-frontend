@@ -12,7 +12,10 @@ import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import NavTab from '../NavTab/NavTab';
 
-import { movies } from '../../utils/movies';
+import { movies, moviesFavorite } from '../../utils/movies';
+let shortMoviesArray = movies.filter((movie) =>
+  movie.duration <= 40
+)
 
 function App() {
 
@@ -35,8 +38,8 @@ function App() {
       <NavTab />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/movies" element={<Movies child={<MoviesCardList moviesArray={movies} />} />} />
-        <Route path="/saved-movies" element={<SavedMovies />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/saved-movies" element={<SavedMovies moviesArray={moviesFavorite} />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/sign-up" element={<Register />} />
         <Route path="/profile" element={<Profile nameUser="Виталий" />} />

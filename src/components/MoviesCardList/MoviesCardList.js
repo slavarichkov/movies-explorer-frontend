@@ -30,11 +30,11 @@ function MoviesCardList({ moviesArray }) {
         } else {
             setIsQuantityMovies(moviesArray.length);
         }
-    }, [width])
+    }, [width, moviesArray.length])
 
     useEffect(() => {
         moviesArray.length <= isQuantityMovies ? setIsLengthMoviesArray(true) : setIsLengthMoviesArray(false)
-    }, [isQuantityMovies])
+    }, [isQuantityMovies, moviesArray.length])
 
     function showMoreMovies() { // добавить количество отображаемых фильмов на странице
         if (width > 769) {
@@ -49,15 +49,11 @@ function MoviesCardList({ moviesArray }) {
         }
     }
 
-    console.log(moviesArray.length, )
-
     function getTimeFromMins(mins) { // минуты в часы:минуты
         let hours = Math.trunc(mins / 60);
         let minutes = mins % 60;
         return hours + 'ч ' + minutes + 'м';
     };
-
-    console.log(isQuantityMovies)
 
     return (
         <div className="movies-card-list__container">

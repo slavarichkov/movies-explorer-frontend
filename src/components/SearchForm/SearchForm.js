@@ -1,14 +1,15 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import submit from './../../images/find.svg';
 
-function SearchForm() {
+function SearchForm({ handleShort }) {
 
     const [isCheckMovies, setIsCheckMovies] = useState(false); // переключение на короткометражки
 
     function changeFilms(e) {
         e.preventDefault();
         isCheckMovies ? setIsCheckMovies(false) : setIsCheckMovies(true);
+        handleShort()
     }
 
     return (

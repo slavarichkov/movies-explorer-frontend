@@ -1,12 +1,11 @@
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
-import { moviesFavorite } from "../../utils/movies";
 
-function SavedMovies() {
+function SavedMovies({moviesArray}) {
     return (
         <div className="saved-movies">
             <SearchForm />
-            <MoviesCardList moviesArray={moviesFavorite} />
+            <MoviesCardList moviesArray={moviesArray} />
         </div>
     )
 }

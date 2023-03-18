@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
@@ -7,7 +7,7 @@ let shortMoviesArray = movies.filter((movie) =>
     movie.duration <= 40
 )
 
-function Movies({ child, handlerShortFilm }) {
+function Movies({ child }) {
 
     const [isShortMovies, setIsShortMovies] = useState(false);
 

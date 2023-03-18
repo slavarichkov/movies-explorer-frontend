@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import submit from './../../images/find.svg';
 
 function SearchForm({ handleShort }) {

@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 function Footer() {
 
     const [stateShowFooter, setStateShowFooter] = useState(true);
-    const location = useLocation()
+    const location = useLocation();
 
    useEffect(() => {
         location.pathname.toString() === "/profile" ? setStateShowFooter(false) : 

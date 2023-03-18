@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-function Header({ loggedInState, handlePageAccaunt }) {
+function Header({ loggedInState }) {
 
     const navigate = useNavigate();
     const [width, setWidth] = useState(window.innerWidth); // ширина экрана

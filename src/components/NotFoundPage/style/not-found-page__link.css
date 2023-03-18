@@ -1,0 +1,26 @@
+.not-found-page__link {
+    text-decoration: none;
+    color: #FF6838;
+    text-align: center;
+    margin: 184px 0 0;
+    transition: opacity 0.8s;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.not-found-page__link:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 475px) {
+    .not-found-page__link {
+        font-size: 12px;
+        line-height: 14px;
+        margin: 284px 0 0;
+    }
+}

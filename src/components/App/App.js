@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import NavTab from '../NavTab/NavTab';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
-import { movies, moviesFavorite } from '../../utils/movies';
-let shortMoviesArray = movies.filter((movie) =>
-  movie.duration <= 40
-)
 
 function App() {
 
@@ -39,10 +35,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/saved-movies" element={<SavedMovies moviesArray={moviesFavorite} />} />
+        <Route path="/saved-movies" element={<SavedMovies />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/sign-up" element={<Register />} />
         <Route path="/profile" element={<Profile nameUser="Виталий" />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <Footer stateShowFooter={stateAccauntActive} />
     </div>

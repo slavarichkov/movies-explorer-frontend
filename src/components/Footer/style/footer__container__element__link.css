@@ -6,6 +6,11 @@
     letter-spacing: 0px;
     color: #000000;
     text-decoration: none;
+    transition: opacity 0.8s;
+}
+
+.footer__container__element__link:hover{
+    opacity: 0.5;
 }
 
 .footer__container__element__link:nth-child(1) {

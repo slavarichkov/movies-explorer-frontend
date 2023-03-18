@@ -1,11 +1,24 @@
+import { useState } from "react";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 
-function SavedMovies({moviesArray}) {
+import { movies } from '../../utils/movies';
+let shortMoviesArray = movies.filter((movie) =>
+    movie.duration <= 40
+)
+
+function SavedMovies({ moviesArray }) {
+
+    const [isShortMovies, setIsShortMovies] = useState(false);
+
+    function handleIsShortMovies() {
+        isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
+    }
+
     return (
         <div className="saved-movies">
-            <SearchForm />
-            <MoviesCardList moviesArray={moviesArray} />
+            <SearchForm handleShort={handleIsShortMovies} />
+            <MoviesCardList moviesArray={!isShortMovies ? movies : shortMoviesArray} />
         </div>
     )
 }

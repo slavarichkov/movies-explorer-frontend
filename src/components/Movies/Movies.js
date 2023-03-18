@@ -7,7 +7,7 @@ let shortMoviesArray = movies.filter((movie) =>
     movie.duration <= 40
 )
 
-function Movies({ child }) {
+function Movies() {
 
     const [isShortMovies, setIsShortMovies] = useState(false);
 
@@ -19,7 +19,6 @@ function Movies({ child }) {
         <div className="movies">
             <SearchForm handleShort={handleIsShortMovies} />
             <MoviesCardList moviesArray={!isShortMovies ? movies : shortMoviesArray} />
-            {child}
         </div>
     )
 }

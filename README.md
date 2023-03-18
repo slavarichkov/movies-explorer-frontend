@@ -1,2 +1,3 @@
 # movies-explorer-frontend
-test
+ссылка на проект Figma 
+https://disk.yandex.ru/d/J6-bUdXHOrBsHg

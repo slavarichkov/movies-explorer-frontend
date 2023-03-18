@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 function Header({ loggedInState }) {
 
@@ -37,7 +37,7 @@ function Header({ loggedInState }) {
             < div className="header" >
                 <div className="header__container">
                     <div className="header__container-element" >
-                        <div className="header__logo" />
+                        <Link to={"/"} className="header__logo" />
                         {loggedInState && width > 769 ?
                             <div className="header__buttons-container">
                                 <button

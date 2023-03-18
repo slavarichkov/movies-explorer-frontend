@@ -57,7 +57,7 @@ function Register() {
                 validationName={validationMassegeName}
                 validationEmail={validationMassegeEmail}
                 validationPassword={validationMassegePassword}
-                text={"Рады видеть!"}
+                text={"Доброе пожаловать!"}
                 textButtonSubmit="Зарегистрироваться"
                 buttonUnderText={
                     <div className="popup__container-elements">

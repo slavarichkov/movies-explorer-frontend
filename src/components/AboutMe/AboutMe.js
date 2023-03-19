@@ -15,7 +15,7 @@ function AboutMe() {
                         Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена
                         и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.
                     </p>
-                    <a href='https://github.com/slavarichkov' className="about-me__conteiner-info__element__link" target="_blank">Github</a>
+                    <a href='https://github.com/slavarichkov' className="about-me__conteiner-info__element__link" target="_blank" rel="noreferrer">Github</a>
                 </div>
                 <div className="about-me__conteiner-info__element">
                     <img src={photo} className="about-me__conteiner-info__element__photo" alt="фото студента" />
@@ -24,15 +24,15 @@ function AboutMe() {
             <div className="about-me__conteiner-links">
                 <h3 className="about-me__conteiner-info__list-title">Портфолио</h3>
                 <list className="about-me__conteiner-links__list">
-                    <a href='https://slavarichkov.github.io/russian-travel/index.html' target='_blanc' className="about-me__conteiner-links__element">
+                    <a href='https://slavarichkov.github.io/russian-travel/index.html' target='_blanc' rel="noreferrer" className="about-me__conteiner-links__element" >
                         <p className="about-me__conteiner-links__element-text">Статичный сайт</p>
                         <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
                     </a>
-                    <a href='https://slavarichkov.github.io/front-end-Mesto/' target='_blanc' className="about-me__conteiner-links__element">
+                    <a href='https://slavarichkov.github.io/front-end-Mesto/' target='_blanc' rel="noreferrer" className="about-me__conteiner-links__element">
                         <p className="about-me__conteiner-links__element-text">Адаптивный сайт</p>
                         <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
                     </a>
-                    <a href='https://slavarichkov.github.io/front-end-Mesto/' target='_blanc' className="about-me__conteiner-links__element">
+                    <a href='https://slavarichkov.github.io/front-end-Mesto/' target='_blanc' rel="noreferrer" className="about-me__conteiner-links__element">
                         <p className="about-me__conteiner-links__element-text">Одностраничное приложение</p>
                         <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
                     </a>

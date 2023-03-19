@@ -38,9 +38,6 @@ function NavTab() {
         }
     }, [isMain, isMovies, isSavedMovies])
 
-
-    console.log(isMovies)
-
     function closeNavTab() {  //свернуть попап
         document.querySelector('.navtab').classList.remove('navtab__visible')
     }

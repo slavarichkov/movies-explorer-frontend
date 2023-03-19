@@ -5,7 +5,7 @@ import link from "./../../images/text__COLOR_font-main.svg";
 function AboutMe() {
 
     return (
-        <div className="about-me">
+        <section className="about-me">
             <h2 className="about-me__title">Студент</h2>
             <div className="about-me__conteiner-info">
                 <div className="about-me__conteiner-info__element">
@@ -23,7 +23,7 @@ function AboutMe() {
             </div>
             <div className="about-me__conteiner-links">
                 <h3 className="about-me__conteiner-info__list-title">Портфолио</h3>
-                <list className="about-me__conteiner-links__list">
+                <div className="about-me__conteiner-links__list">
                     <a href='https://slavarichkov.github.io/russian-travel/index.html' target='_blanc' rel="noreferrer" className="about-me__conteiner-links__element" >
                         <p className="about-me__conteiner-links__element-text">Статичный сайт</p>
                         <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
@@ -36,9 +36,9 @@ function AboutMe() {
                         <p className="about-me__conteiner-links__element-text">Одностраничное приложение</p>
                         <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
                     </a>
-                </list>
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
 

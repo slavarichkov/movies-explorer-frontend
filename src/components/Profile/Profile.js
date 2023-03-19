@@ -40,7 +40,7 @@ function Profile({ nameUser }) {
     }
 
     return (
-        <div className="profile">
+        <section className="profile">
             <PopupWithForm
                 withName={true}
                 withEmail={true}
@@ -59,7 +59,7 @@ function Profile({ nameUser }) {
                     <button to='signup' className="popup__button-under-submit popup__button-under-submit_profile" onClick={redirectPage}>Выйти из аккаунта</button>
                 }
             />
-        </div>
+        </section>
     )
 }
 

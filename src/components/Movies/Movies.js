@@ -16,10 +16,10 @@ function Movies() {
     }
 
     return (
-        <div className="movies">
+        <section className="movies">
             <SearchForm handleShort={handleIsShortMovies} />
             <MoviesCardList moviesArray={!isShortMovies ? movies : shortMoviesArray} />
-        </div>
+        </section>
     )
 }
 

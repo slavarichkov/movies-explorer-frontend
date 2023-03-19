@@ -33,14 +33,14 @@ function Navigation() {
 
 
     return (
-        <div className="navigation">
+        <section className="navigation">
             <h1 className="navigation__title">Учебный проект студента факультета Веб-разработки.</h1>
             <div className="navigation__buttons">
                 <button className="navigation__button" onClick={() => scroller(scrollProject)} type="button">О проекте</button>
                 <button className="navigation__button" onClick={() => scroller(scrollTech)}>Технология</button>
                 <button className="navigation__button" onClick={() => scroller(scrollStudent)}>Студент</button>
             </div>
-        </div>
+        </section>
     )
 }
 

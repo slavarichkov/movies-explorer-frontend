@@ -34,7 +34,7 @@ function Header({ loggedInState }) {
 
     return (
         stateShowHeader ?
-            < div className="header" >
+            < header className="header" >
                 <div className="header__container">
                     <div className="header__container-element" >
                         <Link to={"/"} className="header__logo" />
@@ -72,7 +72,7 @@ function Header({ loggedInState }) {
                         </div>
                     </div>
                 </div>
-            </div >
+            </header >
             :
             <></>
     )

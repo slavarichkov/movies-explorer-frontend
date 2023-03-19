@@ -16,7 +16,7 @@ function Footer() {
     return (
 
         stateShowFooter ?
-            <div className="footer">
+            <footer className="footer">
                 < h3 className="footer__title" > Учебный проект Яндекс.Практикум х BeatFilm.</h3 >
                 <div className="footer__container">
                     <p className="footer__container__date">&copy; 2023</p>
@@ -25,7 +25,7 @@ function Footer() {
                         <a className="footer__container__element__link" href={'https://github.com/slavarichkov'} target="blank">Github</a>
                     </div>
                 </div>
-            </div > : <></>
+            </footer > : <></>
     )
 }
 

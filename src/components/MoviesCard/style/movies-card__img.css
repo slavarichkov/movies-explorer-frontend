@@ -2,6 +2,7 @@
     object-fit: cover;
     width: 364px;
     height: 203px;
+    /* background-size: contain; */
 }
 
 @media screen and (max-width: 850px) {
@@ -11,7 +12,7 @@
     }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 762px) {
     .movies-card__img {
         width: 300px;
         height: 168px;

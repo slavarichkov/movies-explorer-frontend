@@ -8,7 +8,7 @@
     overflow: hidden;
     padding-bottom: 30px;
     background-color: white;
-    box-sizing: border-box;
+    
 }
 
 @media screen and (max-width: 1209px) {
@@ -23,7 +23,7 @@
     }
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 761px) {
     .movies-card-list {
         margin: 40px 0 0;
         gap: 16px;

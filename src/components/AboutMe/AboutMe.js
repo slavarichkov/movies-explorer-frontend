@@ -25,18 +25,18 @@ function AboutMe() {
             <div className="about-me__conteiner-links">
                 <h3 className="about-me__conteiner-info__list-title">Портфолио</h3>
                 <list className="about-me__conteiner-links__list">
-                    <Link to='/' className="about-me__conteiner-links__element">
+                    <a href='https://slavarichkov.github.io/russian-travel/index.html' target='_blanc' className="about-me__conteiner-links__element">
                         <p className="about-me__conteiner-links__element-text">Статичный сайт</p>
                         <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
-                    </Link>
-                    <Link to='/' className="about-me__conteiner-links__element">
+                    </a>
+                    <a href='https://slavarichkov.github.io/front-end-Mesto/' target='_blanc' className="about-me__conteiner-links__element">
                         <p className="about-me__conteiner-links__element-text">Адаптивный сайт</p>
                         <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
-                    </Link>
-                    <Link to='/' className="about-me__conteiner-links__element">
+                    </a>
+                    <a href='https://slavarichkov.github.io/front-end-Mesto/' target='_blanc' className="about-me__conteiner-links__element">
                         <p className="about-me__conteiner-links__element-text">Одностраничное приложение</p>
                         <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
-                    </Link>
+                    </a>
                 </list>
             </div>
         </div>

@@ -18,11 +18,11 @@
 @media screen and (max-width: 600px) {
     .portfolio__link {
         margin: 40px 0 0;
-        width: calc(100vw - 58px);
+        width: calc(100vw - 100px);
     }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 500px) {
     .portfolio__link {
         width: calc(100vw - 28px);
     }

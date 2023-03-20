@@ -5,10 +5,16 @@
     flex-direction: column;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 810px) {
     .about-me__conteiner-info__element {
         margin: 66px 0 0;
-        max-width: 394px;
+        max-width: 384px;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .about-me__conteiner-info__element {
+        max-width: 100%;
     }
 }
 

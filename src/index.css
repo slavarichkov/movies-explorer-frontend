@@ -37,11 +37,12 @@
 @import url(./components/AboutMe/style/about-me__conteiner-info__element__link.css);
 @import url(./components/AboutMe/style/about-me__conteiner-info__element__photo.css);
 @import url(./components/AboutMe/style/about-me__conteiner-info__list-title.css);
-@import url(./components/AboutMe/style/about-me__conteiner-links.css);
-@import url(./components/AboutMe/style/about-me__conteiner-links__list.css);
-@import url(./components/AboutMe/style/about-me__conteiner-links__element.css);
-@import url(./components/AboutMe/style/about-me__conteiner-links__element-image.css);
-@import url(./components/AboutMe/style/about-me__conteiner-links__element-text.css);
+@import url(./components/Portfolio/style/portfolio.css);
+@import url(./components/Portfolio/style/portfolio__link-image.css);
+@import url(./components/Portfolio/style/portfolio__link-text.css);
+@import url(./components/Portfolio/style/portfolio__link.css);
+@import url(./components/Portfolio/style/portfolio__links.css);
+@import url(./components/Portfolio/style/portfolio__title.css);
 @import url(./components/Footer/style/footer.css);
 @import url(./components/Footer/style/footer__title.css);
 @import url(./components/Footer/style/footer__container.css);

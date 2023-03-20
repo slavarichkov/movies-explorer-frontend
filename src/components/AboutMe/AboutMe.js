@@ -1,6 +1,6 @@
 import React from 'react';
+import Portfolio from '../Portfolio/Portfolio';
 import photo from "./../../images/image-student__ID_1.png";
-import link from "./../../images/text__COLOR_font-main.svg";
 
 function AboutMe() {
 
@@ -19,23 +19,6 @@ function AboutMe() {
                 </div>
                 <div className="about-me__conteiner-info__element">
                     <img src={photo} className="about-me__conteiner-info__element__photo" alt="фото студента" />
-                </div>
-            </div>
-            <div className="about-me__conteiner-links">
-                <h3 className="about-me__conteiner-info__list-title">Портфолио</h3>
-                <div className="about-me__conteiner-links__list">
-                    <a href='https://slavarichkov.github.io/russian-travel/index.html' target='_blanc' rel="noreferrer" className="about-me__conteiner-links__element" >
-                        <p className="about-me__conteiner-links__element-text">Статичный сайт</p>
-                        <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
-                    </a>
-                    <a href='https://slavarichkov.github.io/front-end-Mesto/' target='_blanc' rel="noreferrer" className="about-me__conteiner-links__element">
-                        <p className="about-me__conteiner-links__element-text">Адаптивный сайт</p>
-                        <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
-                    </a>
-                    <a href='https://slavarichkov.github.io/front-end-Mesto/' target='_blanc' rel="noreferrer" className="about-me__conteiner-links__element">
-                        <p className="about-me__conteiner-links__element-text">Одностраничное приложение</p>
-                        <img className="about-me__conteiner-links__element-image" src={link} alt="изображение ссылки" />
-                    </a>
                 </div>
             </div>
         </section>

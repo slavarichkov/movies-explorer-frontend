@@ -1,0 +1,30 @@
+.portfolio__link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0 0;
+    text-decoration: none;
+    border-bottom: 1px solid #E6E6E6;
+    width: calc(100vw - 140px);
+    transition: opacity 1s;
+}
+
+.portfolio__link:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 600px) {
+    .portfolio__link {
+        margin: 40px 0 0;
+        width: calc(100vw - 58px);
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .portfolio__link {
+        width: calc(100vw - 28px);
+        width: 100%;
+    }
+}

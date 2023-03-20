@@ -25,6 +25,5 @@
 @media screen and (max-width: 390px) {
     .portfolio__link {
         width: calc(100vw - 28px);
-        width: 100%;
     }
 }

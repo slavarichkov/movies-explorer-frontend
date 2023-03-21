@@ -3,11 +3,13 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
+    padding: 66px 0 0;
 }
 
 @media screen and (max-width: 600px) {
     .about-me__conteiner-info {
         flex-direction: column-reverse;
         align-items: center;
+        padding: 60px 0 0;
     }
 }

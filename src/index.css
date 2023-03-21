@@ -30,13 +30,14 @@
 @import url(./components/Techs/style/techs__sub-title__text.css);
 @import url(./components/AboutMe/style/about-me.css);
 @import url(./components/AboutMe/style/about-me__title.css);
+@import url(./components/AboutMe/style/about-me__description-elemets.css);
+@import url(./components/AboutMe/style/about-me__description.css);
 @import url(./components/AboutMe/style/about-me__conteiner-info.css);
-@import url(./components/AboutMe/style/about-me__conteiner-info__element.css);
-@import url(./components/AboutMe/style/about-me__conteiner-info__element__name.css);
-@import url(./components/AboutMe/style/about-me__conteiner-info__element__info.css);
-@import url(./components/AboutMe/style/about-me__conteiner-info__element__link.css);
-@import url(./components/AboutMe/style/about-me__conteiner-info__element__photo.css);
-@import url(./components/AboutMe/style/about-me__conteiner-info__list-title.css);
+@import url(./components/AboutMe/style/about-me__name.css);
+@import url(./components/AboutMe/style/about-me__info.css);
+@import url(./components/AboutMe/style/about-me__link.css);
+@import url(./components/AboutMe/style/about-me__photo.css);
+/* @import url(./components/AboutMe/style/about-me__conteiner-info__list-title.css); */
 @import url(./components/Portfolio/style/portfolio.css);
 @import url(./components/Portfolio/style/portfolio__link-image.css);
 @import url(./components/Portfolio/style/portfolio__link-text.css);

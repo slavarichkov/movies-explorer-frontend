@@ -1,4 +1,4 @@
-.about-me__conteiner-info__element__name {
+.about-me__name {
     font-family: Inter;
     font-size: 50px;
     font-weight: 400;
@@ -10,14 +10,22 @@
 }
 
 @media screen and (max-width: 769px) {
-    .about-me__conteiner-info__element__name {
+    .about-me__name {
         font-size: 40px;
         line-height: 40px;
     }
 }
 
+@media screen and (max-width: 600px) {
+    .about-me__name {
+        font-size: 40px;
+        line-height: 40px;
+        padding: 40px 0 0;
+    }
+}
+
 @media screen and (max-width: 321px) {
-    .about-me__conteiner-info__element__name {
+    .about-me__name {
         font-size: 30px;
         line-height: 36px;
     }

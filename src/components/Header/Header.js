@@ -8,10 +8,10 @@ function Header({ loggedInState }) {
     const [stateShowHeader, setStateShowHeader] = useState(true);
     const location = useLocation()
 
-    useEffect(() => { // отследить url
+    useEffect(() => { // отследить url для хедера в целом
         location.pathname.toString() === "/signin" ? setStateShowHeader(false) :
             location.pathname.toString() === "/sign-up" ? setStateShowHeader(false) :
-            setStateShowHeader(true)
+                setStateShowHeader(true)
     }, [location])
 
     useEffect(() => { // отследить ширину экрана 

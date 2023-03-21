@@ -1,5 +1,4 @@
-.movies__form__container-checkbox {
-    /* position: relative; */
+.search-form__checkbox {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,7 +9,7 @@
 }
 
 @media screen and (max-width: 580px) {
-    .movies__form__container-checkbox {
+    .search-form__checkbox {
         padding: 0 20px 0 19px;
         margin: 46px 0 0;
         height: max-content;

@@ -1,5 +1,5 @@
 
-import {useState } from 'react';
+import { useState } from 'react';
 import submit from './../../images/find.svg';
 
 function SearchForm({ handleShort }) {
@@ -13,21 +13,19 @@ function SearchForm({ handleShort }) {
     }
 
     return (
-        <form className="movies__form">
-            <div className="movies__form__container">
-                <div className="movies__form__container-find">
-                    <div className="movies__form__container__icon" alt="картинка поиска" />
-                    <input className="movies__form__container__input" type="text" name="name" placeholder="Фильм"></input>
-                    <button className="movies__form__container__input-button">
-                        <div className="movies__form__container__input-button__border-show">
-                            <img className="movies__form__container__input-button__img" src={submit} alt="изибражение стрелки" />
-                        </div>
+        <form className="search-form">
+            <div className="search-form__container">
+                <div className="search-form__container-input">
+                    <div className="search-form__icon" alt="картинка поиска" />
+                    <input className="search-form__input" type="text" name="name" placeholder="Фильм"></input>
+                    <button className="search-form__input-button">
+                        <img className="search-form__img" src={submit} alt="изибражение стрелки" />
                     </button>
                 </div>
-                <div className="movies__form__container-checkbox">
-                    <button className={`movies__form__change-button_off ${isCheckMovies ? 'movies__form__button_on' : ''}`}
+                <div className="search-form__checkbox">
+                    <button className={`search-form__button ${isCheckMovies ? 'search-form__button_on' : 'search-form__button_off'}`}
                         onClick={changeFilms} />
-                    <p className="movies__form__change-button-name">Короткометражки</p>
+                    <p className="search-form__button-name">Короткометражки</p>
                 </div>
             </div>
         </form>

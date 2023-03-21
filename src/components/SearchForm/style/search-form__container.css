@@ -1,4 +1,4 @@
-.movies__form__container {
+.search-form__container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 580px) {
-    .movies__form__container {
+    .search-form__container {
         width: 100%;
         flex-direction: column;
         border-radius: 9px 0 0 9px;

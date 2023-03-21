@@ -41,10 +41,10 @@ function Header({ loggedInState }) {
                         {loggedInState && width > 769 ?
                             <div className="header__buttons-container">
                                 <button
-                                    className="header__button  header__button-profile header__button-notcolor"
+                                    className="header__button  header__button_profile header__button_notcolor"
                                     onClick={() => redirectPage('/movies')}>Фильмы
                                 </button>
-                                <button className="header__button  header__button-profile header__button-notcolor"
+                                <button className="header__button  header__button_profile header__button_notcolor"
                                     onClick={() => redirectPage('/saved-movies')}>Сохраненные фильмы
                                 </button>
                             </div>
@@ -65,8 +65,8 @@ function Header({ loggedInState }) {
                                     </>
                                     :
                                     <>
-                                        <button className="header__button header__button-notcolor">Регистрация</button>
-                                        <button className="header__button header__button-color" >Войти</button>
+                                        <button className="header__button header__button_notcolor">Регистрация</button>
+                                        <button className="header__button header__button_color" >Войти</button>
                                     </>
                             }
                         </div>

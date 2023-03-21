@@ -1,4 +1,4 @@
-.footer__container__element {
+.footer__element {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -6,7 +6,7 @@
 
 
 @media screen and (max-width: 420px) {
-    .footer__container__element {
+    .footer__element {
         flex-direction: column;
     }
 }

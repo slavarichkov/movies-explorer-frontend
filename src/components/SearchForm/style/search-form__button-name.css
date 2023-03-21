@@ -1,4 +1,4 @@
-.movies__form__change-button-name {
+.search-form__button-name {
     font-family: Inter;
     font-size: 13px;
     font-weight: 400;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: 769px) {
-    .movies__form__change-button-name {
+    .search-form__button-name {
         padding: 0 0 0 15px;
     }
 }

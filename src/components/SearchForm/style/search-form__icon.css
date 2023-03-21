@@ -1,4 +1,4 @@
-.movies__form__container__icon {
+.search-form__icon {
     color: #A0A0A0;
     width: 15px;
     background-color: #F9F9F9;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 430px) {
-    .movies__form__container__icon {
+    .search-form__icon {
         background-image: none;
         width: 0;
         padding: 0;

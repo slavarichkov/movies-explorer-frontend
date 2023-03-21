@@ -1,4 +1,4 @@
-.movies__form {
+.search-form {
     border-bottom: 1px solid #E8E8E8;
     width: calc(100vw - 140px);
     margin: 0 auto 0;
@@ -9,13 +9,13 @@
 }
 
 @media screen and (max-width: 769px) {
-    .movies__form {
+    .search-form {
         width: calc(100vw - 60px);
     }
 }
 
 @media screen and (max-width: 380px) {
-    .movies__form {
+    .search-form {
         width: calc(100vw - 20px);
         flex-direction: column;
     }

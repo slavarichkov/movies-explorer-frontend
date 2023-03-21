@@ -1,4 +1,4 @@
-.footer__container__element__link {
+.footer__link {
     font-family: Inter;
     font-size: 13px;
     font-weight: 400;
@@ -9,11 +9,11 @@
     transition: opacity 0.8s;
 }
 
-.footer__container__element__link:hover{
+.footer__link:hover{
     opacity: 0.5;
 }
 
-.footer__container__element__link:nth-child(1) {
+.footer__link:nth-child(1) {
     margin-right: 20px;
 }
 
@@ -22,11 +22,11 @@
         flex-direction: column;
     }
 
-    .footer__container__element__link:nth-child(1) {
+    .footer__link:nth-child(1) {
         margin: 0;
     }
 
-    .footer__container__element__link:nth-child(2) {
+    .footer__link:nth-child(2) {
         width: 39px;
     }
 }

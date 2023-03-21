@@ -1,4 +1,4 @@
-.about-project__container-info__list {
+.about-project__info {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -6,12 +6,12 @@
 }
 
 @media screen and (max-width: 700px) {
-    .about-project__container-info__list {
+    .about-project__info {
         width: 100%;
         margin: 60px 0 0;
     }
 
-    .about-project__container-info__list:nth-child(2) {
+    .about-project__info:nth-child(2) {
         margin: 56px 0 0;
     }
 }

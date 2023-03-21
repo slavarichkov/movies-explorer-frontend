@@ -1,9 +1,0 @@
-.about-project__container-info__progressive__container {
-  margin: 93px 0 0;
-  display: flex;
-  flex-direction: row;
-}
-
-.about-project__container-info__progressive__container:nth-child(2) {
-  margin: 0;
-}

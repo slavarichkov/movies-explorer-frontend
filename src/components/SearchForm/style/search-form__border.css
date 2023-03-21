@@ -1,0 +1,16 @@
+.search-form__border__border-show {
+    border-right: 1px solid #E8E8E8;
+    padding-right: 30px;
+}
+
+@media screen and (max-width: 769px) {
+    .search-form__border__border-show {
+        padding-right: 19px;
+    }
+}
+
+@media screen and (max-width: 582px) {
+    .search-form__border__border-show {
+        border-right: none;
+    }
+}

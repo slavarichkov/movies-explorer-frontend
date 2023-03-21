@@ -1,12 +1,5 @@
 .movies-card__favourites_off {
-    height: 30px;
-    width: 30px;
     background-color: #F9F9F9;
-    border: none;
-    border-radius: 36px;
     background-image: url(./../../../images/icon__COLOR_stroke-2.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    transition: background-color 1s, background-image 1s;
+    /* transition: background-color 1s, background-image 1s; */
 }

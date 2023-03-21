@@ -1,4 +1,4 @@
-.movies__form__container__input-button {
+.search-form__input-button {
     background-color: #F9F9F9;
     height: 100%;
     border: none;
@@ -6,13 +6,13 @@
     transition: opacity 1s;
 }
 
-.movies__form__container__input-button:hover {
+.search-form__input-button:hover {
     opacity: 0.5;
     cursor: pointer;
 }
 
 @media screen and (max-width: 582px) {
-    .movies__form__container__input-button {
+    .search-form__input-button {
         border-radius: 0 9px 9px 0;
     }
 }

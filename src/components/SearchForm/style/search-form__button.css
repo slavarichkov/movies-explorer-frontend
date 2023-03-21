@@ -1,12 +1,10 @@
-.movies__form__change-button_off {
+.search-form__button {
     width: 36px;
     height: 20px;
-    background-color: #EBEBEB;
     border-radius: 20px;
     border: none;
-    background-image: url(./../../../images/tumb__COLOR_tumbler-on-2.svg);
-    background-position: top -2px left -4px;
     background-repeat: no-repeat;
     cursor: pointer;
+    background-image: url(./../../../images/tumb__COLOR_tumbler-on-2.svg);
     transition: background-position 1s, background-color 1s;
 }

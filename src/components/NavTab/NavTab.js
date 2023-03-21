@@ -39,13 +39,13 @@ function NavTab() {
     }, [isMain, isMovies, isSavedMovies])
 
     function closeNavTab() {  //свернуть попап
-        document.querySelector('.navtab').classList.remove('navtab__visible')
+        document.querySelector('.navtab').classList.remove('navtab_visible')
     }
 
     return (
         <div className="navtab">
             <button className="navtab__button">
-                <div className="navtab__button_close" onClick={closeNavTab}></div>
+                <div className="navtab__button-close" onClick={closeNavTab}></div>
             </button>
             <button className={`navtab__button ${isMain ? "navtab__button-border_show" : ""}`} onClick={(e) => { redirectPage('/'); handleClick(e) }}>Главная</button>
             <button className={`navtab__button ${isMovies ? "navtab__button-border_show" : ""}`} onClick={(e) => { redirectPage('/movies'); handleClick(e) }}>Фильмы</button>

@@ -1,16 +1,18 @@
-.movies__form__container__input-button__border-show {
+.search-form__img {
+    background-color: #F9F9F9;
+    width: 34px;
     border-right: 1px solid #E8E8E8;
     padding-right: 30px;
 }
 
 @media screen and (max-width: 769px) {
-    .movies__form__container__input-button__border-show {
+    .search-form__img {
         padding-right: 19px;
     }
 }
 
 @media screen and (max-width: 582px) {
-    .movies__form__container__input-button__border-show {
+    .search-form__img {
         border-right: none;
     }
 }

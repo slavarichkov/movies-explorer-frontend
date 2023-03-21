@@ -1,11 +1,10 @@
-.movies-card__favourites_off {
+.movies-card__favourites {
     width: 30px;
     height: 30px;
-    background-color: #2BE080;
     border-radius: 36px;
     border: none;
-    background-image: url(./../../../images/icon__COLOR_stroke-2.png);
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    transition: background-color 1s, background-image 1s;
 }

@@ -49,7 +49,7 @@ function Profile({ nameUser }) {
                 textButtonSubmit="Редактировать"
                 popup_style="popup__profile"
                 title_style="popup__title-profile"
-                submit_style="popup__button-submit-ptofile"
+                submit_style="popup__button-submit-profile"
                 validationOptions={validationAll}
                 handleChangeName={handleChangeName}
                 handleChangeEmail={handleChangeEmail}

@@ -56,8 +56,8 @@ function MoviesCardList({ moviesArray }) {
     };
 
     return (
-        <div className="movies-card-list__container">
-            <div className="movies-card-list">
+        <div className="movies-card-list">
+            <div className="movies-card-list__container">
                 {moviesPart.map((movie) => {
                     return (
                         <MoviesCard

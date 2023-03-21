@@ -1,4 +1,4 @@
-.footer__container__date {
+.footer__date {
     height: 16px;
     color: #000000;
     margin: 0;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 430px) {
-    .footer__container__date {
+    .footer__date {
         font-size: 12px;
         line-height: 14px;
         color: #A0A0A0;

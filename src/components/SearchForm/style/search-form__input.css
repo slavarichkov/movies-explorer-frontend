@@ -1,4 +1,4 @@
-.movies__form__container__input {
+.search-form__input {
     background-color: #F9F9F9;
     border: none;
     color: #A0A0A0;
@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 582px) {
-    .movies__form__container__input {
+    .search-form__input {
         border-radius: 9px 0 0 9px;
         padding-left: 19px;
     }

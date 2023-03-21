@@ -17,7 +17,7 @@ function SearchForm({ handleShort }) {
             <div className="search-form__container">
                 <div className="search-form__container-input">
                     <div className="search-form__icon" alt="картинка поиска" />
-                    <input className="search-form__input" type="text" name="name" placeholder="Фильм"></input>
+                    <input className="search-form__input" type="text" name="name" placeholder="Фильм" required></input>
                     <button className="search-form__input-button">
                         <img className="search-form__img" src={submit} alt="изибражение стрелки" />
                     </button>

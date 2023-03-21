@@ -35,10 +35,6 @@ function Profile({ nameUser }) {
 
     const navigate = useNavigate();
 
-    function redirectPage() {
-        navigate('/sign-up')
-    }
-
     return (
         <section className="profile">
             <PopupWithForm

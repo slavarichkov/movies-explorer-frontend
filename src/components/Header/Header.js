@@ -29,7 +29,7 @@ function Header({ loggedInState }) {
     }
 
     function openNavTab() { // открыть навигацию
-        document.querySelector('.navtab').classList.add('navtab__visible');
+        document.querySelector('.navtab').classList.add('navtab_visible');
     }
 
     return (

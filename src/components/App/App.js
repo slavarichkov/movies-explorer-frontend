@@ -15,7 +15,7 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(true); // для отображения в хедере кнопок вход и рег изменить на false
   const [stateAccauntActive, setStateAccauntActive] = useState(true);
 
   // выйти из аккаунта (пробрасывается из Header) 

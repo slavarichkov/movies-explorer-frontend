@@ -1,5 +1,4 @@
 .movies-card__favourites_off {
     background-color: #F9F9F9;
     background-image: url(./../../../images/icon__COLOR_stroke-2.svg);
-    /* transition: background-color 1s, background-image 1s; */
 }

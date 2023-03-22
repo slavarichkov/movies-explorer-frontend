@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 function Header({ loggedInState }) {
 
-    const navigate = useNavigate();
     const [width, setWidth] = useState(window.innerWidth); // ширина экрана
     const [stateShowHeader, setStateShowHeader] = useState(true);
     const location = useLocation()
@@ -23,10 +22,6 @@ function Header({ loggedInState }) {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-
-    function redirectPage(url) {
-        navigate(url)
-    }
 
     function openNavTab() { // открыть навигацию
         document.querySelector('.navtab').classList.add('navtab_visible');

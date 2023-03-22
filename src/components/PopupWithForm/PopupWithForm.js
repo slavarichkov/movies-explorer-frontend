@@ -7,7 +7,6 @@ function PopupWithForm({
     validationOptions,
     validationName,
     textButtonSubmit,
-    colorButtonSubmit,
     buttonUnderText,
     buttonUp,
     handleChangeEmail,
@@ -22,8 +21,6 @@ function PopupWithForm({
     title_style,
     submit_style,
 }) {
-
-    console.log(validationOptions)
 
     return (
 

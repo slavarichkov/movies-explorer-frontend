@@ -30,16 +30,18 @@ function App() {
   return (
     <div className="app">
       <Header loggedInState={loggedIn} handlePageAccaunt={handlePageAccaunt} />
-      <NavTab />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/saved-movies" element={<SavedMovies />} />
-        <Route path="/signin" element={<Login />} />
-        <Route path="/sign-up" element={<Register />} />
-        <Route path="/profile" element={<Profile nameUser="Виталий" />} />
-        <Route path="/*" element={<NotFoundPage />} />
-      </Routes>
+      <main className="app">
+        <NavTab />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/saved-movies" element={<SavedMovies />} />
+          <Route path="/signin" element={<Login />} />
+          <Route path="/sign-up" element={<Register />} />
+          <Route path="/profile" element={<Profile nameUser="Виталий" />} />
+          <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
       <Footer stateShowFooter={stateAccauntActive} />
     </div>
   );

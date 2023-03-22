@@ -44,8 +44,8 @@ function NavTab() {
 
     return (
         <div className="navtab">
-            <button className="navtab__button">
-                <div className="navtab__button-close" onClick={closeNavTab}></div>
+            <button className="navtab__button" onClick={closeNavTab}>
+                <span className="navtab__button-close"></span>
             </button>
             <button className={`navtab__button ${isMain ? "navtab__button_border-show" : ""}`} onClick={(e) => { redirectPage('/'); handleClick(e) }}>Главная</button>
             <button className={`navtab__button ${isMovies ? "navtab__button_border-show" : ""}`} onClick={(e) => { redirectPage('/movies'); handleClick(e) }}>Фильмы</button>

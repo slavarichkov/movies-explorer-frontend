@@ -14,7 +14,7 @@ import NavTab from '../NavTab/NavTab';
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState(true); // для отображения в хедере кнопок вход и рег изменить на false
+  const [loggedIn, setLoggedIn] = useState(false); // для отображения в хедере кнопок вход и рег изменить на false
   const [stateAccauntActive, setStateAccauntActive] = useState(true);
 
   // выйти из аккаунта (пробрасывается из Header) 

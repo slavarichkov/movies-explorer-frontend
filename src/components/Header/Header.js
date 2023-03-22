@@ -40,13 +40,13 @@ function Header({ loggedInState }) {
                         <Link to={"/"} className="header__logo" />
                         {loggedInState && width > 769 ?
                             <div className="header__buttons-container">
-                                <button
+                                <Link
                                     className="header__button  header__button_profile header__button_notcolor"
-                                    onClick={() => redirectPage('/movies')}>Фильмы
-                                </button>
-                                <button className="header__button  header__button_profile header__button_notcolor"
-                                    onClick={() => redirectPage('/saved-movies')}>Сохраненные фильмы
-                                </button>
+                                    to={'/movies'}>Фильмы
+                                </Link>
+                                <Link className="header__button  header__button_profile header__button_notcolor"
+                                    to={'/saved-movies'}>Сохраненные фильмы
+                                </Link>
                             </div>
                             : <></>
                         }
@@ -54,19 +54,19 @@ function Header({ loggedInState }) {
                     <div className="header__container-element" >
                         <div className="header__element">
                             {loggedInState && width > 769 ?
-                                <button className="header__button" onClick={() => redirectPage('/profile')}>Аккаунт</button>
+                                <Link className="header__button" to={'/profile'}>Аккаунт</Link>
                                 : loggedInState && width < 769 ?
                                     <>
                                         <button className="header__button-nav" onClick={openNavTab}>
-                                            <div className="header__button-nav_line"></div>
-                                            <div className="header__button-nav_line"></div>
-                                            <div className="header__button-nav_line"></div>
+                                            <span className="header__button-nav_line"></span>
+                                            <span className="header__button-nav_line"></span>
+                                            <span className="header__button-nav_line"></span>
                                         </button>
                                     </>
                                     :
                                     <>
-                                        <button className="header__button header__button_notcolor">Регистрация</button>
-                                        <button className="header__button header__button_color" >Войти</button>
+                                        <Link to={'/sign-up'} className="header__button header__button_notcolor">Регистрация</Link>
+                                        <Link to={'/signin'} className="header__button header__button_color" >Войти</Link>
                                     </>
                             }
                         </div>

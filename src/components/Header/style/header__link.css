@@ -1,4 +1,4 @@
-.header__button {
+.header__link {
     font-family: 'Inter', Arial, sans-serif;
     font-size: 12px;
     font-weight: 500;
@@ -18,14 +18,15 @@
     padding: 8px 0 8px
 }
 
-.header__button:hover {
+.header__link:hover {
     cursor: pointer;
     opacity: 0.5;
 }
 
 @media screen and (max-width: 590px) {
-    .header__button {
+    .header__link {
         font-size: 10px;
         width: 64px;
+        padding: 5px 0 5px
     }
 }

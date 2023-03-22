@@ -1,4 +1,4 @@
-.header__button-nav {
+.header__link-nav {
     width: 28px;
     height: 28px;
     display: flex;
@@ -11,13 +11,13 @@
     transition: opacity 1s;
 }
 
-.header__button-nav:hover {
+.header__link-nav:hover {
     cursor: pointer;
     opacity: 0.5;
 } 
 
 @media screen and (max-width: 590px) {
-    .header__button-nav {
+    .header__link-nav {
         width: 22px;
         height: 22px;
     }

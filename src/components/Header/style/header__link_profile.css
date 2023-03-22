@@ -1,4 +1,4 @@
-.header__button_profile {
+.header__link_profile {
     width: 54px;
     Height: 32px;
     background-color: #F9F9F9;
@@ -6,10 +6,10 @@
     border: none;
 }
 
-.header__button_profile:nth-child(1) {
+.header__link_profile:nth-child(1) {
     margin-right: 16px;
 }
 
-.header__button_profile:nth-child(2) {
+.header__link_profile:nth-child(2) {
     width: 142px;
 }

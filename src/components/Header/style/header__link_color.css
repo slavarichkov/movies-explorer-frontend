@@ -1,4 +1,4 @@
-.header__button_color {
+.header__link_color {
     background-color: #2BE080;
     border: 0;
     border-radius: 3px;
@@ -7,9 +7,8 @@
 }
 
 @media screen and (max-width: 590px) {
-    .header__button_color {
+    .header__link_color {
         font-size: 10px;
-        height: 26px;
         width: 54px;
         margin-left: 14px;
     }

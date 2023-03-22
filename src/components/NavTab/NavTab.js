@@ -47,9 +47,9 @@ function NavTab() {
             <button className="navtab__button">
                 <div className="navtab__button-close" onClick={closeNavTab}></div>
             </button>
-            <button className={`navtab__button ${isMain ? "navtab__button-border_show" : ""}`} onClick={(e) => { redirectPage('/'); handleClick(e) }}>Главная</button>
-            <button className={`navtab__button ${isMovies ? "navtab__button-border_show" : ""}`} onClick={(e) => { redirectPage('/movies'); handleClick(e) }}>Фильмы</button>
-            <button className={`navtab__button ${isSavedMovies ? "navtab__button-border_show" : ""}`} onClick={(e) => { redirectPage('/saved-movies'); handleClick(e) }}>Сохранённые фильмы</button>
+            <button className={`navtab__button ${isMain ? "navtab__button_border-show" : ""}`} onClick={(e) => { redirectPage('/'); handleClick(e) }}>Главная</button>
+            <button className={`navtab__button ${isMovies ? "navtab__button_border-show" : ""}`} onClick={(e) => { redirectPage('/movies'); handleClick(e) }}>Фильмы</button>
+            <button className={`navtab__button ${isSavedMovies ? "navtab__button_border-show" : ""}`} onClick={(e) => { redirectPage('/saved-movies'); handleClick(e) }}>Сохранённые фильмы</button>
             <button className="navtab__button " onClick={(e) => { redirectPage('/profile'); handleClick(e) }}>Аккаунт</button>
         </div>
     )

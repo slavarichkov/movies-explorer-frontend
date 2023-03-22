@@ -1,0 +1,21 @@
+.techs__list-element {
+    list-style-type: none;
+    width: 90px;
+    height: 36px;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    text-align: center;
+    padding: 21px 0 0;
+    font-family: 'Inter', Arial, sans-serif;;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: -0.04em;
+    text-align: center;
+}
+
+@media screen and (max-width: 769px) {
+    .techs__list-element {
+        width: 84px;
+    }
+}

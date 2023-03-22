@@ -1,0 +1,18 @@
+.search-form__img {
+    background-color: #F9F9F9;
+    width: 34px;
+    border-right: 1px solid #E8E8E8;
+    padding-right: 30px;
+}
+
+@media screen and (max-width: 769px) {
+    .search-form__img {
+        padding-right: 19px;
+    }
+}
+
+@media screen and (max-width: 582px) {
+    .search-form__img {
+        border-right: none;
+    }
+}

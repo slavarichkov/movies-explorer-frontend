@@ -1,0 +1,40 @@
+.about-project__progressive-element {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    padding-top: 10px;
+    height: 26px;
+}
+
+.about-project__progressive-element:nth-child(1) {
+    width: 140px;
+    background-color: #2BE080;
+}
+
+.about-project__progressive-element:nth-child(2) {
+    background-color: #F2F2F2;
+    width: calc(100% - 140px);
+}
+
+@media screen and (max-width: 600px) {
+    .about-project__progressive-element:nth-child(1) {
+        width: 100px;
+    }
+    .about-project__progressive-element:nth-child(2) {
+        width: calc(100% - 100px);
+    }
+
+}
+
+@media screen and (max-width: 321px) {
+    .about-project__progressive-element {
+        font-size: 11px;
+        line-height: 13.31px;
+    }
+
+}

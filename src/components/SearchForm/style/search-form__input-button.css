@@ -1,0 +1,18 @@
+.search-form__input-button {
+    background-color: #F9F9F9;
+    height: 100%;
+    border: none;
+    padding: 0 0 0 46px;
+    transition: opacity 1s;
+}
+
+.search-form__input-button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 582px) {
+    .search-form__input-button {
+        border-radius: 0 9px 9px 0;
+    }
+}

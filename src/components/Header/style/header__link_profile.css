@@ -1,0 +1,15 @@
+.header__link_profile {
+    width: 54px;
+    Height: 32px;
+    background-color: #F9F9F9;
+    border-radius: 20px;
+    border: none;
+}
+
+.header__link_profile:nth-child(1) {
+    margin-right: 16px;
+}
+
+.header__link_profile:nth-child(2) {
+    width: 142px;
+}

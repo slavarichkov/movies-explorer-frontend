@@ -1,0 +1,5 @@
+.search-form__button_off {
+    background-color: #EBEBEB;
+    background-position: top -2px left -4px;
+    transition: background-position 1s, background-color 1s;
+}

@@ -1,0 +1,10 @@
+.search-form__button {
+    width: 36px;
+    height: 20px;
+    border-radius: 20px;
+    border: none;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-image: url(./../../../images/tumb__COLOR_tumbler-on-2.svg);
+    transition: background-position 1s, background-color 1s;
+}

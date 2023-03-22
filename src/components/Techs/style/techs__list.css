@@ -1,0 +1,22 @@
+.techs__list {
+    width: 690px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 90px);
+    gap: 10px;
+    margin: 83px 70px 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 769px) {
+    .techs__list {
+        width: calc(100vw - 120px);
+        margin: 50px auto 0;
+        grid-template-columns: repeat(auto-fit, 84px);
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .techs__list {
+        width: calc(100vw - 130px);
+    }
+}

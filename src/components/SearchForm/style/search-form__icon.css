@@ -1,0 +1,17 @@
+.search-form__icon {
+    color: #A0A0A0;
+    width: 15px;
+    background-color: #F9F9F9;
+    border-radius: 9px 0 0 9px;
+    height: 100%;
+    padding: 0 10px 0 19px;
+    background: url(./../../../images/icon-movies.svg) #F9F9F9 50% no-repeat;
+}
+
+@media screen and (max-width: 430px) {
+    .search-form__icon {
+        background-image: none;
+        width: 0;
+        padding: 0;
+    }
+}

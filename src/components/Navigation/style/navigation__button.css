@@ -1,0 +1,32 @@
+.navigation__button {
+    background: #E8E8E8;
+    border-radius: 10px;
+    border: 0;
+    width: 96px;
+    height: 36px;
+    margin-right: 10px;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0px;
+    transition: opacity 0.8s;
+}
+
+.navigation__button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.navigation__button:nth-child(3) {
+    margin-right: 0px;
+}
+
+@media screen and (max-width: 700px) {
+    .navigation__button {
+        margin-right: 6px;
+        width: 82px;
+        height: 26px;
+    }
+}

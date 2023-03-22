@@ -1,0 +1,26 @@
+.movies-card__still {
+    background-color: #FFFFFF;
+    font-family: 'Inter', Arial, sans-serif;;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 0px;
+    text-align: center;
+    height: 36px;
+    width: 320px;
+    border-radius: 5px;
+    border: 1px solid #bababa;
+    margin: 50px auto 80px;
+    transition: opacity 1s;
+}
+
+.movies-card__still:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .movies-card__still {
+        width: 240px;
+    }
+}

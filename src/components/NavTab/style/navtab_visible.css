@@ -1,0 +1,11 @@
+.navtab_visible {
+    left: calc(100vw - 520px);
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (max-width: 521px) {
+    .navtab_visible {
+        left: 0;
+    }
+}

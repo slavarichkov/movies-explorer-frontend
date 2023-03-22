@@ -1,0 +1,4 @@
+.about-project__container-info_progressive {
+    display: flex;
+    flex-direction: column;
+}

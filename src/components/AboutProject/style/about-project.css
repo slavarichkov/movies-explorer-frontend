@@ -1,0 +1,18 @@
+.about-project {
+    display: flex;
+    flex-direction: column;
+    margin: 110px 70px 80px;
+    max-width: 100vw;
+}
+
+@media screen and (max-width: 769px) {
+    .about-project {
+        margin: 80px 50px 50px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .about-project {
+        margin: 70px 18px 50px;
+    }
+}

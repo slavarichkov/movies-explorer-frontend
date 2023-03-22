@@ -1,0 +1,10 @@
+.movies-card__favourites {
+    width: 30px;
+    height: 30px;
+    border-radius: 36px;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: background-color 1s, background-image 1s;
+}

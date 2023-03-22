@@ -5,6 +5,10 @@
     margin: 70px 0 0;
 }
 
+.about-project__info:nth-child(2) {
+    margin-left: 30px;
+}
+
 @media screen and (max-width: 700px) {
     .about-project__info {
         width: 100%;

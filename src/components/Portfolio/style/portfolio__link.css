@@ -8,6 +8,7 @@
     border-bottom: 1px solid #E6E6E6;
     width: calc(100vw - 140px);
     transition: opacity 1s;
+    max-width: 3701px;
 }
 
 .portfolio__link:hover {

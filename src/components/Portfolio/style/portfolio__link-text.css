@@ -22,5 +22,8 @@
     .portfolio__link-text {
         font-size: 18px;
         line-height: 28px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        
     }
 }

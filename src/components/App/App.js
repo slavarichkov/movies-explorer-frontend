@@ -10,6 +10,7 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
+import NavTab from '../NavTab/NavTab';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="app">
       <Header loggedInState={loggedIn} handlePageAccaunt={handlePageAccaunt} />
+      <NavTab />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/movies" element={<Movies />} />

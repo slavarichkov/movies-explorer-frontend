@@ -6,7 +6,8 @@
     margin: 50px 0 0;
     text-decoration: none;
     border-bottom: 1px solid #E6E6E6;
-    width: calc(100vw - 140px);
+    /* width: calc(100vw - 140px); */
+    width: 100%;
     transition: opacity 1s;
     max-width: 3701px;
 }
@@ -19,12 +20,12 @@
 @media screen and (max-width: 800px) {
     .portfolio__link {
         margin: 40px 0 0;
-        width: calc(100vw - 100px);
+        /* width: calc(100vw - 100px); */
     }
 }
 
 @media screen and (max-width: 500px) {
     .portfolio__link {
-        width: calc(100vw - 28px);
+        /* width: calc(100vw - 28px); */
     }
 }

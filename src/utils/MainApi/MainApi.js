@@ -33,6 +33,7 @@ class Api {
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: 'include',
             body: JSON.stringify({
                 password: dataUser.password,
                 email: dataUser.email,

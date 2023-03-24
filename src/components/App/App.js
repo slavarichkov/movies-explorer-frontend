@@ -117,7 +117,10 @@ function App() {
   //проверка авторизации пользователя через получение текущей информации о пользователе
   useEffect(() => {
     apiMain.getUserInfo().then(
-      (data) => { setIsAuth(true); console.log("авторизация успешна"); }
+      (data) => {
+        setIsAuth(true);
+        console.log("авторизация успешна");
+      }
     ).catch((err) => {
       setIsAuth(false);
       console.log(err);

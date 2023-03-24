@@ -14,7 +14,7 @@ import NavTab from '../NavTab/NavTab';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 
 import apiMain from '../../utils/MainApi/MainApi';
-//
+
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false); // для отображения в хедере кнопок вход и рег изменить на false

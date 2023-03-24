@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
-function MoviesCard({ nameFilm, duration, src, id, alt }) {
+function MoviesCard({ nameFilm, duration, src, id, alt, handleClick }) {
 
     const [isCheckFavorites, setIsCheckFavorites] = useState(false); // добавление в избранное
 
     function changeFavorites(e) {
         e.preventDefault();
-        isCheckFavorites ? setIsCheckFavorites(false) : setIsCheckFavorites(true)
+        isCheckFavorites ? setIsCheckFavorites(false) : setIsCheckFavorites(true);
+        handleClick(id);
     }
 
     return (

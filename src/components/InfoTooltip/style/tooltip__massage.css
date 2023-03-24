@@ -1,0 +1,13 @@
+.tooltip__massage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29.05px;
+    opacity: 1;
+    max-width: 358px;
+    text-align: center;
+    margin: 30px auto;
+}

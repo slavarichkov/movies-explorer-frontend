@@ -116,3 +116,8 @@
 @import url(./components/NotFoundPage/style/not-found-page__content.css);
 @import url(./components/NotFoundPage/style/not-found-page__link.css);
 @import url(./components/NavTab/style/navtab__button_border-show.css);
+@import url(./components/InfoTooltip/style/info-tooltip.css);
+@import url(./components/InfoTooltip/style/info-tooltip__container.css);
+@import url(./components/InfoTooltip/style/tooltip__massage.css);
+@import url(./components/InfoTooltip/style/info-tooltip__close-button.css);
+@import url(./components/InfoTooltip/style/info-tooltip_show.css);

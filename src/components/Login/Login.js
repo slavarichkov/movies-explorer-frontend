@@ -4,7 +4,7 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm"
 
 import img from './../../images/logo-header.svg'
 
-function Login() {
+function Login({ onLogin }) {
 
     const navigate = useNavigate();
 
@@ -19,7 +19,6 @@ function Login() {
     function handleChangePassword(e) {
         setIsPassword(e.target.value);
         setValidationMassegePassword(e.target.validationMessage);
-        console.log(e.target.validationMessage)
     }
 
     function handleChangeEmail(e) {
@@ -29,7 +28,15 @@ function Login() {
 
 
     function redirectPage() {
-        navigate('/signin')
+        navigate('/signup')
+    }
+
+    function handleSubmit(e) { //пробросить данные из инпутов наверх
+        e.preventDefault();
+        onLogin({
+            email: isEmail,
+            password: isPassword,
+        });
     }
 
     useEffect(() => {
@@ -44,6 +51,7 @@ function Login() {
                 withEmail={true}
                 withPassword={true}
                 withSubmitButtons={true}
+                onSubmit={handleSubmit}
                 text={"Рады видеть!"}
                 textButtonSubmit="Войти"
                 validationOptions={validationAll}

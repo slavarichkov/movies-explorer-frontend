@@ -1,7 +1,7 @@
 import MoviesCard from "../MoviesCard/MoviesCard";
 import React, { useState, useEffect } from 'react';
 
-function MoviesCardList({ moviesArray }) {
+function MoviesCardList({ moviesArray, handleClick }) {
 
     const [isQuantityMovies, setIsQuantityMovies] = useState(12); // отображение количества фильмов на странице
     const [width, setWidth] = useState(window.innerWidth); // ширина экрана
@@ -62,11 +62,12 @@ function MoviesCardList({ moviesArray }) {
                     return (
                         <MoviesCard
                             nameFilm={movie.nameRU}
-                            id={movie.id}
-                            key={movie.id}
+                            id={movie._id}
+                            key={movie._id}
                             src={movie.image.formats.thumbnail.url}
                             duration={getTimeFromMins(movie.duration)}
                             alt={movie.image.name}
+                            handleClick={handleClick}
                         />
                     )
                 })}

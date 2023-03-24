@@ -12,7 +12,7 @@ function Profile({ nameUser }) {
     const [validationMassegeEmail, setValidationMassegeEmail] = useState('');
     const [validationAll, setValidationAll] = useState(true);
     const navigate = useNavigate();
-    const currentUser = useContext(currentUserContext);
+    const currentUser = useContext(currentUserContext); // подписаться на контекст
 
 
     //передать данные  из инпутов

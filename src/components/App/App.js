@@ -146,7 +146,7 @@ function App() {
     }
   }
 
-  function handleChangeUserData(dataUser) {
+  function handleChangeUserData(dataUser) { // редактировать данные пользователя
     apiMain.sendUserInfo(dataUser).then((data) => {
       setIsUserInfo(data.data)
       setIsInfoTool(true); // при положительном ответе открыть инфотул
@@ -156,6 +156,22 @@ function App() {
       }, 3000);
     }).catch((err) => {
       setIsAuth(false);
+      setTextMassageInfoTool(""); 
+      console.log(err);
+    });
+  }
+
+  function handleLogout() {
+    apiMain.logout().then(() => {
+      setIsUserInfo({});
+      setIsAuth(false);
+      setIsInfoTool(true); // при положительном ответе открыть инфотул
+      setTextMassageInfoTool("Вы вышли из аккаунта"); // передать текст в инф.окно
+      setTimeout(() => { // закрыть подверждение через 3 сек.
+        setIsInfoTool(false);
+        setTextMassageInfoTool(""); 
+      }, 3000);
+    }).catch((err) => {
       console.log(err);
     });
   }
@@ -184,7 +200,7 @@ function App() {
             <Route path="/*" element={<NotFoundPage />} />
             <Route path="/movies" element={isAuth ? <Movies handleClickFavoriteMovies={handleAddMovies} /> : <Main />} />
             <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />
-            <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} /> : <Main />} />
+            <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Main />} />
           </Routes>
         </main>
         <Footer stateShowFooter={stateAccauntActive} />

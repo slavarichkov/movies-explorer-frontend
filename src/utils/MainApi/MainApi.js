@@ -42,6 +42,17 @@ class Api {
             .catch((err) => console.log(err))
     };
 
+    logout() {
+        return fetch(`${this.host}/signout`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+        }).then((res) => { return res.json() })
+            .catch((err) => console.log(err))
+    }
+
     //запрос на сервер для авторизации
     getToken(tkn) {
         return fetch(`${this.host}/users/me`, {
@@ -73,7 +84,7 @@ class Api {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ name: data.name, email: data.email}),
+            body: JSON.stringify({ name: data.name, email: data.email }),
         }).then((res) => this._getResponse(res));
     }
 

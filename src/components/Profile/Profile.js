@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PopupWithForm from "../PopupWithForm/PopupWithForm"
 import currentUserContext from './../../utils/CurrentUserContext/CurrentUserContext';
 
-function Profile({ onSubmit }) {
+function Profile({ onSubmit, logout }) {
 
     // Стейты, в которых содержятся значения инпута
     const [isName, setISName] = useState('');
@@ -69,7 +69,7 @@ function Profile({ onSubmit }) {
                 validationEmail={validationMassegeEmail}
                 onSubmit={handleSubmit}
                 buttonUnderText={
-                    <button to='signup' className="popup__button-under-submit popup__button-under-submit_profile" onClick={redirectPage}>Выйти из аккаунта</button>
+                    <button to='signup' className="popup__button-under-submit popup__button-under-submit_profile" onClick={logout}>Выйти из аккаунта</button>
                 }
             />
         </section>

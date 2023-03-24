@@ -24,8 +24,7 @@ function App() {
   const [isTextMassageInfoTool, setTextMassageInfoTool] = useState(''); // текс в инфотул
   const [isAuth, setIsAuth] = useState(false); // проверить авторизован ли пользователь для защиты путей и отображения кнопок в хедере
   const [isInfoTool, setIsInfoTool] = useState(false); // стейт для открытия информационного окна
-  const [isRegisterPopupOpened, setIsRegisterPopupOpened] = useState(false);
-  const [registerIn, setRegisterIn] = useState(false);
+  
 
   // выйти из аккаунта (пробрасывается из Header) 
   function handleLogginOut(data) {
@@ -118,6 +117,7 @@ function App() {
   useEffect(() => {
     apiMain.getUserInfo().then(
       (data) => {
+        console.log(data);
         setIsAuth(true);
         console.log("авторизация успешна");
       }
@@ -130,10 +130,9 @@ function App() {
   // выйти из аккаунта (пробрасывается из Header) 
   function handleLogginOut(data) {
     setLoggedIn(data);
-
   }
 
-  function closeInfoTool() {
+  function closeInfoTool() { // свернуть инфотул
     setIsInfoTool(false);
     setTextMassageInfoTool('')
   }
@@ -158,7 +157,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header loggedInState={loggedIn} handlePageAccaunt={handlePageAccaunt} />
+      <Header loggedInState={isAuth} handlePageAccaunt={handlePageAccaunt} />
       <main className="app">
         <NavTab />
         <InfoTooltip isOpen={isInfoTool} text={isTextMassageInfoTool} isClose={closeInfoTool} />

@@ -67,12 +67,13 @@ class Api {
 
     // отправка данных пользователя для обновления
     sendUserInfo(data) {
-        return fetch(`${this.host}users/me`, {
+        return fetch(`${this.host}/users/me`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ name: data.name, email: data.email, password: data.password, }),
+            body: JSON.stringify({ name: data.name, email: data.email}),
         }).then((res) => this._getResponse(res));
     }
 

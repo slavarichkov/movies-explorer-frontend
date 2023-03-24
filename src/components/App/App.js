@@ -146,6 +146,20 @@ function App() {
     }
   }
 
+  function handleChangeUserData(dataUser) {
+    apiMain.sendUserInfo(dataUser).then((data) => {
+      setIsUserInfo(data.data)
+      setIsInfoTool(true); // при положительном ответе открыть инфотул
+      setTextMassageInfoTool("Данные скорректированы"); // передать текст в инф.окно
+      setTimeout(() => { // закрыть подверждение через 3 сек.
+        setIsInfoTool(false);
+      }, 3000);
+    }).catch((err) => {
+      setIsAuth(false);
+      console.log(err);
+    });
+  }
+
   useEffect(() => { // слушатели на закрытие инфотул 
     if (isInfoTool) {
       document.addEventListener('click', handleCloseInfoTool);
@@ -170,7 +184,7 @@ function App() {
             <Route path="/*" element={<NotFoundPage />} />
             <Route path="/movies" element={isAuth ? <Movies handleClickFavoriteMovies={handleAddMovies} /> : <Main />} />
             <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />
-            <Route path="/profile" element={isAuth ? <Profile nameUser="Виталий" /> : <Main />} />
+            <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} /> : <Main />} />
           </Routes>
         </main>
         <Footer stateShowFooter={stateAccauntActive} />

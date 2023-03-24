@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PopupWithForm from "../PopupWithForm/PopupWithForm"
 import currentUserContext from './../../utils/CurrentUserContext/CurrentUserContext';
 
-function Profile({ nameUser }) {
+function Profile({ onSubmit }) {
 
     // Стейты, в которых содержятся значения инпута
     const [isName, setISName] = useState('');
@@ -19,7 +19,6 @@ function Profile({ nameUser }) {
     function handleChangeName(e) {
         setISName(e.target.value);
         setValidationMassegeName(e.target.validationMessage);
-        console.log(e.target.value)
     }
 
     function handleChangeEmail(e) {
@@ -30,6 +29,14 @@ function Profile({ nameUser }) {
 
     function redirectPage() {
         navigate('/signin')
+    }
+
+    function handleSubmit(e) { //пробросить данные из инпутов наверх
+        e.preventDefault();
+        onSubmit({
+            name: isName,
+            email: isEmail,
+        });
     }
 
     useEffect(() => {
@@ -60,6 +67,7 @@ function Profile({ nameUser }) {
                 handleChangeEmail={handleChangeEmail}
                 validationName={validationMassegeName}
                 validationEmail={validationMassegeEmail}
+                onSubmit={handleSubmit}
                 buttonUnderText={
                     <button to='signup' className="popup__button-under-submit popup__button-under-submit_profile" onClick={redirectPage}>Выйти из аккаунта</button>
                 }

@@ -63,7 +63,6 @@ function MoviesCardList({ moviesArray, handleClick }) {
                         <MoviesCard
                             nameFilm={movie.nameRU}
                             id={movie._id}
-                            key={movie._id}
                             src={movie.image.formats.thumbnail.url}
                             duration={getTimeFromMins(movie.duration)}
                             alt={movie.image.name}

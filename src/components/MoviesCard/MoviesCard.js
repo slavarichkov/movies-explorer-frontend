@@ -11,7 +11,7 @@ function MoviesCard({ nameFilm, duration, src, id, alt, handleClick }) {
     }
 
     return (
-        <div className="movies-card" id={id}>
+        <div className="movies-card" id={id} key={id}>
             <div className="movies-card__header">
                 <div className="movies-card__title-container">
                     <h2 className="movies-card__title">{nameFilm}</h2>

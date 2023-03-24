@@ -12,6 +12,7 @@ import Profile from '../Profile/Profile';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import NavTab from '../NavTab/NavTab';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
+import currentUserContext from './../../utils/CurrentUserContext/CurrentUserContext';
 
 import apiMain from '../../utils/MainApi/MainApi';
 
@@ -24,7 +25,7 @@ function App() {
   const [isTextMassageInfoTool, setTextMassageInfoTool] = useState(''); // текс в инфотул
   const [isAuth, setIsAuth] = useState(false); // проверить авторизован ли пользователь для защиты путей и отображения кнопок в хедере
   const [isInfoTool, setIsInfoTool] = useState(false); // стейт для открытия информационного окна
-  
+  const [isUserInfo, setIsUserInfo] = useState({}) // данные юзера
 
   // выйти из аккаунта (пробрасывается из Header) 
   function handleLogginOut(data) {
@@ -117,7 +118,7 @@ function App() {
   useEffect(() => {
     apiMain.getUserInfo().then(
       (data) => {
-        console.log(data);
+        setIsUserInfo(data.userData)
         setIsAuth(true);
         console.log("авторизация успешна");
       }
@@ -156,23 +157,25 @@ function App() {
   }, [isInfoTool])
 
   return (
-    <div className="app">
-      <Header loggedInState={isAuth} handlePageAccaunt={handlePageAccaunt} />
-      <main className="app">
-        <NavTab />
-        <InfoTooltip isOpen={isInfoTool} text={isTextMassageInfoTool} isClose={closeInfoTool} />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/signin" element={<Login onLogin={handleLogin} />} />
-          <Route path="/signup" element={<Register onRegister={handleRegister} />} />
-          <Route path="/*" element={<NotFoundPage />} />
-          <Route path="/movies" element={isAuth ? <Movies handleClickFavoriteMovies={handleAddMovies} /> : <Main />} />
-          <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />
-          <Route path="/profile" element={isAuth ? <Profile nameUser="Виталий" /> : <Main />} />
-        </Routes>
-      </main>
-      <Footer stateShowFooter={stateAccauntActive} />
-    </div>
+    <currentUserContext.Provider value={isUserInfo}>
+      <div className="app">
+        <Header loggedInState={isAuth} handlePageAccaunt={handlePageAccaunt} />
+        <main className="app">
+          <NavTab />
+          <InfoTooltip isOpen={isInfoTool} text={isTextMassageInfoTool} isClose={closeInfoTool} />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/signin" element={<Login onLogin={handleLogin} />} />
+            <Route path="/signup" element={<Register onRegister={handleRegister} />} />
+            <Route path="/*" element={<NotFoundPage />} />
+            <Route path="/movies" element={isAuth ? <Movies handleClickFavoriteMovies={handleAddMovies} /> : <Main />} />
+            <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />
+            <Route path="/profile" element={isAuth ? <Profile nameUser="Виталий" /> : <Main />} />
+          </Routes>
+        </main>
+        <Footer stateShowFooter={stateAccauntActive} />
+      </div>
+    </currentUserContext.Provider >
   );
 }
 

@@ -20,6 +20,8 @@ function PopupWithForm({
     popup_style,
     title_style,
     submit_style,
+    placeholderName,
+    placeholderEmail,
 }) {
 
     return (
@@ -32,14 +34,14 @@ function PopupWithForm({
                     <div className="popup__set">
                         {withName ? <div className="popup__input-conainer">
                             <p className="popup__input-name">Имя</p>
-                            <input type="text" placeholder="" className={`popup__input ${validationName ? "popup__input_error" : ""}`}
+                            <input type="text" value={placeholderName} className={`popup__input ${validationName ? "popup__input_error" : ""}`}
                                 id="username-input" minLength="2" onChange={handleChangeName} required
                             />
                             <span className="popup__text-error" id="error-firstname">{validationName}</span>
                         </div> : <></>}
                         {withEmail ? <div className="popup__input-conainer">
                             <p className="popup__input-name">E-mail</p>
-                            <input type="email" placeholder="" className={`popup__input ${validationEmail ? "popup__input_error" : ""}`}
+                            <input type="email" value={placeholderEmail} className={`popup__input ${validationEmail ? "popup__input_error" : ""}`}
                                 id="username-input" minLength="2" onChange={handleChangeEmail} required
                             />
                             <span className="popup__text-error" id="error-firstname">{validationEmail}</span>

@@ -15,7 +15,7 @@ import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import currentUserContext from './../../utils/CurrentUserContext/CurrentUserContext';
 
 import apiMain from '../../utils/MainApi/MainApi'; // апи с бэком
-import MovieApi from '../../utils/MoviesApi/MoviesApi'; // сторонний АПИ для получения срписка фильмов
+import MovieApi from '../../utils/MoviesApi/MoviesApi'; // сторонний АПИ для получения списка фильмов
 
 function App() {
 

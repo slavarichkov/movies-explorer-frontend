@@ -29,6 +29,7 @@ function App() {
   const [isLoggin, setIsLoggin] = useState(false); // проверять выполнен ли вход для редиректа после входа
   const [isRegister, setIsRegister] = useState(false); // проверять выполнена ли регистрация для редиректа на вход
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
+  const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
 
 
   function handlePageAccaunt() { // следить за открытием страницы аккаунта для скрытия футера
@@ -186,8 +187,14 @@ function App() {
   useEffect(() => { // получить фильмы со стороннего АПИ
     MovieApi.getMovies()
       .then((data) => {
-        console.log(data);
         setIsMoviesArray(data);
+      })
+  }, [])
+
+  useEffect(() => { // получить сохраненные фильмы
+    apiMain.getMovies()
+      .then((data) => {
+        setIsSavedMoviesArray(data);
       })
   }, [])
 
@@ -206,7 +213,7 @@ function App() {
             {isAuth ?
               <>
                 <Route path="/movies" element={<Movies handleClickFavoriteMovies={handleAddMovies} movies={isMoviesArray} />} />
-                <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />
+                <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} movies={isSavedMoviesArray} /> : <Main />} />
                 <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Main />} />
               </>
               : <></>}

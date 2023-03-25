@@ -2,16 +2,14 @@ import { useState } from "react";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 
-import { movies, handleClickFavoriteMovies } from '../../utils/movies';
-let shortMoviesArray = movies.filter((movie) =>
-    movie.duration <= 40
-)
 
-function SavedMovies({ moviesArray, handleClickFavoriteMovies }) {
-
+function SavedMovies({ movies, handleClickFavoriteMovies }) {
     const [isShortMovies, setIsShortMovies] = useState(false);
+    let shortMoviesArray = movies.filter((movie) =>
+        movie.duration <= 40
+    )
 
-    function handleIsShortMovies() {
+    function handleIsShortMovies() { // вкл выкл короткометражки
         isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
     }
 

@@ -91,7 +91,9 @@ class Api {
     //ФИЛЬМЫ**
     //запрос фильмов с сервера 
     getMovies() {
-        return fetch(`${this.host}/movies`).then((res) => this._getResponse(res));
+        return fetch(`${this.host}/movies`, {
+            credentials: 'include',
+        }).then((res) => this._getResponse(res));
     }
 
     // отправка фильма в избранное на сервер 

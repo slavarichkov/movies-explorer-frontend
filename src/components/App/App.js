@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -29,6 +29,7 @@ function App() {
   const [isRegister, setIsRegister] = useState(false); // проверять выполнена ли регистрация для редиректа на вход
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
+  const navigate = useNavigate();
 
 
 
@@ -245,8 +246,8 @@ function App() {
           <InfoTooltip isOpen={isInfoTool} text={isTextMassageInfoTool} isClose={closeInfoTool} />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path={"/signin"} element={<Login onLogin={handleLogin} />} />
-            <Route path={"/signup"} element={<Register onRegister={handleRegister} />} />
+            <Route path={"/signin"} element={isLoggin ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />} />
+            <Route path={"/signup"} element={isLoggin ? <Navigate to="/" replace /> : <Register onRegister={handleRegister} />} />
             <Route path="/*" element={<NotFoundPage />} />
             {isAuth ?
               <>

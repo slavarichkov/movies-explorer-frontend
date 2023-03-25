@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate} from 'react-router-dom';
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";

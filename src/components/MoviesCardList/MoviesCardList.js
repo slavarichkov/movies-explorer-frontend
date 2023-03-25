@@ -1,14 +1,20 @@
 import MoviesCard from "../MoviesCard/MoviesCard";
 import React, { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom";
 
 function MoviesCardList({ moviesArray, handleClick }) {
 
     const [isQuantityMovies, setIsQuantityMovies] = useState(12); // отображение количества фильмов на странице
     const [width, setWidth] = useState(window.innerWidth); // ширина экрана
     const [isLengthMoviesArray, setIsLengthMoviesArray] = useState(false); // cледить все ли фильмы отображены на странице
+    const [isSavedMoviesArray, setSavedMovies] = useState(true) // отследить чей массив фильмов 
+    const location = useLocation();
 
     let moviesPart = moviesArray.slice(0, isQuantityMovies); // скорректировать массив фильмов для отображения
 
+    useEffect(() => { // отследить url для корректной отрисовки карточек из массива
+        location.pathname.toString() === '/saved-movies' ? setSavedMovies(true) : setSavedMovies(false)
+    }, [location])
 
     useEffect(() => { // отследить ширину экрана 
         const handleResize = (event) => {
@@ -63,9 +69,9 @@ function MoviesCardList({ moviesArray, handleClick }) {
                         <MoviesCard
                             nameFilm={movie.nameRU}
                             id={movie.id}
-                            src={movie.image.formats.thumbnail.url}
+                            src={isSavedMoviesArray ? movie.image : movie.image.formats.thumbnail.url}
                             duration={getTimeFromMins(movie.duration)}
-                            alt={movie.image.name}
+                            alt={isSavedMoviesArray ? movie.nameRu : movie.image.name}
                             handleClick={handleClick}
                         />
                     )

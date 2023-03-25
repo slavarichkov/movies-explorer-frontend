@@ -98,8 +98,9 @@ class Api {
 
     // отправка фильма в избранное на сервер 
     sendMovies(data) {
-        return fetch(`${this.host}movies`, {
+        return fetch(`${this.host}/movies`, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },

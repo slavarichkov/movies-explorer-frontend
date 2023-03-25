@@ -22,7 +22,7 @@ class Api {
 }
 
 const MovieApi = new Api({
-    host: ' https://api.nomoreparties.co/beatfilm-movies',
+    host: 'https://api.nomoreparties.co/beatfilm-movies',
 });
 
 export default MovieApi;

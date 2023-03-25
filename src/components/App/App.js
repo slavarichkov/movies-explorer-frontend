@@ -52,11 +52,24 @@ function App() {
 
   //отправка фильма на сервер и обновление стейта для отрисовки 
   function handleAddMovies(data) {
-    setLoading(true);
-    apiMain.sendImages(data)
+    let savedMovie = isMoviesArray.find(movie => movie.id === data)
+    let movie = {
+      country: savedMovie.country,
+      director: savedMovie.director,
+      description: savedMovie.description,
+      duration: savedMovie.duration,
+      year: savedMovie.year,
+      image: savedMovie.image.url,
+      trailerLink: savedMovie.trailerLink,
+      thumbnail: savedMovie.image.formats.thumbnail.url,
+      movieId: savedMovie.id,
+      nameRU: savedMovie.nameRU,
+      nameEN: savedMovie.nameEN,
+    }
+    // console.log(movie);
+    apiMain.sendMovies(movie)
       .then((newMovie) => {
-        setMovies([newMovie, ...movies]);
-        setLoading(false);
+        console.log(newMovie);
       })
       .catch((err) => {
         console.log(err);
@@ -195,6 +208,7 @@ function App() {
     apiMain.getMovies()
       .then((data) => {
         setIsSavedMoviesArray(data);
+        console.log(data);
       })
   }, [])
 

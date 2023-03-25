@@ -18,7 +18,6 @@ import apiMain from '../../utils/MainApi/MainApi';
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState(false); // для отображения в хедере кнопок вход и рег изменить на false
   const [stateAccauntActive, setStateAccauntActive] = useState(true);
   const [loading, setLoading] = useState(false); // отображение лоадера
   const [movies, setMovies] = useState([]);
@@ -26,11 +25,9 @@ function App() {
   const [isAuth, setIsAuth] = useState(false); // проверить авторизован ли пользователь для защиты путей и отображения кнопок в хедере
   const [isInfoTool, setIsInfoTool] = useState(false); // стейт для открытия информационного окна
   const [isUserInfo, setIsUserInfo] = useState({}) // данные юзера
+  const [isLoggin, setIsLoggin] = useState(false); // проверять выполнен ли вход для редиректа после входа
+  const [isRegister, setIsRegister] = useState(false) ; // проверять выполнена ли регистрация для редиректа на вход
 
-  // выйти из аккаунта (пробрасывается из Header) 
-  function handleLogginOut(data) {
-    setLoggedIn(data);
-  }
 
   function handlePageAccaunt() { // следить за открытием страницы аккаунта для скрытия футера
     setStateAccauntActive(false);
@@ -83,8 +80,10 @@ function App() {
           setIsAuth(true) // подтвердить авторизацию для защиты роутов
           setIsInfoTool(true); // при положительном ответе открыть попап подверждения регистрации
           setTextMassageInfoTool("Регистрация прошла успешно"); // передать текст в инф.окно
+          setIsRegister(true) // для редиректа на вход
           setTimeout(() => { // закрыть подверждение через 3 сек.
             setIsInfoTool(false);
+            setIsRegister(false)
           }, 3000);
         }
       })
@@ -101,9 +100,9 @@ function App() {
           setIsInfoTool(true);
           setTextMassageInfoTool(data.message); // передать текст ошибки в инф.окно
         } else {
-          console.log(data)
           setIsInfoTool(true); // при положительном ответе открыть попап подверждения регистрации
           setTextMassageInfoTool("Вы успешно авторизованы"); // передать текст в инф.окно
+          setIsLoggin(true);
           setTimeout(() => { // закрыть подверждение через 3 сек.
             setIsInfoTool(false);
           }, 3000);
@@ -120,6 +119,7 @@ function App() {
       (data) => {
         setIsUserInfo(data.userData)
         setIsAuth(true);
+        setIsLoggin(true);
         console.log("авторизация успешна");
       }
     ).catch((err) => {
@@ -128,16 +128,10 @@ function App() {
     });
   }, [])
 
-  // выйти из аккаунта (пробрасывается из Header) 
-  function handleLogginOut(data) {
-    setLoggedIn(data);
-  }
-
   function closeInfoTool() { // свернуть инфотул
     setIsInfoTool(false);
     setTextMassageInfoTool('')
   }
-
 
   //закрыть инфотул на оверлей или эск 
   function handleCloseInfoTool(e) {
@@ -156,7 +150,7 @@ function App() {
       }, 3000);
     }).catch((err) => {
       setIsAuth(false);
-      setTextMassageInfoTool(""); 
+      setTextMassageInfoTool("");
       console.log(err);
     });
   }
@@ -165,11 +159,12 @@ function App() {
     apiMain.logout().then(() => {
       setIsUserInfo({});
       setIsAuth(false);
+      setIsLoggin(false);
       setIsInfoTool(true); // при положительном ответе открыть инфотул
       setTextMassageInfoTool("Вы вышли из аккаунта"); // передать текст в инф.окно
       setTimeout(() => { // закрыть подверждение через 3 сек.
         setIsInfoTool(false);
-        setTextMassageInfoTool(""); 
+        setTextMassageInfoTool("");
       }, 3000);
     }).catch((err) => {
       console.log(err);
@@ -195,10 +190,10 @@ function App() {
           <InfoTooltip isOpen={isInfoTool} text={isTextMassageInfoTool} isClose={closeInfoTool} />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/signin" element={<Login onLogin={handleLogin} />} />
-            <Route path="/signup" element={<Register onRegister={handleRegister} />} />
+            <Route path={`${isLoggin ? "/" : "/signin"}`} element={<Login onLogin={handleLogin} />} />
+            <Route path={`${isLoggin ? "/" : "/signup"}`} element={isLoggin ? <Register onRegister={handleRegister} /> : <Main />} />
             <Route path="/*" element={<NotFoundPage />} />
-            <Route path="/movies" element={isAuth ? <Movies handleClickFavoriteMovies={handleAddMovies} /> : <Main />} />
+            <Route path="/movies" element={<Movies handleClickFavoriteMovies={handleAddMovies} />} />
             <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />
             <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Main />} />
           </Routes>

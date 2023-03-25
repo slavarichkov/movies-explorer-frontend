@@ -14,7 +14,8 @@ import NavTab from '../NavTab/NavTab';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import currentUserContext from './../../utils/CurrentUserContext/CurrentUserContext';
 
-import apiMain from '../../utils/MainApi/MainApi';
+import apiMain from '../../utils/MainApi/MainApi'; // апи с бэком
+import MovieApi from '../../utils/MoviesApi/MoviesApi'; // сторонний АПИ для получения срписка фильмов
 
 function App() {
 
@@ -26,14 +27,15 @@ function App() {
   const [isInfoTool, setIsInfoTool] = useState(false); // стейт для открытия информационного окна
   const [isUserInfo, setIsUserInfo] = useState({}) // данные юзера
   const [isLoggin, setIsLoggin] = useState(false); // проверять выполнен ли вход для редиректа после входа
-  const [isRegister, setIsRegister] = useState(false) ; // проверять выполнена ли регистрация для редиректа на вход
+  const [isRegister, setIsRegister] = useState(false); // проверять выполнена ли регистрация для редиректа на вход
+  const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
 
 
   function handlePageAccaunt() { // следить за открытием страницы аккаунта для скрытия футера
     setStateAccauntActive(false);
   }
 
-  //...Работа с Апи(получение и редактирование инф на сервере: данные пользователя, карточки)...
+  //...Работа со своим Апи(получение и редактирование инф на сервере: данные пользователя, сохраненные фильмы пользователем)...
 
   //удаление фильма
   function handleMoviesDelete(movieId) {
@@ -113,21 +115,6 @@ function App() {
       });
   };
 
-  //проверка авторизации пользователя через получение текущей информации о пользователе
-  useEffect(() => {
-    apiMain.getUserInfo().then(
-      (data) => {
-        setIsUserInfo(data.userData)
-        setIsAuth(true);
-        setIsLoggin(true);
-        console.log("авторизация успешна");
-      }
-    ).catch((err) => {
-      setIsAuth(false);
-      console.log(err);
-    });
-  }, [])
-
   function closeInfoTool() { // свернуть инфотул
     setIsInfoTool(false);
     setTextMassageInfoTool('')
@@ -171,6 +158,21 @@ function App() {
     });
   }
 
+  //проверка авторизации пользователя через получение текущей информации о пользователе
+  useEffect(() => {
+    apiMain.getUserInfo().then(
+      (data) => {
+        setIsUserInfo(data.userData)
+        setIsAuth(true);
+        setIsLoggin(true);
+        console.log("авторизация успешна");
+      }
+    ).catch((err) => {
+      setIsAuth(false);
+      console.log(err);
+    });
+  }, [])
+
   useEffect(() => { // слушатели на закрытие инфотул 
     if (isInfoTool) {
       document.addEventListener('click', handleCloseInfoTool);
@@ -180,6 +182,14 @@ function App() {
       document.removeEventListener('keydown', handleCloseInfoTool);
     }
   }, [isInfoTool])
+
+  useEffect(() => { // получить фильмы со стороннего АПИ
+    MovieApi.getMovies()
+      .then((data) => {
+        console.log(data);
+        setIsMoviesArray(data);
+      })
+  }, [])
 
   return (
     <currentUserContext.Provider value={isUserInfo}>
@@ -193,7 +203,7 @@ function App() {
             <Route path={`${isLoggin ? "/" : "/signin"}`} element={<Login onLogin={handleLogin} />} />
             <Route path={`${isLoggin ? "/" : "/signup"}`} element={isLoggin ? <Register onRegister={handleRegister} /> : <Main />} />
             <Route path="/*" element={<NotFoundPage />} />
-            <Route path="/movies" element={<Movies handleClickFavoriteMovies={handleAddMovies} />} />
+            <Route path="/movies" element={<Movies handleClickFavoriteMovies={handleAddMovies} movies ={isMoviesArray}/>} />
             <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />
             <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Main />} />
           </Routes>

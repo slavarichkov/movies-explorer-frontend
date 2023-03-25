@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-import { movies } from '../../utils/movies';
-let shortMoviesArray = movies.filter((movie) =>
-    movie.duration <= 40
-)
+// import { movies } from '../../utils/movies';
+// let shortMoviesArray = movies.filter((movie) =>
+//     movie.duration <= 40
+// )
 
-function Movies({handleClickFavoriteMovies}) {
+function Movies({ handleClickFavoriteMovies, movies }) {
 
     const [isShortMovies, setIsShortMovies] = useState(false);
+    let shortMoviesArray = movies.filter((movie) =>
+        movie.duration <= 40
+    )
 
     function handleIsShortMovies() {
         isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
@@ -20,9 +23,9 @@ function Movies({handleClickFavoriteMovies}) {
         <section className="movies">
             <SearchForm handleShort={handleIsShortMovies} />
             <MoviesCardList
-             moviesArray={!isShortMovies ? movies : shortMoviesArray}
-             handleClick = {handleClickFavoriteMovies}
-             />
+                moviesArray={!isShortMovies ? movies : shortMoviesArray}
+                handleClick={handleClickFavoriteMovies}
+            />
         </section>
     )
 }

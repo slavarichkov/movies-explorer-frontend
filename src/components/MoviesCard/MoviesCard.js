@@ -18,7 +18,9 @@ function MoviesCard({ nameFilm, duration, src, id, alt, handleClick }) {
                     <p className="movies-card__duration">{duration}</p>
                 </div>
                 <button
-                    className={`movies-card__favourites ${isCheckFavorites ? "movies-card__favourites_on" : "movies-card__favourites_off"}`} onClick={changeFavorites}></button>
+                    className={`movies-card__favourites ${isCheckFavorites ? "movies-card__favourites_on" : "movies-card__favourites_off"}`}
+                    onClick={changeFavorites}>
+                </button>
             </div>
             <img className="movies-card__img" src={`https://api.nomoreparties.co${src}`} alt={alt} />
         </div >

@@ -200,8 +200,8 @@ function App() {
           <InfoTooltip isOpen={isInfoTool} text={isTextMassageInfoTool} isClose={closeInfoTool} />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path={`${isLoggin ? "/" : "/signin"}`} element={<Login onLogin={handleLogin} />} />
-            <Route path={`${isLoggin ? "/" : "/signup"}`} element={isLoggin ? <Register onRegister={handleRegister} /> : <Main />} />
+            <Route path={"/signin"} element={<Login onLogin={handleLogin} />} />
+            <Route path={"/signup"} element={<Register onRegister={handleRegister} /> } />
             <Route path="/*" element={<NotFoundPage />} />
             <Route path="/movies" element={<Movies handleClickFavoriteMovies={handleAddMovies} movies ={isMoviesArray}/>} />
             <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />

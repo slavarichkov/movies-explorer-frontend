@@ -93,7 +93,6 @@ function App() {
           setTextMassageInfoTool(messageError); // передать текст ошибки в инф.окно
           setIsInfoTool(true)
         } else {
-          setIsAuth(true) // подтвердить авторизацию для защиты роутов
           setIsInfoTool(true); // при положительном ответе открыть попап подверждения регистрации
           setTextMassageInfoTool("Регистрация прошла успешно"); // передать текст в инф.окно
           setIsRegister(true) // для редиректа на вход
@@ -247,7 +246,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path={"/signin"} element={isLoggin ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />} />
-            <Route path={"/signup"} element={isLoggin ? <Navigate to="/" replace /> : <Register onRegister={handleRegister} />} />
+            <Route path={"/signup"} element={isRegister ? <Navigate to="/signin" replace /> : <Register onRegister={handleRegister} />} />
             <Route path="/*" element={<NotFoundPage />} />
             <Route path="/movies" element={isAuth ?
               <Movies

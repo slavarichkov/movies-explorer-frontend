@@ -21,7 +21,6 @@ function App() {
 
   const [stateAccauntActive, setStateAccauntActive] = useState(true);
   const [loading, setLoading] = useState(false); // отображение лоадера
-  const [movies, setMovies] = useState([]);
   const [isTextMassageInfoTool, setTextMassageInfoTool] = useState(''); // текс в инфотул
   const [isAuth, setIsAuth] = useState(false); // проверить авторизован ли пользователь для защиты путей и отображения кнопок в хедере
   const [isInfoTool, setIsInfoTool] = useState(false); // стейт для открытия информационного окна

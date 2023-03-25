@@ -41,10 +41,10 @@ function App() {
   //удаление фильма
   function handleMoviesDelete(movieId) {
     setLoading(true);
-    apiMain.deleteCard(movieId)
+    apiMain.deleteMovie(movieId)
       .then(() => {
         setLoading(false);
-        setMovies((movies) => movies.filter((m) => m._id !== movieId)) // возвращаем новый список без удаленного фильма
+        setIsSavedMoviesArray((movies) => movies.filter((m) => m._id !== movieId)) // возвращаем новый список без удаленного фильма
       }).catch((err) => {
         console.log(err);
       })
@@ -66,10 +66,9 @@ function App() {
       nameRU: savedMovie.nameRU,
       nameEN: savedMovie.nameEN,
     }
-    // console.log(movie);
     apiMain.sendMovies(movie)
       .then((newMovie) => {
-        console.log(newMovie);
+        setIsSavedMoviesArray([newMovie, ...isSavedMoviesArray]);
       })
       .catch((err) => {
         console.log(err);

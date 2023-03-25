@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function MoviesCard({ nameFilm, duration, src, id, alt, handleClick }) {
 
     const [isCheckFavorites, setIsCheckFavorites] = useState(false); // добавление в избранное
+    const [isSavedMoviesPage, setIsSavedMoviesPage] = useState(false); // открыта страница сохраненных фильмов
+    const location = useLocation();
 
     function changeFavorites(e) {
         e.preventDefault();
         isCheckFavorites ? setIsCheckFavorites(false) : setIsCheckFavorites(true);
         handleClick(id);
     }
+
+    useEffect(() => {
+        location.pathname.toString() === "/saved-movies" ? setIsSavedMoviesPage(true) :
+            setIsSavedMoviesPage(false)
+    }, [location])
 
     return (
         <div className="movies-card" id={id} key={id}>
@@ -18,7 +26,7 @@ function MoviesCard({ nameFilm, duration, src, id, alt, handleClick }) {
                     <p className="movies-card__duration">{duration}</p>
                 </div>
                 <button
-                    className={`movies-card__favourites ${isCheckFavorites ? "movies-card__favourites_on" : "movies-card__favourites_off"}`}
+                    className={`movies-card__favourites ${isCheckFavorites || isSavedMoviesPage ? "movies-card__favourites_on" : "movies-card__favourites_off"}`}
                     onClick={changeFavorites}>
                 </button>
             </div>

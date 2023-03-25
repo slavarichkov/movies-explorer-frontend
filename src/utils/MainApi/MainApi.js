@@ -123,8 +123,9 @@ class Api {
 
     //удалить фильм
     deleteMovie(data) {
-        return fetch(`${this.host}movies/${data}`, {
+        return fetch(`${this.host}/movies/${data}`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: {
                 authorization: this.token,
             }

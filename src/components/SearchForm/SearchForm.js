@@ -30,7 +30,7 @@ function SearchForm({ handleShort, onSubmit }) {
             <div className="search-form__container">
                 <div className="search-form__container-input">
                     <div className="search-form__icon" alt="картинка поиска" />
-                    <input className="search-form__input" type="text" name="name" placeholder="Фильм" onChange={handleChange} required></input>
+                    <input className="search-form__input" type="text" name="name" placeholder="Фильм" onChange={handleChange}></input>
                     <button className="search-form__input-button">
                         <img className="search-form__img" src={submit} alt="изибражение стрелки" />
                     </button>

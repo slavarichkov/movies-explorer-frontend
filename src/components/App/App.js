@@ -31,6 +31,7 @@ function App() {
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
 
 
+
   function handlePageAccaunt() { // следить за открытием страницы аккаунта для скрытия футера
     setStateAccauntActive(false);
   }
@@ -127,11 +128,21 @@ function App() {
       });
   };
 
-  function handleSearchMovies(nameMovie) {
-    let movies = isMoviesArray.filter((movie) => movie.nameRU.toLowerCase().includes(nameMovie.toLowerCase()) || movie.nameEN.toLowerCase().includes(nameMovie.toLowerCase()))
-    
-    
-    console.log(movies)
+  function handleSearchMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
+    if (nameMovie.length > 0) {
+      let movies = isMoviesArray.filter(
+        (movie) =>
+          movie.nameRU.toLowerCase().includes(nameMovie.toLowerCase())
+          || movie.nameEN.toLowerCase().includes(nameMovie.toLowerCase()))
+      setIsMoviesArray(movies)
+      console.log(movies)
+    } else {
+      MovieApi.getMovies() //при отправке пустой формы вернуть все фильмы для просмотра на страницу
+        .then((data) => {
+          setIsMoviesArray(data);
+        })
+    }
+    console.log(nameMovie.length)
   }
 
   function closeInfoTool() { // свернуть инфотул
@@ -209,11 +220,10 @@ function App() {
       })
   }, [])
 
-  useEffect(() => { // получить сохраненные фильмы
-    apiMain.getMovies()
+  useEffect(() => { // получить фильмы со стороннего АПИ
+    MovieApi.getMovies()
       .then((data) => {
-        setIsSavedMoviesArray(data);
-        console.log(data);
+        setIsMoviesArray(data);
       })
   }, [])
 

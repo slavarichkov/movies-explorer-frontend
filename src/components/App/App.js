@@ -29,9 +29,6 @@ function App() {
   const [isRegister, setIsRegister] = useState(false); // проверять выполнена ли регистрация для редиректа на вход
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
-  const navigate = useNavigate();
-
-
 
   function handlePageAccaunt() { // следить за открытием страницы аккаунта для скрытия футера
     setStateAccauntActive(false);

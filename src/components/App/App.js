@@ -249,20 +249,15 @@ function App() {
             <Route path={"/signin"} element={isLoggin ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />} />
             <Route path={"/signup"} element={isLoggin ? <Navigate to="/" replace /> : <Register onRegister={handleRegister} />} />
             <Route path="/*" element={<NotFoundPage />} />
-            {isAuth ?
-              <>
-                <Route path="/movies" element={
-                  <Movies
-                    handleClickFavoriteMovies={handleAddMovies}
-                    movies={isMoviesArray}
-                    onSubmitSearch={handleSearchMovies}
-                  />
-                } />
-                <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} movies={isSavedMoviesArray} /> : <Main />} />
-                <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Main />} />
-              </>
-              : <></>}
-
+            <Route path="/movies" element={isAuth ?
+              <Movies
+                handleClickFavoriteMovies={handleAddMovies}
+                movies={isMoviesArray}
+                onSubmitSearch={handleSearchMovies}
+              /> : <Navigate to="/" replace />
+            } />
+            <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} movies={isSavedMoviesArray} /> : <Navigate to="/" replace />} />
+            <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Navigate to="/" replace />} />
           </Routes>
         </main>
         <Footer stateShowFooter={stateAccauntActive} />

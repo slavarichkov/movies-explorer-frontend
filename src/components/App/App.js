@@ -201,11 +201,16 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path={"/signin"} element={<Login onLogin={handleLogin} />} />
-            <Route path={"/signup"} element={<Register onRegister={handleRegister} /> } />
+            <Route path={"/signup"} element={<Register onRegister={handleRegister} />} />
             <Route path="/*" element={<NotFoundPage />} />
-            <Route path="/movies" element={<Movies handleClickFavoriteMovies={handleAddMovies} movies ={isMoviesArray}/>} />
-            <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />
-            <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Main />} />
+            {isAuth ?
+              <>
+                <Route path="/movies" element={<Movies handleClickFavoriteMovies={handleAddMovies} movies={isMoviesArray} />} />
+                <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} /> : <Main />} />
+                <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Main />} />
+              </>
+              : <></>}
+
           </Routes>
         </main>
         <Footer stateShowFooter={stateAccauntActive} />

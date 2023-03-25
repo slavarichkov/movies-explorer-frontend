@@ -129,13 +129,22 @@ function App() {
   };
 
   function handleSearchMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
-    if (nameMovie.length > 0) {
+    if (nameMovie.length > 0) { // проверить пустой или нет запрос на поиск
       let movies = isMoviesArray.filter(
         (movie) =>
           movie.nameRU.toLowerCase().includes(nameMovie.toLowerCase())
           || movie.nameEN.toLowerCase().includes(nameMovie.toLowerCase()))
-      setIsMoviesArray(movies)
-      console.log(movies)
+      if (movies.length === 0) { // если ничего не найдено, то сообщить пользователю
+        setIsInfoTool(true); // при положительном ответе открыть попап подверждения регистрации
+        setTextMassageInfoTool("Фильмы не найдены"); // передать текст в инф.окно
+        setIsLoggin(true);
+        setTimeout(() => { // закрыть подверждение через 3 сек.
+          setIsInfoTool(false);
+        }, 3000);
+      } else { // если фильмы найдены
+        setIsMoviesArray(movies)
+        console.log(movies)
+      }
     } else {
       MovieApi.getMovies() //при отправке пустой формы вернуть все фильмы для просмотра на страницу
         .then((data) => {

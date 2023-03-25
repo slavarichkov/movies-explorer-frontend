@@ -1,10 +1,17 @@
 .search-form {
     border-bottom: 1px solid #E8E8E8;
+    width: calc(100vw - 140px); 
     margin: 0 auto 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 769px) {
+    .search-form {
+        width: calc(100vw - 60px);
+    }
 }
 
 @media screen and (max-width: 769px) {

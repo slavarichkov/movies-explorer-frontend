@@ -1,6 +1,6 @@
 .movies-card-list__container {
     margin: 70px auto 0;
-    max-width: 3840px;
+    max-width: calc(100vw - 140px);
     display: grid;
     grid-template-columns: repeat(auto-fit, 364px);
     justify-content: center;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Navigate} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -251,7 +251,8 @@ function App() {
                 movies={isMoviesArray}
                 onSubmitSearch={handleSearchMovies}
               /> : <Navigate to="/" replace />
-            } />
+            }
+            />
             <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} movies={isSavedMoviesArray} /> : <Navigate to="/" replace />} />
             <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Navigate to="/" replace />} />
           </Routes>

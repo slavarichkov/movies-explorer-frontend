@@ -2,9 +2,11 @@
 import { useState } from 'react';
 import submit from './../../images/find.svg';
 
-function SearchForm({ handleShort }) {
+function SearchForm({ handleShort, onSubmit }) {
 
     const [isCheckMovies, setIsCheckMovies] = useState(false); // переключение на короткометражки
+    const [isName, setIsName] = useState('');
+    const [validationMassegeName, setValidationMassegeName] = useState('');
 
     function changeFilms(e) {
         e.preventDefault();
@@ -12,12 +14,23 @@ function SearchForm({ handleShort }) {
         handleShort()
     }
 
+    //передать данные  из инпутов
+    function handleChange(e) {
+        setIsName(e.target.value);
+        setValidationMassegeName(e.target.validationMessage);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        onSubmit(isName);
+    }
+
     return (
-        <form className="search-form">
+        <form className="search-form" onSubmit={handleSubmit}>
             <div className="search-form__container">
                 <div className="search-form__container-input">
                     <div className="search-form__icon" alt="картинка поиска" />
-                    <input className="search-form__input" type="text" name="name" placeholder="Фильм" required></input>
+                    <input className="search-form__input" type="text" name="name" placeholder="Фильм" onChange={handleChange} required></input>
                     <button className="search-form__input-button">
                         <img className="search-form__img" src={submit} alt="изибражение стрелки" />
                     </button>

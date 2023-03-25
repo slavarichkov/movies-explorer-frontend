@@ -127,6 +127,13 @@ function App() {
       });
   };
 
+  function handleSearchMovies(nameMovie) {
+    let movies = isMoviesArray.filter((movie) => movie.nameRU.toLowerCase().includes(nameMovie.toLowerCase()) || movie.nameEN.toLowerCase().includes(nameMovie.toLowerCase()))
+    
+    
+    console.log(movies)
+  }
+
   function closeInfoTool() { // свернуть инфотул
     setIsInfoTool(false);
     setTextMassageInfoTool('')
@@ -224,7 +231,13 @@ function App() {
             <Route path="/*" element={<NotFoundPage />} />
             {isAuth ?
               <>
-                <Route path="/movies" element={<Movies handleClickFavoriteMovies={handleAddMovies} movies={isMoviesArray} />} />
+                <Route path="/movies" element={
+                  <Movies
+                    handleClickFavoriteMovies={handleAddMovies}
+                    movies={isMoviesArray}
+                    onSubmitSearch={handleSearchMovies}
+                  />
+                } />
                 <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} movies={isSavedMoviesArray} /> : <Main />} />
                 <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Main />} />
               </>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
-function Movies({ handleClickFavoriteMovies, movies }) {
+function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch }) {
 
     const [isShortMovies, setIsShortMovies] = useState(false);
     let shortMoviesArray = movies.filter((movie) =>
@@ -16,7 +16,7 @@ function Movies({ handleClickFavoriteMovies, movies }) {
 
     return (
         <section className="movies">
-            <SearchForm handleShort={handleIsShortMovies} />
+            <SearchForm handleShort={handleIsShortMovies} onSubmit = {onSubmitSearch}/>
             <MoviesCardList
                 moviesArray={!isShortMovies ? movies : shortMoviesArray}
                 handleClick={handleClickFavoriteMovies}

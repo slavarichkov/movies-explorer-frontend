@@ -13,7 +13,6 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import NavTab from '../NavTab/NavTab';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import currentUserContext from './../../utils/CurrentUserContext/CurrentUserContext';
-import Preloader from '../Preloader/Preloader';
 
 import apiMain from '../../utils/MainApi/MainApi'; // апи с бэком
 import MovieApi from '../../utils/MoviesApi/MoviesApi'; // сторонний АПИ для получения списка фильмов

@@ -13,6 +13,7 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import NavTab from '../NavTab/NavTab';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import currentUserContext from './../../utils/CurrentUserContext/CurrentUserContext';
+import Preloader from '../Preloader/Preloader';
 
 import apiMain from '../../utils/MainApi/MainApi'; // апи с бэком
 import MovieApi from '../../utils/MoviesApi/MoviesApi'; // сторонний АПИ для получения списка фильмов
@@ -22,7 +23,7 @@ function App() {
   const [stateAccauntActive, setStateAccauntActive] = useState(true);
   const [loading, setLoading] = useState(false); // отображение лоадера
   const [isTextMassageInfoTool, setTextMassageInfoTool] = useState(''); // текс в инфотул
-  const [isAuth, setIsAuth] = useState(false); // проверить авторизован ли пользователь для защиты путей и отображения кнопок в хедере
+  const [isAuth, setIsAuth] = useState(true); // проверить авторизован ли пользователь для защиты путей и отображения кнопок в хедере
   const [isInfoTool, setIsInfoTool] = useState(false); // стейт для открытия информационного окна
   const [isUserInfo, setIsUserInfo] = useState({}) // данные юзера
   const [isLoggin, setIsLoggin] = useState(false); // проверять выполнен ли вход для редиректа после входа
@@ -67,6 +68,7 @@ function App() {
     apiMain.sendMovies(movie)
       .then((newMovie) => {
         setIsSavedMoviesArray([newMovie, ...isSavedMoviesArray]);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -126,6 +128,7 @@ function App() {
   };
 
   function handleSearchMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
+    setIsLoggin(true);
     if (nameMovie.length > 0) { // проверить пустой или нет запрос на поиск
       let movies = isMoviesArray.filter(
         (movie) =>
@@ -134,7 +137,6 @@ function App() {
       if (movies.length === 0) { // если ничего не найдено, то сообщить пользователю
         setIsInfoTool(true); // при положительном ответе открыть попап подверждения регистрации
         setTextMassageInfoTool("Фильмы не найдены"); // передать текст в инф.окно
-        setIsLoggin(true);
         setTimeout(() => { // закрыть подверждение через 3 сек.
           setIsInfoTool(false);
         }, 3000);
@@ -143,10 +145,15 @@ function App() {
         console.log(movies)
       }
     } else {
+      setIsLoggin(true);
       MovieApi.getMovies() //при отправке пустой формы вернуть все фильмы для просмотра на страницу
         .then((data) => {
           setIsMoviesArray(data);
-        })
+          setIsLoggin(false);
+        }).catch((err) => {
+          console.log(err);
+          setIsLoggin(false);
+        });
     }
     console.log(nameMovie.length)
   }
@@ -220,16 +227,19 @@ function App() {
   }, [isInfoTool])
 
   useEffect(() => { // получить фильмы со стороннего АПИ
+    setLoading(true);
     MovieApi.getMovies()
       .then((data) => {
+        setLoading(false);
+        console.log(loading)
         setIsMoviesArray(data);
       })
   }, [])
 
-  useEffect(() => { // получить фильмы со стороннего АПИ
-    MovieApi.getMovies()
+  useEffect(() => { // получить фильмы сохраненные
+    apiMain.getMovies()
       .then((data) => {
-        setIsMoviesArray(data);
+        setIsSavedMoviesArray(data);
       })
   }, [])
 
@@ -245,12 +255,14 @@ function App() {
             <Route path={"/signin"} element={isLoggin ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />} />
             <Route path={"/signup"} element={isRegister ? <Navigate to="/signin" replace /> : <Register onRegister={handleRegister} />} />
             <Route path="/*" element={<NotFoundPage />} />
-            <Route path="/movies" element={isAuth ?
-              <Movies
-                handleClickFavoriteMovies={handleAddMovies}
-                movies={isMoviesArray}
-                onSubmitSearch={handleSearchMovies}
-              /> : <Navigate to="/" replace />
+            <Route path="/movies" element={
+              isAuth ?
+                <Movies
+                  handleClickFavoriteMovies={handleAddMovies}
+                  movies={isMoviesArray}
+                  onSubmitSearch={handleSearchMovies}
+                  loading={loading}
+                /> : <Navigate to="/" replace />
             }
             />
             <Route path="/saved-movies" element={isAuth ? <SavedMovies handleClickFavoriteMovies={handleMoviesDelete} movies={isSavedMoviesArray} /> : <Navigate to="/" replace />} />

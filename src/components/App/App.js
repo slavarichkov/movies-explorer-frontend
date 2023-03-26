@@ -229,7 +229,6 @@ function App() {
     MovieApi.getMovies()
       .then((data) => {
         setLoading(false);
-        console.log(loading)
         setIsMoviesArray(data);
       })
   }, [])

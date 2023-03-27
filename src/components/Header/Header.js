@@ -60,7 +60,7 @@ function Header({ loggedInState }) {
                                     </>
                                     :
                                     <>
-                                        <Link to={'/sign-up'} className="header__link header__link_notcolor">Регистрация</Link>
+                                        <Link to={'/signup'} className="header__link header__link_notcolor">Регистрация</Link>
                                         <Link to={'/signin'} className="header__link header__link_color" >Войти</Link>
                                     </>
                             }

@@ -35,21 +35,21 @@ function PopupWithForm({
                         {withName ? <div className="popup__input-conainer">
                             <p className="popup__input-name">Имя</p>
                             <input type="text" value={placeholderName} className={`popup__input ${validationName ? "popup__input_error" : ""}`}
-                                id="username-input" minLength="2" onChange={handleChangeName} required
+                                id="name-input" minLength="2" onChange={handleChangeName} required
                             />
                             <span className="popup__text-error" id="error-firstname">{validationName}</span>
                         </div> : <></>}
                         {withEmail ? <div className="popup__input-conainer">
                             <p className="popup__input-name">E-mail</p>
                             <input type="email" value={placeholderEmail} className={`popup__input ${validationEmail ? "popup__input_error" : ""}`}
-                                id="username-input" minLength="2" onChange={handleChangeEmail} required
+                                id="email-input" minLength="2" onChange={handleChangeEmail} required
                             />
                             <span className="popup__text-error" id="error-firstname">{validationEmail}</span>
                         </div> : <></>}
                         {withPassword ? <div className="popup__input-conainer">
                             <p className="popup__input-name">Пароль</p>
                             <input type="password" className={`popup__input ${validationPassword ? "popup__input_error" : ""}`}
-                                id="username-input" minLength="2" onChange={handleChangePassword} required
+                                id="password-input" minLength="2" onChange={handleChangePassword} required
                             />
                             <span className="popup__text-error" id="error-firstname">{validationPassword}</span>
                         </div> : <></>}

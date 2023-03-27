@@ -1,5 +1,5 @@
 function handleSearchMoviesSub(nameMovie, setIsLoggin, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi) { // вернуть массив фильмов с совпадением из инпута
-    setIsLoggin(true);
+    // setIsLoggin(true);
     if (nameMovie.length > 0) { // проверить пустой или нет запрос на поиск
       let movies = isMoviesArray.filter( // если не пустой
         (movie) =>
@@ -11,14 +11,14 @@ function handleSearchMoviesSub(nameMovie, setIsLoggin, isMoviesArray, openInfoTo
         setIsMoviesArray(movies)
       }
     } else { //при отправке пустой формы вернуть все фильмы для просмотра на страницу
-      setIsLoggin(true);
+      // setIsLoggin(true);
       MovieApi.getMovies()
         .then((data) => {
           setIsMoviesArray(data);
-          setIsLoggin(false);
+          // setIsLoggin(false);
         }).catch((err) => {
           console.log(err);
-          setIsLoggin(false);
+          // setIsLoggin(false);
         });
     }
   }

@@ -34,12 +34,14 @@ function handleRegisterSub(data, apiMain, openInfoTool, setIsRegister) { //пр�
         });
 };
 
-function handleLoginSub(dataUser, apiMain, openInfoTool) { //пробросить данные из инпутов и отправить на сервер для авторизации пользователя
+function handleLoginSub(dataUser, apiMain, openInfoTool, setIsLoggin, setIsAuth) { //пробросить данные из инпутов и отправить на сервер для авторизации пользователя
     apiMain.login(dataUser)
         .then((data) => {
             if (data.message === 'Неправильная почта или пароль') {
                 openInfoTool(data.message) // передать текст ошибки в инф.окно
             } else {
+                setIsLoggin(true);
+                setIsAuth(true);
                 openInfoTool("Вы успешно авторизованы") // при положительном ответе открыть попап подверждения авторизации
             }
         })
@@ -48,12 +50,11 @@ function handleLoginSub(dataUser, apiMain, openInfoTool) { //пробросит�
         });
 };
 
-function handleChangeUserDataSub(dataUser, apiMain, setIsUserInfo, openInfoTool, setIsAuth) { // редактировать данные пользователя
+function handleChangeUserDataSub(dataUser, apiMain, setIsUserInfo, openInfoTool) { // редактировать данные пользователя
     apiMain.sendUserInfo(dataUser).then((data) => {
         setIsUserInfo(data.data) // обновить данные на странице 
-        openInfoTool("Данные скорректированы")
+        openInfoTool("Выполнено")
     }).catch((err) => {
-        setIsAuth(false);
         openInfoTool("Произошла ошибка, проверьте данные");
         console.log(err);
     });

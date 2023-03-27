@@ -63,8 +63,16 @@ function App() {
   };
 
   function handleLogin(dataUser) { //пробросить данные из инпутов и отправить на сервер для авторизации пользователя
-    handleLoginSub(dataUser, apiMain, openInfoTool)
+    handleLoginSub(dataUser, apiMain, openInfoTool, setIsLoggin, setIsAuth)
   };
+
+  function handleLogout() { //  разлогиниться
+    handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoTool, openInfoTool,)
+  }
+
+  function handleChangeUserData(dataUser) { // редактировать данные пользователя
+    handleChangeUserDataSub(dataUser, apiMain, setIsUserInfo, openInfoTool)
+  }
 
   function handleSearchMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
     handleSearchMoviesSub(nameMovie, setIsLoggin, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi);
@@ -79,14 +87,6 @@ function App() {
     if (e.key === "Escape" || e.target.classList.contains('info-tooltip__overlay')) {
       closeInfoTool(e);
     }
-  }
-
-  function handleChangeUserData(dataUser) { // редактировать данные пользователя
-    handleChangeUserDataSub(dataUser, apiMain, setIsUserInfo, openInfoTool, setIsAuth)
-  }
-
-  function handleLogout() { //  разлогиниться
-    handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoTool, openInfoTool,)
   }
 
   useEffect(() => { //проверка авторизации пользователя через получение текущей информации о пользователе
@@ -105,6 +105,10 @@ function App() {
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
   }, [])
 
+  function handleIsLoggin () {
+
+  }
+
   return (
     <currentUserContext.Provider value={isUserInfo}>
       <div className="app">
@@ -114,7 +118,7 @@ function App() {
           <InfoTooltip isOpen={isInfoTool} text={isTextMassageInfoTool} isClose={closeInfoTool} />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path={"/signin"} element={isAuth ? <Navigate to="/movies" replace /> : <Login onLogin={handleLogin} />} />
+            <Route path={"/signin"} element={isLoggin ? <Navigate to="/movies" replace /> : <Login onLogin={handleLogin} setIsLoggin={setIsLoggin} />} />
             <Route path={"/signup"} element={isRegister ? <Navigate to="/signin" replace /> : <Register onRegister={handleRegister} />} />
             <Route path="/*" element={<NotFoundPage />} />
             <Route path="/movies" element={

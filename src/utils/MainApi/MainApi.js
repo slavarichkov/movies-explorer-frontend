@@ -21,6 +21,7 @@ class Api {
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: 'include',
             body: JSON.stringify({ name: data.name, email: data.email, password: data.password, })
         }).then((res) => res.json())
             .catch((err) => console.log(err))
@@ -61,7 +62,8 @@ class Api {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${tkn}`,
-            }
+            },
+            credentials: 'include',
         }).then((res) => res.json())
             .catch((err) => console.log(err))
     }
@@ -134,7 +136,7 @@ class Api {
 }
 
 const apiMain = new Api({
-    host: 'http://localhost:3000',
+    host: 'http://api.moviesyp.nomoredomains.work',
 });
 
 export default apiMain;

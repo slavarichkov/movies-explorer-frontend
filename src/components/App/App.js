@@ -114,7 +114,7 @@ function App() {
           <InfoTooltip isOpen={isInfoTool} text={isTextMassageInfoTool} isClose={closeInfoTool} />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path={"/signin"} element={isLoggin ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />} />
+            <Route path={"/signin"} element={isAuth ? <Navigate to="/movies" replace /> : <Login onLogin={handleLogin} />} />
             <Route path={"/signup"} element={isRegister ? <Navigate to="/signin" replace /> : <Register onRegister={handleRegister} />} />
             <Route path="/*" element={<NotFoundPage />} />
             <Route path="/movies" element={

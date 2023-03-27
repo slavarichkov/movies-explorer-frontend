@@ -134,7 +134,7 @@ class Api {
 }
 
 const apiMain = new Api({
-    host: 'http://localhost:3001',
+    host: 'http://localhost:3000',
 });
 
 export default apiMain;

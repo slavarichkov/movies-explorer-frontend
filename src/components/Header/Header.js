@@ -9,7 +9,7 @@ function Header({ loggedInState }) {
 
     useEffect(() => { // отследить url для хедера в целом
         location.pathname.toString() === "/signin" ? setStateShowHeader(false) :
-            location.pathname.toString() === "/sign-up" ? setStateShowHeader(false) :
+            location.pathname.toString() === "/signup" ? setStateShowHeader(false) :
                 setStateShowHeader(true)
     }, [location])
 

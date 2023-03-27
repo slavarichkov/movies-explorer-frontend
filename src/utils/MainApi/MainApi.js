@@ -136,7 +136,7 @@ class Api {
 }
 
 const apiMain = new Api({
-    host: 'http://api.moviesyp.nomoredomains.work',
+    host: 'http://localhost:3000',
 });
 
 export default apiMain;

@@ -81,6 +81,7 @@
 @import url(./components/MoviesCardList/style/movies-card-list__container.css);
 @import url(./components/MoviesCardList/style/movies-card__still.css);
 @import url(./components/MoviesCard/style/movies-card__img.css);
+@import url(./components/MoviesCard/style/movies-card__trailer.css);
 @import url(./components/Login/style/login.css);
 @import url(./components/PopupWithForm/style/popup.css);
 @import url(./components/PopupWithForm/style/popup__content.css);

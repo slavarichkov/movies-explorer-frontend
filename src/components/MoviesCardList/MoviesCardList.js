@@ -70,6 +70,7 @@ function MoviesCardList({ moviesArray, handleClick }) {
                             nameFilm={movie.nameRU}
                             id={isSavedMoviesArray ? movie._id : movie.id}
                             src={isSavedMoviesArray ? movie.image : movie.image.formats.thumbnail.url}
+                            trailLink={movie.trailerLink}
                             duration={getTimeFromMins(movie.duration)}
                             alt={isSavedMoviesArray ? movie.nameRu : movie.image.name}
                             handleClick={handleClick}

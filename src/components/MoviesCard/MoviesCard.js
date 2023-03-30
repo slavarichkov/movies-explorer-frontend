@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-function MoviesCard({ nameFilm, duration, src, id, alt, handleClick }) {
+function MoviesCard({ nameFilm, duration, src, trailLink,  id, alt, handleClick }) {
 
     const [isCheckFavorites, setIsCheckFavorites] = useState(false); // добавление в избранное
     const [isSavedMoviesPage, setIsSavedMoviesPage] = useState(false); // открыта страница сохраненных фильмов
@@ -30,7 +30,9 @@ function MoviesCard({ nameFilm, duration, src, id, alt, handleClick }) {
                     onClick={changeFavorites}>
                 </button>
             </div>
-            <img className="movies-card__img" src={`https://api.nomoreparties.co${src}`} alt={alt} />
+            <a className="movies-card__trailer" href={trailLink} target="blank">
+                <img className="movies-card__img" src={`https://api.nomoreparties.co${src}`} alt={alt} />
+            </a>
         </div >
     )
 }

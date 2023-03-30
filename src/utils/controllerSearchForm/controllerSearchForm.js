@@ -1,7 +1,18 @@
 
 
-function handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi, isURL, setIsFindMovies, setIsSubmitFind) { // вернуть массив фильмов с совпадением из инпута
+function handleSearchMoviesSub(
+  nameMovie,
+  isMoviesArray,
+  openInfoTool,
+  setIsMoviesArray,
+  MovieApi,
+  isURL,
+  setIsFindMovies,
+  setIsSubmitFind,
+  setIsLogg
+) { // вернуть массив фильмов с совпадением из инпута
   if (nameMovie.length > 0 && isURL === "/movies") { // проверить пустой или нет запрос на поиск
+    setIsLogg(true);
     MovieApi.getMovies()
       .then(
         (moviesArray) => {
@@ -14,21 +25,30 @@ function handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMovi
           if (movies.length > 0) {
             localStorage.setItem('moviesFind', JSON.stringify(movies)); // записать в хранилище поиск по всем фильмам
             localStorage.setItem('moviesFindInput', JSON.stringify(nameMovie)); // записать в хранилище значение инпута поиска
-          } else { openInfoTool("ничего не найдено") }
+            setIsLogg(false)
+          } else {
+            openInfoTool("ничего не найдено");
+            setIsLogg(false)
+          }
         }
       ).catch(err => {
         openInfoTool("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз")
         console.log(err);
+        setIsLogg(false);
       })
   } else if (nameMovie.length > 0 && isURL === "/saved-movies") {
+    setIsLogg(true);
     let movies = isMoviesArray.filter(
       (movie) =>
         movie.nameRU.toLowerCase().includes(nameMovie.toLowerCase())
         || movie.nameEN.toLowerCase().includes(nameMovie.toLowerCase()));
     if (movies.length > 0) {
       setIsMoviesArray(movies);
-    } else { openInfoTool("ничего не найдено") }
-
+      setIsLogg(false);
+    } else {
+      openInfoTool("ничего не найдено");
+      setIsLogg(false);
+    }
   } else if (nameMovie.length === 0) {
     openInfoTool("Введите слово для поиска")
   }

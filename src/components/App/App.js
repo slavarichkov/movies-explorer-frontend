@@ -88,7 +88,8 @@ function App() {
       MovieApi,
       isURL,
       setIsFindMoviesOn,
-      setIsSubmitFindMovies
+      setIsSubmitFindMovies,
+      setIsLoggin
     );
   }
 

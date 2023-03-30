@@ -3,26 +3,31 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
 
-function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading, isURL, handleIsShortMovies }) {
+function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading }) {
 
     const [isShortMovies, setIsShortMovies] = useState(false);
-    const [isClickShortMovies, setIsClickShortMovies] = useState(false);
     let shortMoviesArray = movies.filter((movie) =>
         movie.duration <= 40
     )
 
-    function handleIsShortMovies() {
-        isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
+    function handleIsShortMovies() { // переключение на короткометражки
+        isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true) // cтейт для мгновенного переключения состояния кнопки
+        if (JSON.parse(localStorage.getItem('isCheckMovies')) === true) { // работа с локалстор - перезапись
+            localStorage.setItem('isCheckMovies', JSON.stringify(false))
+        } else if (JSON.parse(localStorage.getItem('isCheckMovies')) === false) {
+            localStorage.setItem('isCheckMovies', JSON.stringify(true))
+        } else {
+            localStorage.setItem('isCheckMovies', JSON.stringify(true))
+        }
     }
 
-    // function handleIsShortMoviestest() {
-    //     handleIsShortMovies();
-    //     isClickShortMovies ? setIsClickShortMovies(false) : setIsClickShortMovies(true)
-    // }
+    useEffect(() => {
+        setIsShortMovies(JSON.parse(localStorage.getItem('isCheckMovies')))
+    }, [])
 
     return (
         <section className="movies">
-            <SearchForm handleShort={handleIsShortMovies} onSubmit={onSubmitSearch} isURL={isURL} />
+            <SearchForm handleShort={handleIsShortMovies} onSubmit={onSubmitSearch} />
             {!loading ?
                 <MoviesCardList
                     moviesArray={!isShortMovies ? movies : shortMoviesArray}

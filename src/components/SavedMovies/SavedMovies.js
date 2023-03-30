@@ -6,21 +6,22 @@ import { useEffect } from "react";
 
 function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL }) {
     const [isShortMovies, setIsShortMovies] = useState(false);
-    const [isClickShortMovies, setIsClickShortMovies] = useState(false);
     let shortMoviesArray = movies.filter((movie) =>
         movie.duration <= 40
     )
 
     useEffect(() => {
-        setIsShortMovies(JSON.parse(localStorage.getItem('isCheckMovies')))
+        setIsShortMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')))
     }, [])
 
     function handleIsShortMovies() { // вкл выкл короткометражки
-         isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
-        if (JSON.parse(localStorage.getItem('isCheckMovies')) === true) {
-            localStorage.setItem('isCheckMovies', JSON.stringify(false))
-        } else if (JSON.parse(localStorage.getItem('isCheckMovies')) === false) {
-            localStorage.setItem('isCheckMovies', JSON.stringify(true))
+        isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
+        if (JSON.parse(localStorage.getItem('isCheckSavedMovies')) === true) {
+            localStorage.setItem('isCheckSavedMovies', JSON.stringify(false))
+        } else if (JSON.parse(localStorage.getItem('isCheckSavedMovies')) === false) {
+            localStorage.setItem('isCheckSavedMovies', JSON.stringify(true))
+        } else {
+            localStorage.setItem('isCheckSavedMovies', JSON.stringify(true))
         }
     }
 

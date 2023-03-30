@@ -1,16 +1,23 @@
 
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import submit from './../../images/find.svg';
 
 function SearchForm({ handleShort, onSubmit }) {
 
+    const location = useLocation(); // определить URL
+
     const [isCheckMovies, setIsCheckMovies] = useState(false); // переключение на короткометражки
-    const [isShortMovies, setIsShortMovies] = useState(false); //
     const [isName, setIsName] = useState('');
     const [validationMassegeName, setValidationMassegeName] = useState('');
 
     useEffect(() => {
-        setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckMovies')));
+        if (location.pathname === '/movies') {
+            setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckMovies')));
+        } else if (location.pathname === '/saved-movies') {
+            console.log(JSON.parse(localStorage.getItem('isCheckSavedMovies')))
+            setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')));
+        }
     }, [])
 
     function changeFilms(e) {

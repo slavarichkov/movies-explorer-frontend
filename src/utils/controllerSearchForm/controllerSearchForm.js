@@ -11,8 +11,10 @@ function handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMovi
     } else { // если фильмы найдены
       if (isURL === "/movies") { // если данные передаются с главной страницы
         localStorage.setItem('moviesFind', JSON.stringify(movies)); // записать в хранилище поиск по всем фильмам
+        localStorage.setItem('moviesFindInput', JSON.stringify(nameMovie)); // записать в хранилище значение инпута поиска
       } else if (isURL === "/saved-movies") {
         localStorage.setItem('moviesSavedFind', JSON.stringify(movies)); // записать в хранилище  поиск по сохраненным фильмам
+        localStorage.setItem('moviesFindSavedInput', JSON.stringify(nameMovie)); // записать в хранилище значение инпута поиска
       }
     }
   } else { 

@@ -110,10 +110,12 @@ function App() {
   useEffect(() => { // получить фильмы сохраненные
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
   }, [])
+  
 
   useEffect(() => { // следить за URL 
     setIsURL(location.pathname)
   }, [location])
+
 
   return (
     <currentUserContext.Provider value={isUserInfo}>

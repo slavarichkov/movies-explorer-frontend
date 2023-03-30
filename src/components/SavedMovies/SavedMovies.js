@@ -10,10 +10,6 @@ function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL 
         movie.duration <= 40
     )
 
-    useEffect(() => {
-        setIsShortMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')))
-    }, [])
-
     function handleIsShortMovies() { // вкл выкл короткометражки
         isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
         if (JSON.parse(localStorage.getItem('isCheckSavedMovies')) === true) {
@@ -24,6 +20,11 @@ function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL 
             localStorage.setItem('isCheckSavedMovies', JSON.stringify(true))
         }
     }
+
+    useEffect(() => {
+        setIsShortMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')))
+    }, [])
+
 
     return (
         <section className="saved-movies">

@@ -10,11 +10,12 @@ function handleSearchMoviesSub(nameMovie, setIsLoggin, isMoviesArray, openInfoTo
       } else { // если фильмы найдены
         setIsMoviesArray(movies)
       }
-    } else { //при отправке пустой формы вернуть все фильмы для просмотра на страницу
+    } else { //при отправке пустой формы вернуть все фильмы для просмотра на страницу и сообщить пользователю
       // setIsLoggin(true);
       MovieApi.getMovies()
         .then((data) => {
           setIsMoviesArray(data);
+          openInfoTool("Необходимо задать ключевое слово для поиска") // передать текст в инф.окно
           // setIsLoggin(false);
         }).catch((err) => {
           console.log(err);

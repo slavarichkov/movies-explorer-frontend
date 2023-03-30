@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -34,6 +34,8 @@ function App() {
   const [isRegister, setIsRegister] = useState(false); // проверять выполнена ли регистрация для редиректа на вход
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
+  const [isURL, setIsURL] = useState(true);
+  const location = useLocation();
 
   // общие функции
   function openInfoTool(text) { // открыть инфотул
@@ -75,11 +77,11 @@ function App() {
   }
 
   function handleSearchMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
-    handleSearchMoviesSub(nameMovie, setIsLoggin, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi);
+    handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi, isURL);
   }
 
   function handleSearchSavedMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
-    handleSearchMoviesSub(nameMovie, setIsLoggin, isSavedMoviesArray, openInfoTool, setIsSavedMoviesArray, MovieApi);
+    handleSearchMoviesSub(nameMovie, isSavedMoviesArray, openInfoTool, setIsSavedMoviesArray, MovieApi, isURL);
   }
 
   function closeInfoTool() { // свернуть инфотул
@@ -109,6 +111,10 @@ function App() {
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
   }, [])
 
+  useEffect(() => { // отслеживать URL
+    setIsURL(location.pathname);
+  }, [location])
+
   return (
     <currentUserContext.Provider value={isUserInfo}>
       <div className="app">
@@ -128,6 +134,7 @@ function App() {
                   movies={isMoviesArray}
                   onSubmitSearch={handleSearchMovies}
                   loading={loading}
+                  isURL={isURL}
                 /> : <Navigate to="/" replace />
             }
             />

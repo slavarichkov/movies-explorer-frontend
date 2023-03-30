@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import submit from './../../images/find.svg';
 
 function SearchForm({ handleShort, onSubmit }) {
@@ -7,6 +7,12 @@ function SearchForm({ handleShort, onSubmit }) {
     const [isCheckMovies, setIsCheckMovies] = useState(false); // переключение на короткометражки
     const [isName, setIsName] = useState('');
     const [validationMassegeName, setValidationMassegeName] = useState('');
+
+    useEffect(() => { // записывать состояние кнопки короткометражек в локалстор
+        isCheckMovies ? localStorage.setItem('isCheckMovies', JSON.stringify(true))
+            : localStorage.setItem('isCheckMovies', JSON.stringify(false))
+    }, [isCheckMovies])
+
 
     function changeFilms(e) {
         e.preventDefault();

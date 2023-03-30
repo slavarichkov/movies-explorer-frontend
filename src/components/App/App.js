@@ -76,11 +76,11 @@ function App() {
   }
 
   function handleSearchMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
-    handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi, isURL);
+    handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi);
   }
 
   function handleSearchSavedMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
-    handleSearchMoviesSub(nameMovie, isSavedMoviesArray, openInfoTool, setIsSavedMoviesArray, MovieApi, isURL);
+    handleSearchMoviesSub(nameMovie, isSavedMoviesArray, openInfoTool, setIsSavedMoviesArray, MovieApi);
   }
 
   function closeInfoTool() { // свернуть инфотул
@@ -129,8 +129,6 @@ function App() {
                   movies={isMoviesArray}
                   onSubmitSearch={handleSearchMovies}
                   loading={loading}
-                  isURL={isURL}
-                  handleIsShortMovies={handleShortMovies}
                 /> : <Navigate to="/" replace />
             }
             />

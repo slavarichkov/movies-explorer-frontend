@@ -1,8 +1,6 @@
 
 
 function handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi, isURL) { // вернуть массив фильмов с совпадением из инпута
-  // setIsLoggin(true);
-
   if (nameMovie.length > 0) { // проверить пустой или нет запрос на поиск
     let movies = isMoviesArray.filter( // если не пустой
       (movie) =>

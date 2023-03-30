@@ -21,7 +21,7 @@ function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading }) 
         }
     }
 
-    useEffect(() => {
+    useEffect(() => { // обновить стейт переключателя
         setIsShortMovies(JSON.parse(localStorage.getItem('isCheckMovies')))
     }, [])
 

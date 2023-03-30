@@ -11,15 +11,6 @@ function SearchForm({ handleShort, onSubmit }) {
     const [isName, setIsName] = useState('');
     const [validationMassegeName, setValidationMassegeName] = useState('');
 
-    useEffect(() => {
-        if (location.pathname === '/movies') {
-            setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckMovies')));
-        } else if (location.pathname === '/saved-movies') {
-            console.log(JSON.parse(localStorage.getItem('isCheckSavedMovies')))
-            setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')));
-        }
-    }, [])
-
     function changeFilms(e) {
         e.preventDefault();
         isCheckMovies ? setIsCheckMovies(false) : setIsCheckMovies(true);
@@ -36,6 +27,15 @@ function SearchForm({ handleShort, onSubmit }) {
         e.preventDefault();
         onSubmit(isName);
     }
+
+    useEffect(() => {
+        if (location.pathname === '/movies') {
+            setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckMovies')));
+        } else if (location.pathname === '/saved-movies') {
+            console.log(JSON.parse(localStorage.getItem('isCheckSavedMovies')))
+            setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')));
+        }
+    }, [])
 
     return (
         <form className="search-form" onSubmit={handleSubmit}>

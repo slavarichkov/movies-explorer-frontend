@@ -35,10 +35,9 @@ function App() {
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
   const [isFindMovies, setIsFindMovies] = useState([]) // найденные фильмы
-  const [isFindSaveMovies, setIsFindSaveMovies] = useState([]) // найденные сохраненные фильмы
   const [isFindMoviesOn, setIsFindMoviesOn] = useState(false);
-  const [isFindSavedMoviesOn, setIsFindSavedMoviesOn] = useState(false);
   const [isURL, setIsURL] = useState('') // URL 
+  const [isSubmitFindMovies, setIsSubmitFindMovies] = useState(false);
   const location = useLocation();
 
   // общие функции
@@ -81,7 +80,7 @@ function App() {
   }
 
   function handleSearchMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
-    handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi, isURL);
+    handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi, isURL, setIsFindMoviesOn, setIsSubmitFindMovies);
   }
 
   function handleSearchSavedMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
@@ -121,14 +120,11 @@ function App() {
 
   useEffect(() => {
     setIsFindMovies(JSON.parse(localStorage.getItem('moviesFind')))
-    setIsFindSaveMovies(JSON.parse(localStorage.getItem('moviesSavedFind')))
     if (JSON.parse(localStorage.getItem('moviesFind')) !== null) {
       setIsFindMoviesOn(true)
     }
-    if (JSON.parse(localStorage.getItem('moviesSavedFind'))) {
-      setIsFindSavedMoviesOn(true)
-    }
-  }, [])
+    setTimeout(setIsSubmitFindMovies(false), 1000);
+  }, [isSubmitFindMovies])
 
 
   return (
@@ -158,7 +154,7 @@ function App() {
                 <SavedMovies
                   onSubmitSearch={handleSearchSavedMovies}
                   handleClickFavoriteMovies={handleMoviesDelete}
-                  movies={isFindSavedMoviesOn ? isFindSaveMovies : isSavedMoviesArray} />
+                  movies={isSavedMoviesArray} />
                 : <Navigate to="/" replace />} />
             <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Navigate to="/" replace />} />
           </Routes>

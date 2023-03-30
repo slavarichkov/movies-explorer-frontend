@@ -9,7 +9,6 @@ function SearchForm({ handleShort, onSubmit }) {
 
     const [isCheckMovies, setIsCheckMovies] = useState(false); // переключение на короткометражки
     const [isName, setIsName] = useState('');
-    const [isInput, setIsInput] = useState('');
     const [validationMassegeName, setValidationMassegeName] = useState('');
 
     function changeFilms(e) {
@@ -32,8 +31,7 @@ function SearchForm({ handleShort, onSubmit }) {
     useEffect(() => {
         if (location.pathname === '/movies') {
             setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckMovies')));
-        } else if (location.pathname === '/saved-movies') {
-            setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')));
+            setIsName(JSON.parse(localStorage.getItem('moviesFindInput')));
         }
     }, [])
 
@@ -42,7 +40,7 @@ function SearchForm({ handleShort, onSubmit }) {
             <div className="search-form__container">
                 <div className="search-form__container-input">
                     <div className="search-form__icon" alt="картинка поиска" />
-                    <input className="search-form__input" type="text" value={ } name="name" placeholder="Фильм" onChange={handleChange}></input>
+                    <input className="search-form__input" type="text" value={isName} name="name" placeholder="Фильм" onChange={handleChange}></input>
                     <button className="search-form__input-button">
                         <img className="search-form__img" src={submit} alt="изибражение стрелки" />
                     </button>

@@ -109,10 +109,6 @@ function App() {
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
   }, [])
 
-  function handleIsLoggin() {
-
-  }
-
   return (
     <currentUserContext.Provider value={isUserInfo}>
       <div className="app">

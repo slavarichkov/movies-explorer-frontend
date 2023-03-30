@@ -25,7 +25,6 @@ function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL 
         setIsShortMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')))
     }, [])
 
-
     return (
         <section className="saved-movies">
             <SearchForm handleShort={handleIsShortMovies} onSubmit={onSubmitSearch} isURL={isURL} />

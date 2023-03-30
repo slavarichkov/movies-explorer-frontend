@@ -28,6 +28,8 @@ function handleSearchMoviesSub(
             setIsLogg(false)
           } else {
             openInfoTool("ничего не найдено");
+            localStorage.setItem('moviesFind', JSON.stringify(movies)); // записать в хранилище поиск по всем фильмам
+            localStorage.setItem('moviesFindInput', JSON.stringify(nameMovie)); // записать в хранилище значение инпута поиска
             setIsLogg(false)
           }
         }

@@ -89,7 +89,7 @@ function App() {
       isURL,
       setIsFindMoviesOn,
       setIsSubmitFindMovies,
-      setIsLoggin
+      setLoading
     );
   }
 

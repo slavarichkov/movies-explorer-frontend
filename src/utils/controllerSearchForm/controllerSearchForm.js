@@ -19,18 +19,18 @@ function handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMovi
     }
   } else { 
     //при отправке пустой формы вернуть все фильмы для просмотра на страницу и сообщить пользователю - на будущее исправить
-    if (isURL === "/movies") {
-      MovieApi.getMovies()
-        .then((data) => {
-          setIsMoviesArray(data);
-          openInfoTool("Необходимо задать ключевое слово для поиска") // передать текст в инф.окно
-        }).catch((err) => {
-          console.log(err);
-        })
-    } else if (isURL === "/saved-movies") {
-      setIsMoviesArray(isMoviesArray);
-      openInfoTool("Необходимо задать ключевое слово для поиска") // передать текст в инф.окно
-    }
+    // if (isURL === "/movies") {
+    //   MovieApi.getMovies()
+    //     .then((data) => {
+    //       localStorage.setItem('moviesFind', JSON.stringify(data));
+    //       openInfoTool("Необходимо задать ключевое слово для поиска") // передать текст в инф.окно
+    //     }).catch((err) => {
+    //       console.log(err);
+    //     })
+    // } else if (isURL === "/saved-movies") {
+    //   localStorage.setItem('moviesFind', JSON.stringify(isMoviesArray));
+    //   openInfoTool("Необходимо задать ключевое слово для поиска") // передать текст в инф.окно
+    // }
   }
 }
 

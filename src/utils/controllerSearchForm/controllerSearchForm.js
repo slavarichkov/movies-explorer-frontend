@@ -1,4 +1,5 @@
 
+
 function handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi, isURL) { // вернуть массив фильмов с совпадением из инпута
   // setIsLoggin(true);
 
@@ -16,17 +17,15 @@ function handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMovi
         localStorage.setItem('moviesSavedFind', JSON.stringify(movies)); // записать в хранилище  поиск по сохраненным фильмам
       }
     }
-  } else { //при отправке пустой формы вернуть все фильмы для просмотра на страницу и сообщить пользователю
-    // setIsLoggin(true);
+  } else { 
+    //при отправке пустой формы вернуть все фильмы для просмотра на страницу и сообщить пользователю - на будущее исправить
     if (isURL === "/movies") {
       MovieApi.getMovies()
         .then((data) => {
           setIsMoviesArray(data);
           openInfoTool("Необходимо задать ключевое слово для поиска") // передать текст в инф.окно
-          // setIsLoggin(false);
         }).catch((err) => {
           console.log(err);
-          // setIsLoggin(false);
         })
     } else if (isURL === "/saved-movies") {
       setIsMoviesArray(isMoviesArray);

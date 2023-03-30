@@ -34,6 +34,7 @@ function App() {
   const [isRegister, setIsRegister] = useState(false); // проверять выполнена ли регистрация для редиректа на вход
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
+  const [isURL, setIsURL] = useState('') // URL 
   const location = useLocation();
 
   // общие функции
@@ -76,11 +77,11 @@ function App() {
   }
 
   function handleSearchMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
-    handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi);
+    handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi, isURL);
   }
 
   function handleSearchSavedMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
-    handleSearchMoviesSub(nameMovie, isSavedMoviesArray, openInfoTool, setIsSavedMoviesArray, MovieApi);
+    handleSearchMoviesSub(nameMovie, isSavedMoviesArray, openInfoTool, setIsSavedMoviesArray, MovieApi, isURL);
   }
 
   function closeInfoTool() { // свернуть инфотул
@@ -109,6 +110,10 @@ function App() {
   useEffect(() => { // получить фильмы сохраненные
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
   }, [])
+
+  useEffect(() => { // следить за URL 
+    setIsURL(location.pathname)
+  }, [location])
 
   return (
     <currentUserContext.Provider value={isUserInfo}>

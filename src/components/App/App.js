@@ -109,7 +109,7 @@ function App() {
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
   }, [])
 
-  function handleIsLoggin () {
+  function handleIsLoggin() {
 
   }
 
@@ -135,7 +135,13 @@ function App() {
                 /> : <Navigate to="/" replace />
             }
             />
-            <Route path="/saved-movies" element={isAuth ? <SavedMovies onSubmitSearch={handleSearchSavedMovies} handleClickFavoriteMovies={handleMoviesDelete} movies={isSavedMoviesArray} /> : <Navigate to="/" replace />} />
+            <Route path="/saved-movies" element=
+              {isAuth ?
+                <SavedMovies
+                  onSubmitSearch={handleSearchSavedMovies}
+                  handleClickFavoriteMovies={handleMoviesDelete}
+                  movies={isSavedMoviesArray} />
+                : <Navigate to="/" replace />} />
             <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Navigate to="/" replace />} />
           </Routes>
         </main>

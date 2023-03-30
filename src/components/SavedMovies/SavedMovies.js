@@ -2,18 +2,26 @@ import { useState } from "react";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 import Preloader from '../Preloader/Preloader';
-
-let test = localStorage.getItem('moviesFind')
-console.log(JSON.parse(test))
+import { useEffect } from "react";
 
 function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL }) {
     const [isShortMovies, setIsShortMovies] = useState(false);
+    const [isClickShortMovies, setIsClickShortMovies] = useState(false);
     let shortMoviesArray = movies.filter((movie) =>
         movie.duration <= 40
     )
 
+    useEffect(() => {
+        setIsShortMovies(JSON.parse(localStorage.getItem('isCheckMovies')))
+    }, [])
+
     function handleIsShortMovies() { // вкл выкл короткометражки
-        isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
+         isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
+        if (JSON.parse(localStorage.getItem('isCheckMovies')) === true) {
+            localStorage.setItem('isCheckMovies', JSON.stringify(false))
+        } else if (JSON.parse(localStorage.getItem('isCheckMovies')) === false) {
+            localStorage.setItem('isCheckMovies', JSON.stringify(true))
+        }
     }
 
     return (

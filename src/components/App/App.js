@@ -78,6 +78,10 @@ function App() {
     handleSearchMoviesSub(nameMovie, setIsLoggin, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi);
   }
 
+  function handleSearchSavedMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
+    handleSearchMoviesSub(nameMovie, setIsLoggin, isSavedMoviesArray, openInfoTool, setIsSavedMoviesArray, MovieApi);
+  }
+
   function closeInfoTool() { // свернуть инфотул
     closeInfoToolSub(setIsInfoTool, setTextMassageInfoTool)
   }
@@ -131,7 +135,7 @@ function App() {
                 /> : <Navigate to="/" replace />
             }
             />
-            <Route path="/saved-movies" element={isAuth ? <SavedMovies onSubmitSearch={handleSearchMovies} handleClickFavoriteMovies={handleMoviesDelete} movies={isSavedMoviesArray} /> : <Navigate to="/" replace />} />
+            <Route path="/saved-movies" element={isAuth ? <SavedMovies onSubmitSearch={handleSearchSavedMovies} handleClickFavoriteMovies={handleMoviesDelete} movies={isSavedMoviesArray} /> : <Navigate to="/" replace />} />
             <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Navigate to="/" replace />} />
           </Routes>
         </main>

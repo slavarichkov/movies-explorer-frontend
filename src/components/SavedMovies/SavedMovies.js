@@ -3,7 +3,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 
 
-function SavedMovies({ movies, handleClickFavoriteMovies }) {
+function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch }) {
     const [isShortMovies, setIsShortMovies] = useState(false);
     let shortMoviesArray = movies.filter((movie) =>
         movie.duration <= 40
@@ -15,7 +15,7 @@ function SavedMovies({ movies, handleClickFavoriteMovies }) {
 
     return (
         <section className="saved-movies">
-            <SearchForm handleShort={handleIsShortMovies} />
+            <SearchForm handleShort={handleIsShortMovies} onSubmit={onSubmitSearch}/>
             <MoviesCardList
                 moviesArray={!isShortMovies ? movies : shortMoviesArray}
                 handleClick={handleClickFavoriteMovies}

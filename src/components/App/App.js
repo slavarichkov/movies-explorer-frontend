@@ -34,6 +34,10 @@ function App() {
   const [isRegister, setIsRegister] = useState(false); // проверять выполнена ли регистрация для редиректа на вход
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
+  const [isFindMovies, setIsFindMovies] = useState([]) // найденные фильмы
+  const [isFindSaveMovies, setIsFindSaveMovies] = useState([]) // найденные сохраненные фильмы
+  const [isFindMoviesOn, setIsFindMoviesOn] = useState(false);
+  const [isFindSavedMoviesOn, setIsFindSavedMoviesOn] = useState(false);
   const [isURL, setIsURL] = useState('') // URL 
   const location = useLocation();
 
@@ -110,11 +114,21 @@ function App() {
   useEffect(() => { // получить фильмы сохраненные
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
   }, [])
-  
 
   useEffect(() => { // следить за URL 
     setIsURL(location.pathname)
   }, [location])
+
+  useEffect(() => {
+    setIsFindMovies(JSON.parse(localStorage.getItem('moviesFind')))
+    setIsFindSaveMovies(JSON.parse(localStorage.getItem('moviesSavedFind')))
+    if (JSON.parse(localStorage.getItem('moviesFind')) !== null) {
+      setIsFindMoviesOn(true)
+    }
+    if (JSON.parse(localStorage.getItem('moviesSavedFind'))) {
+      setIsFindSavedMoviesOn(true)
+    }
+  }, [])
 
 
   return (
@@ -133,7 +147,7 @@ function App() {
               isAuth ?
                 <Movies
                   handleClickFavoriteMovies={handleAddMovies}
-                  movies={isMoviesArray}
+                  movies={isFindMoviesOn ? isFindMovies : isMoviesArray}
                   onSubmitSearch={handleSearchMovies}
                   loading={loading}
                 /> : <Navigate to="/" replace />
@@ -144,7 +158,7 @@ function App() {
                 <SavedMovies
                   onSubmitSearch={handleSearchSavedMovies}
                   handleClickFavoriteMovies={handleMoviesDelete}
-                  movies={isSavedMoviesArray} />
+                  movies={isFindSavedMoviesOn ? isFindSaveMovies : isSavedMoviesArray} />
                 : <Navigate to="/" replace />} />
             <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Navigate to="/" replace />} />
           </Routes>

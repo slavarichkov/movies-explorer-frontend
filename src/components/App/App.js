@@ -80,7 +80,16 @@ function App() {
   }
 
   function handleSearchMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута
-    handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMoviesArray, MovieApi, isURL, setIsFindMoviesOn, setIsSubmitFindMovies);
+    handleSearchMoviesSub(
+      nameMovie,
+      isMoviesArray,
+      openInfoTool,
+      setIsMoviesArray,
+      MovieApi,
+      isURL,
+      setIsFindMoviesOn,
+      setIsSubmitFindMovies
+    );
   }
 
   function handleSearchSavedMovies(nameMovie) { // вернуть массив фильмов с совпадением из инпута

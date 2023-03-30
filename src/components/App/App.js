@@ -34,8 +34,6 @@ function App() {
   const [isRegister, setIsRegister] = useState(false); // проверять выполнена ли регистрация для редиректа на вход
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
-  const [isShortMovies, setIsShortMovies] = useState(false); // переключатель на короткие фильмы
-  const [isURL, setIsURL] = useState(true);
   const location = useLocation();
 
   // общие функции
@@ -96,14 +94,6 @@ function App() {
     }
   }
 
-
-  function handleShortMovies(data) {
-    // setIsShortMovies(data);
-    // console.log(isShortMovies)
-    console.log(data)
-  }
-
-
   useEffect(() => { //проверка авторизации пользователя через получение текущей информации о пользователе
     takeUserData(apiMain, setIsUserInfo, setIsAuth, setIsLoggin)
   }, [])
@@ -119,10 +109,6 @@ function App() {
   useEffect(() => { // получить фильмы сохраненные
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
   }, [])
-
-  useEffect(() => { // отслеживать URL
-    setIsURL(location.pathname);
-  }, [location])
 
   return (
     <currentUserContext.Provider value={isUserInfo}>

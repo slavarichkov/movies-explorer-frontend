@@ -32,7 +32,6 @@ function SearchForm({ handleShort, onSubmit }) {
         if (location.pathname === '/movies') {
             setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckMovies')));
         } else if (location.pathname === '/saved-movies') {
-            console.log(JSON.parse(localStorage.getItem('isCheckSavedMovies')))
             setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')));
         }
     }, [])

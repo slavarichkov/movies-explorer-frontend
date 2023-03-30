@@ -18,6 +18,7 @@ function handleSearchMoviesSub(nameMovie, isMoviesArray, openInfoTool, setIsMovi
       }
     }
   } else { 
+    openInfoTool("Необходимо задать ключевое слово для поиска")
     //при отправке пустой формы вернуть все фильмы для просмотра на страницу и сообщить пользователю - на будущее исправить
     // if (isURL === "/movies") {
     //   MovieApi.getMovies()

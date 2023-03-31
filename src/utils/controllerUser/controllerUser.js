@@ -62,6 +62,7 @@ function handleChangeUserDataSub(dataUser, apiMain, setIsUserInfo, openInfoTool)
 
 function handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoTool, openInfoTool) { // разлогиниться
     apiMain.logout().then(() => {
+        localStorage.clear(); 
         setIsUserInfo({});
         setIsAuth(false);
         setIsLoggin(false);

@@ -3,7 +3,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
 
-function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading }) {
+function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading, isListIdMoviesFavorite }) {
 
     const [isShortMovies, setIsShortMovies] = useState(false);
     let shortMoviesArray = movies.filter((movie) =>
@@ -21,8 +21,6 @@ function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading }) 
         }
     }
 
-    console.log(loading)
-
     useEffect(() => { // обновить стейт переключателя
         setIsShortMovies(JSON.parse(localStorage.getItem('isCheckMovies')))
     }, [])
@@ -34,6 +32,7 @@ function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading }) 
                 <MoviesCardList
                     moviesArray={!isShortMovies ? movies : shortMoviesArray}
                     handleClick={handleClickFavoriteMovies}
+                    isListIdMoviesFavorite = {isListIdMoviesFavorite}
                 />
                 : <Preloader />}
         </section>

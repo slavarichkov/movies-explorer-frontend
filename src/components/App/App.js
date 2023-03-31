@@ -136,6 +136,9 @@ function App() {
     setTimeout(setIsSubmitFindMovies(false), 1000);
   }, [isSubmitFindMovies])
 
+  useEffect(() => {
+    localStorage.setItem('savedMovies', JSON.stringify(isSavedMoviesArray))
+  }, [isSavedMoviesArray])
 
   return (
     <currentUserContext.Provider value={isUserInfo}>
@@ -155,6 +158,7 @@ function App() {
                   handleClickFavoriteMovies={handleAddMovies}
                   movies={isFindMoviesOn ? isFindMovies : isMoviesArray}
                   onSubmitSearch={handleSearchMovies}
+                  isListIdMoviesFavorite={isSavedMoviesArray}
                   loading={loading}
                 /> : <Navigate to="/" replace />
             }

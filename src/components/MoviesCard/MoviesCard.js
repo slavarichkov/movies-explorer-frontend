@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-function MoviesCard({ nameFilm, duration, src, trailLink,  id, alt, handleClick }) {
+function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, isListIdMoviesFavorite }) {
 
     const [isCheckFavorites, setIsCheckFavorites] = useState(false); // добавление в избранное
     const [isSavedMoviesPage, setIsSavedMoviesPage] = useState(false); // открыта страница сохраненных фильмов
@@ -17,6 +17,18 @@ function MoviesCard({ nameFilm, duration, src, trailLink,  id, alt, handleClick 
         location.pathname.toString() === "/saved-movies" ? setIsSavedMoviesPage(true) :
             setIsSavedMoviesPage(false)
     }, [location])
+
+
+    useEffect(() => {
+        if (location.pathname === "/movies") {
+            let movies = JSON.parse(localStorage.getItem('savedMovies'))
+            let moviesId = movies.map((movie) => movie.movieId);
+            if (moviesId.includes(id)) {
+                setIsCheckFavorites(true);
+            }
+        }
+    }, [location, id])
+
 
     return (
         <div className="movies-card" id={id} key={id}>

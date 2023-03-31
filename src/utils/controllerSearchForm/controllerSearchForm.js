@@ -1,6 +1,6 @@
 
 
-function handleSearchMoviesSub(
+function handleSearchMoviesSub( // вернуть массив фильмов с совпадением из инпута
   nameMovie,
   isMoviesArray,
   openInfoTool,
@@ -10,7 +10,7 @@ function handleSearchMoviesSub(
   setIsFindMovies,
   setIsSubmitFind,
   setIsLogg
-) { // вернуть массив фильмов с совпадением из инпута
+) { 
   if (nameMovie.length > 0 && isURL === "/movies") { // проверить пустой или нет запрос на поиск
     setIsLogg(true);
     MovieApi.getMovies()

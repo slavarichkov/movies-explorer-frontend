@@ -45,6 +45,14 @@ function Profile({ onSubmit, logout }) {
             : setValidationAll(true)
     }, [validationMassegeName, validationMassegeEmail, currentUser, isName, isEmail])
 
+    useEffect(() => {
+        if (currentUser.email === isEmail && currentUser.name === isName) {
+            setValidationAll(true)
+        } else {
+            setValidationAll(false)
+        }
+    }, [currentUser])
+
     useEffect(() => {//передать данные юзера в инпуты
         setISName(currentUser.name);
         setIsEmail(currentUser.email);

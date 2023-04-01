@@ -9,9 +9,11 @@ function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading, is
     const [shortMoviesArray, setIsShortMoviesArray] = useState([]);
 
     useEffect(() => {
-        if (movies.lenght > 0) {
-            setIsShortMoviesArray(movies.filter((movie) =>
-                movie.duration <= 40))
+        if (movies !== null) {
+            if (movies.lenght > 0) {
+                setIsShortMoviesArray(movies.filter((movie) =>
+                    movie.duration <= 40))
+            }
         }
     }, [movies])
 

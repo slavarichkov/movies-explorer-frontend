@@ -72,7 +72,7 @@ function App() {
   };
 
   function handleLogout() { //  разлогиниться
-    handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoTool, openInfoTool,)
+    handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoTool, openInfoTool, setIsFindMovies)
   }
 
   function handleChangeUserData(dataUser) { // редактировать данные пользователя
@@ -122,7 +122,7 @@ function App() {
 
   useEffect(() => { // получить фильмы сохраненные
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
-    console.log(1)
+    console.log(localStorage.length)
   }, [isLoggin])
 
   useEffect(() => { // следить за URL 

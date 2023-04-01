@@ -60,9 +60,10 @@ function handleChangeUserDataSub(dataUser, apiMain, setIsUserInfo, openInfoTool)
     });
 }
 
-function handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoTool, openInfoTool) { // разлогиниться
+function handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoTool, openInfoTool, setIsFindMovies) { // разлогиниться
     apiMain.logout().then(() => {
         localStorage.clear(); 
+        setIsFindMovies([])
         setIsUserInfo({});
         setIsAuth(false);
         setIsLoggin(false);

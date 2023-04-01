@@ -8,9 +8,14 @@ function MoviesCardList({ moviesArray, handleClick, isListIdMoviesFavorite }) {
     const [width, setWidth] = useState(window.innerWidth); // ширина экрана
     const [isLengthMoviesArray, setIsLengthMoviesArray] = useState(false); // cледить все ли фильмы отображены на странице
     const [isSavedMoviesArray, setSavedMovies] = useState(true) // отследить чей массив фильмов 
+    const [moviesPart, setMoviesPart] = useState([]);// массив фильмов для отображения
     const location = useLocation();
 
-    let moviesPart = moviesArray.slice(0, isQuantityMovies); // скорректировать массив фильмов для отображения
+    useEffect(() => { // проверка приходящего массива фильмов
+        if (moviesArray !== null) {
+            setMoviesPart(moviesArray.slice(0, isQuantityMovies))
+        }
+    }, [moviesArray, isQuantityMovies])
 
     useEffect(() => { // отследить url для корректной отрисовки карточек из массива
         location.pathname.toString() === '/saved-movies' ? setSavedMovies(true) : setSavedMovies(false)
@@ -74,7 +79,7 @@ function MoviesCardList({ moviesArray, handleClick, isListIdMoviesFavorite }) {
                             duration={getTimeFromMins(movie.duration)}
                             alt={isSavedMoviesArray ? movie.nameRu : movie.image.name}
                             handleClick={handleClick}
-                            isListIdMoviesFavorite ={isListIdMoviesFavorite}
+                            isListIdMoviesFavorite={isListIdMoviesFavorite}
                         />
                     )
                 })}

@@ -32,14 +32,16 @@ function MoviesCardList({ moviesArray, handleClick, isListIdMoviesFavorite }) {
     }, []);
 
     useEffect(() => { // отследить ширину экрана и изначальное количество карточек для отображения
-        if (width > 769 && moviesArray.length > 11) {
-            setIsQuantityMovies(12);
-        } else if (width < 769 && moviesArray.length > 7) {
-            setIsQuantityMovies(8);
-        } else if (width < 500 && moviesArray.length > 4) {
-            setIsQuantityMovies(5);
-        } else {
-            setIsQuantityMovies(moviesArray.length);
+        if (moviesArray !== null) {
+            if (width > 769 && moviesArray.length > 11) {
+                setIsQuantityMovies(12);
+            } else if (width < 769 && moviesArray.length > 7) {
+                setIsQuantityMovies(8);
+            } else if (width < 500 && moviesArray.length > 4) {
+                setIsQuantityMovies(5);
+            } else {
+                setIsQuantityMovies(moviesArray.length);
+            }
         }
     }, [width, moviesArray])
 

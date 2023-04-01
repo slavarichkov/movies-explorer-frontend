@@ -39,7 +39,6 @@ function Profile({ onSubmit, logout }) {
         });
     }
 
-
     useEffect(() => {
         (validationMassegeName === '' && validationMassegeEmail === '')
             ? setValidationAll(false)

@@ -124,7 +124,6 @@ function App() {
 
   useEffect(() => { // получить фильмы сохраненные
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
-    console.log(localStorage.length)
   }, [isLoggin])
 
   useEffect(() => { // следить за URL 

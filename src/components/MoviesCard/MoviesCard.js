@@ -10,13 +10,12 @@ function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, 
     function changeFavorites(e) {
         e.preventDefault();
         isCheckFavorites ? setIsCheckFavorites(false) : setIsCheckFavorites(true);
-        if
+        if // проверить главная страницаактивна ли избр
             (
             location.pathname === "/movies" &&
             document.querySelector(".movies-card__favourites").classList.contains("movies-card__favourites_on")
-        ) {
+        ) { // получить айди фильма из сохраненных и передать в метод АПИ удаления, переданный отдельно через пропс
             let movie = SavedMoviesArray.find((movie) => movie.movieId === id)
-            console.log(movie)
             handleClickFavoriteMoviesDelete(movie._id)
         } else {
             handleClick(id);

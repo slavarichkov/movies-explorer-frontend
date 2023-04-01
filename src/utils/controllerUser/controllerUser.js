@@ -11,7 +11,7 @@ function takeUserData(apiMain, setIsUserInfo, setIsAuth, setIsLoggin) {
     });
 }
 
-function handleRegisterSub(data, apiMain, openInfoTool, setIsRegister) { //пробросить данные для регистрации через АПИ
+function handleRegisterSub(data, apiMain, openInfoTool, setIsRegister, handleLogin) { //пробросить данные для регистрации через АПИ\
     apiMain.register(data)
         .then((data) => {
             //записать в переменную ошибку -> вывести в инф.окно
@@ -23,7 +23,7 @@ function handleRegisterSub(data, apiMain, openInfoTool, setIsRegister) { //пр�
                 openInfoTool(messageError); // сообщить об ошибке
             } else {
                 setIsRegister(true) // для редиректа на вход
-                openInfoTool("Регистрация прошла успешно") // сообщить о регистрации
+                openInfoTool("Регистрация прошла успешно, производится автоматический вход") // сообщить о регистрации
                 setTimeout(() => { // убрать переадресацию на логин
                     setIsRegister(false);
                 }, 3000);
@@ -62,7 +62,7 @@ function handleChangeUserDataSub(dataUser, apiMain, setIsUserInfo, openInfoTool)
 
 function handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoTool, openInfoTool, setIsFindMovies) { // разлогиниться
     apiMain.logout().then(() => {
-        localStorage.clear(); 
+        localStorage.clear();
         setIsFindMovies([])
         setIsUserInfo({});
         setIsAuth(false);

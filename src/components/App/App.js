@@ -162,7 +162,7 @@ function App() {
                   movies={isFindMoviesOn ? isFindMovies : isMoviesArray}
                   onSubmitSearch={handleSearchMovies}
                   isListIdMoviesFavorite={isSavedMoviesArray}
-                  SavedMoviesArray ={isSavedMoviesArray}
+                  isSavedMoviesArray ={isSavedMoviesArray}
                   loading={loading}
                 /> : <Navigate to="/" replace />
             }

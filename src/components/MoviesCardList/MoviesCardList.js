@@ -14,7 +14,6 @@ function MoviesCardList({ moviesArray, handleClick, isListIdMoviesFavorite }) {
 
     useEffect(() => { // отследить url для корректной отрисовки карточек из массива
         location.pathname.toString() === '/saved-movies' ? setSavedMovies(true) : setSavedMovies(false)
-        console.log(moviesPart)
     }, [location, moviesPart])
 
     useEffect(() => { // отследить ширину экрана 

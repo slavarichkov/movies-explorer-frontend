@@ -13,7 +13,7 @@ function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, 
         handleClick(id);
     }
 
-    useEffect(() => { 
+    useEffect(() => {
         location.pathname.toString() === "/saved-movies" ? setIsSavedMoviesPage(true) :
             setIsSavedMoviesPage(false)
     }, [location])
@@ -38,7 +38,12 @@ function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, 
                     <p className="movies-card__duration">{duration}</p>
                 </div>
                 <button
-                    className={`movies-card__favourites ${isCheckFavorites || isSavedMoviesPage ? "movies-card__favourites_on" : "movies-card__favourites_off"}`}
+                    className={`movies-card__favourites ${isSavedMoviesPage ? "movies-card__favourites-saved"
+                        :
+                        isCheckFavorites ? "movies-card__favourites_on"
+                            :
+                            "movies-card__favourites_off"
+                        }`}
                     onClick={changeFavorites}>
                 </button>
             </div>

@@ -53,6 +53,7 @@ function App() {
 
   //удаление фильма из сохраненных
   function handleMoviesDelete(movieId) {
+    console.log(movieId)
     handleMoviesDeleteSub(setLoading, movieId, apiMain, setIsSavedMoviesArray)
   }
 

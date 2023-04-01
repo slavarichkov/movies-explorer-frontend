@@ -12,10 +12,11 @@ function handleSearchMoviesSub( // вернуть массив фильмов с
   setIsLogg
 ) { 
   if (nameMovie.length > 0 && isURL === "/movies") { // проверить пустой или нет запрос на поиск
-    setIsLogg(true);
+    // setIsLogg(true);
     MovieApi.getMovies()
       .then(
         (moviesArray) => {
+          console.log(moviesArray)
           setIsFindMovies(true);
           setIsSubmitFind(true);
           let movies = moviesArray.filter(
@@ -36,20 +37,20 @@ function handleSearchMoviesSub( // вернуть массив фильмов с
       ).catch(err => {
         openInfoTool("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз")
         console.log(err);
-        setIsLogg(false);
+        // setIsLogg(false);
       })
   } else if (nameMovie.length > 0 && isURL === "/saved-movies") {
-    setIsLogg(true);
+    // setIsLogg(true);
     let movies = isMoviesArray.filter(
       (movie) =>
         movie.nameRU.toLowerCase().includes(nameMovie.toLowerCase())
         || movie.nameEN.toLowerCase().includes(nameMovie.toLowerCase()));
     if (movies.length > 0) {
       setIsMoviesArray(movies);
-      setIsLogg(false);
+      // setIsLogg(false);
     } else {
       openInfoTool("ничего не найдено");
-      setIsLogg(false);
+      // setIsLogg(false);
     }
   } else if (nameMovie.length === 0) {
     openInfoTool("Введите слово для поиска")

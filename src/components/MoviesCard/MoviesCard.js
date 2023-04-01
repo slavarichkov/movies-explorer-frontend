@@ -21,7 +21,7 @@ function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, 
 
     useEffect(() => {
         let movies = JSON.parse(localStorage.getItem('savedMovies'))
-        if (location.pathname === "/movies" && movies.length !== null) {
+        if (location.pathname === "/movies" && movies !== null) {
             let moviesId = movies.map((movie) => movie.movieId);
             if (moviesId.includes(id)) {
                 setIsCheckFavorites(true);

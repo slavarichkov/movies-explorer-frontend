@@ -110,7 +110,7 @@ function App() {
 
   useEffect(() => { //проверка авторизации пользователя через получение текущей информации о пользователе
     takeUserData(apiMain, setIsUserInfo, setIsAuth, setIsLoggin)
-  }, [])
+  }, [isLoggin])
 
   useEffect(() => { // слушатели на закрытие инфотул 
     listenInfoToolClose(isInfoTool, handleCloseInfoTool); // свернуть на esc или клик на оверлей
@@ -123,7 +123,7 @@ function App() {
   useEffect(() => { // получить фильмы сохраненные
     takeMoviesSaved(apiMain, setIsSavedMoviesArray)
     console.log(1)
-  }, [])
+  }, [isLoggin])
 
   useEffect(() => { // следить за URL 
     setIsURL(location.pathname)

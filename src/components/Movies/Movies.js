@@ -6,9 +6,14 @@ import Preloader from '../Preloader/Preloader';
 function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading, isListIdMoviesFavorite }) {
 
     const [isShortMovies, setIsShortMovies] = useState(false);
-    let shortMoviesArray = movies.filter((movie) =>
-        movie.duration <= 40
-    )
+    const [shortMoviesArray, setIsShortMoviesArray] = useState([]);
+
+    useEffect(() => {
+        if (movies.lenght > 0) {
+            setIsShortMoviesArray(movies.filter((movie) =>
+                movie.duration <= 40))
+        }
+    }, [movies])
 
     function handleIsShortMovies() { // переключение на короткометражки
         isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true) // cтейт для мгновенного переключения состояния кнопки
@@ -32,7 +37,7 @@ function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading, is
                 <MoviesCardList
                     moviesArray={!isShortMovies ? movies : shortMoviesArray}
                     handleClick={handleClickFavoriteMovies}
-                    isListIdMoviesFavorite = {isListIdMoviesFavorite}
+                    isListIdMoviesFavorite={isListIdMoviesFavorite}
                 />
                 : <Preloader />}
         </section>

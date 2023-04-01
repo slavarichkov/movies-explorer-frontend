@@ -32,8 +32,11 @@ function SearchForm({ handleShort, onSubmit }) {
         if (location.pathname === '/movies') {
             setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckMovies')));
             setIsName(JSON.parse(localStorage.getItem('moviesFindInput')));
+        } else if (location.pathname === '/saved-movies') {
+            setIsCheckMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')));
+            setIsName(JSON.parse(localStorage.getItem('moviesFindInput')));
         }
-    }, [])
+    }, [location])
 
     return (
         <form className="search-form" onSubmit={handleSubmit}>

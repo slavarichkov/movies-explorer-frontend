@@ -3,7 +3,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
 
-function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading, isListIdMoviesFavorite }) {
+function Movies({ handleClickFavoriteMovies, handleClickFavoriteMoviesDelete, movies, onSubmitSearch, loading, isListIdMoviesFavorite, SavedMoviesArray }) {
 
     const [isShortMovies, setIsShortMovies] = useState(false);
     const [shortMoviesArray, setIsShortMoviesArray] = useState([]);
@@ -39,7 +39,9 @@ function Movies({ handleClickFavoriteMovies, movies, onSubmitSearch, loading, is
                 <MoviesCardList
                     moviesArray={!isShortMovies ? movies : shortMoviesArray}
                     handleClick={handleClickFavoriteMovies}
+                    handleClickFavoriteMoviesDelete = {handleClickFavoriteMoviesDelete}
                     isListIdMoviesFavorite={isListIdMoviesFavorite}
+                    SavedMoviesArray ={SavedMoviesArray}
                 />
                 : <Preloader />}
         </section>

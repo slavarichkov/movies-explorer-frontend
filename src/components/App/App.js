@@ -158,9 +158,11 @@ function App() {
               isAuth ?
                 <Movies
                   handleClickFavoriteMovies={handleAddMovies}
+                  handleClickFavoriteMoviesDelete={handleMoviesDelete}
                   movies={isFindMoviesOn ? isFindMovies : isMoviesArray}
                   onSubmitSearch={handleSearchMovies}
                   isListIdMoviesFavorite={isSavedMoviesArray}
+                  SavedMoviesArray ={isSavedMoviesArray}
                   loading={loading}
                 /> : <Navigate to="/" replace />
             }

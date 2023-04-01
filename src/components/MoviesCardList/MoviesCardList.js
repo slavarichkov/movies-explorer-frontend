@@ -2,7 +2,7 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import React, { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 
-function MoviesCardList({ moviesArray, handleClick, isListIdMoviesFavorite }) {
+function MoviesCardList({ moviesArray, handleClick, handleClickFavoriteMoviesDelete, isListIdMoviesFavorite, SavedMoviesArray }) {
 
     const [isQuantityMovies, setIsQuantityMovies] = useState(12); // отображение количества фильмов на странице
     const [width, setWidth] = useState(window.innerWidth); // ширина экрана
@@ -83,7 +83,9 @@ function MoviesCardList({ moviesArray, handleClick, isListIdMoviesFavorite }) {
                             duration={getTimeFromMins(movie.duration)}
                             alt={isSavedMoviesArray ? movie.nameRu : movie.image.name}
                             handleClick={handleClick}
+                            handleClickFavoriteMoviesDelete={handleClickFavoriteMoviesDelete}
                             isListIdMoviesFavorite={isListIdMoviesFavorite}
+                            SavedMoviesArray={SavedMoviesArray}
                         />
                     )
                 })}

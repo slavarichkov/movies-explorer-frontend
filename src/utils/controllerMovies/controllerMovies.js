@@ -1,8 +1,7 @@
 function handleMoviesDeleteSub(setLoading, movieId, apiMain, setIsSavedMoviesArray) {  //удаление фильма из сохраненных
-    setLoading(true);
     apiMain.deleteMovie(movieId)
         .then(() => {
-            setLoading(false);
+           //setLoading(false);
             setIsSavedMoviesArray((movies) => movies.filter((m) => m._id !== movieId)) // возвращаем новый список без удаленного фильма
         }).catch((err) => {
             console.log(err);

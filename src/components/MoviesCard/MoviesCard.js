@@ -13,13 +13,13 @@ function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, 
         handleClick(id);
     }
 
-    useEffect(() => {
+    useEffect(() => { 
         location.pathname.toString() === "/saved-movies" ? setIsSavedMoviesPage(true) :
             setIsSavedMoviesPage(false)
     }, [location])
 
 
-    useEffect(() => {
+    useEffect(() => { // получить фильмы из хранилища и проставить избранное
         let movies = JSON.parse(localStorage.getItem('savedMovies'))
         if (location.pathname === "/movies" && movies !== null) {
             let moviesId = movies.map((movie) => movie.movieId);

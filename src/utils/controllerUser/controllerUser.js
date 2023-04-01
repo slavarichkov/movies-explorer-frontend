@@ -11,8 +11,8 @@ function takeUserData(apiMain, setIsUserInfo, setIsAuth, setIsLoggin) {
     });
 }
 
-function handleRegisterSub(data, apiMain, openInfoTool, setIsRegister, handleLogin) { //пробросить данные для регистрации через АПИ\
-    apiMain.register(data)
+function handleRegisterSub(dataUser, apiMain, openInfoTool, setIsRegister, setIsDataRegister) { //пробросить данные для регистрации через АПИ\
+    apiMain.register(dataUser)
         .then((data) => {
             //записать в переменную ошибку -> вывести в инф.окно
             let messageError = data.message;
@@ -23,6 +23,7 @@ function handleRegisterSub(data, apiMain, openInfoTool, setIsRegister, handleLog
                 openInfoTool(messageError); // сообщить об ошибке
             } else {
                 setIsRegister(true) // для редиректа на вход
+                setIsDataRegister(dataUser)
                 openInfoTool("Регистрация прошла успешно, производится автоматический вход") // сообщить о регистрации
                 setTimeout(() => { // убрать переадресацию на логин
                     setIsRegister(false);

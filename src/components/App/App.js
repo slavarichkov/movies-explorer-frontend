@@ -38,6 +38,7 @@ function App() {
   const [isFindMoviesOn, setIsFindMoviesOn] = useState(false);
   const [isURL, setIsURL] = useState('') // URL 
   const [isSubmitFindMovies, setIsSubmitFindMovies] = useState(false);
+  const [isDataRegister, setIsDataRegister] = useState([]);
   const location = useLocation();
 
   // общие функции
@@ -65,7 +66,7 @@ function App() {
   //...Регистрация и Авторизация...
 
   function handleRegister(data) { //пробросить данные для регистрации через АПИ
-    handleRegisterSub(data, apiMain, openInfoTool, setIsRegister)
+    handleRegisterSub(data, apiMain, openInfoTool, setIsRegister, setIsDataRegister)
   };
 
   function handleLogin(dataUser) { //пробросить данные из инпутов и отправить на сервер для авторизации пользователя
@@ -142,6 +143,12 @@ function App() {
     localStorage.setItem('savedMovies', JSON.stringify(isSavedMoviesArray))
   }, [isSavedMoviesArray])
 
+  useEffect(() => {
+    if (isRegister) {
+      handleLogin(isDataRegister)
+    }
+  }, [isRegister, isDataRegister])
+
   return (
     <currentUserContext.Provider value={isUserInfo}>
       <div className="app">
@@ -162,7 +169,7 @@ function App() {
                   movies={isFindMoviesOn ? isFindMovies : isMoviesArray}
                   onSubmitSearch={handleSearchMovies}
                   isListIdMoviesFavorite={isSavedMoviesArray}
-                  isSavedMoviesArray ={isSavedMoviesArray}
+                  isSavedMoviesArray={isSavedMoviesArray}
                   loading={loading}
                 /> : <Navigate to="/" replace />
             }

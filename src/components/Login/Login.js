@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PopupWithForm from "../PopupWithForm/PopupWithForm"
 
 import img from './../../images/logo-header.svg'
@@ -66,7 +66,9 @@ function Login({ onLogin }) {
                     </div>
                 }
                 buttonUp={
-                    <img className="popup__img-up-form" src={img} alt="лого" />
+                    <Link to='/'>
+                        <img className="popup__img-up-form" src={img} alt="лого" />
+                    </Link>
                 }
             />
         </div >

@@ -35,10 +35,10 @@ function App() {
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
   const [isFindMovies, setIsFindMovies] = useState([]) // найденные фильмы
-  const [isFindMoviesOn, setIsFindMoviesOn] = useState(false);
+  const [isFindMoviesOn, setIsFindMoviesOn] = useState(false); // проверить произведен или нет поиск
   const [isURL, setIsURL] = useState('') // URL 
   const [isSubmitFindMovies, setIsSubmitFindMovies] = useState(false);
-  const [isDataRegister, setIsDataRegister] = useState([]);
+  const [isDataRegister, setIsDataRegister] = useState([]); // данные для автоматического входа после регистрации
   const location = useLocation();
 
   // общие функции
@@ -143,7 +143,7 @@ function App() {
     localStorage.setItem('savedMovies', JSON.stringify(isSavedMoviesArray))
   }, [isSavedMoviesArray])
 
-  useEffect(() => {
+  useEffect(() => { // автоматический вход после регистрации
     if (isRegister) {
       handleLogin(isDataRegister)
     }

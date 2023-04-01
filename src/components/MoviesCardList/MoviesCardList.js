@@ -44,8 +44,10 @@ function MoviesCardList({ moviesArray, handleClick, isListIdMoviesFavorite }) {
     }, [width, moviesArray.length])
 
     useEffect(() => {
-        moviesArray.length <= isQuantityMovies ? setIsLengthMoviesArray(true) : setIsLengthMoviesArray(false)
-    }, [isQuantityMovies, moviesArray.length])
+        if (moviesArray !== null) {
+            moviesArray.length <= isQuantityMovies ? setIsLengthMoviesArray(true) : setIsLengthMoviesArray(false)
+        }
+    }, [isQuantityMovies, moviesArray.length, moviesArray])
 
     function showMoreMovies() { // добавить количество отображаемых фильмов на странице
         if (width > 769) {

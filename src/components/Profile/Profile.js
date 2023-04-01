@@ -39,10 +39,12 @@ function Profile({ onSubmit, logout }) {
         });
     }
 
+
     useEffect(() => {
         (validationMassegeName === '' && validationMassegeEmail === '')
-            ? setValidationAll(false) : setValidationAll(true)
-    }, [validationMassegeName, validationMassegeEmail])
+            ? setValidationAll(false)
+            : setValidationAll(true)
+    }, [validationMassegeName, validationMassegeEmail, currentUser, isName, isEmail])
 
     useEffect(() => {//передать данные юзера в инпуты
         setISName(currentUser.name);

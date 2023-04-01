@@ -16,7 +16,6 @@ function handleSearchMoviesSub( // вернуть массив фильмов с
     MovieApi.getMovies()
       .then(
         (moviesArray) => {
-          console.log(moviesArray)
           setIsFindMovies(true);
           setIsSubmitFind(true);
           let movies = moviesArray.filter(

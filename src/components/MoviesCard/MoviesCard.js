@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function MoviesCard({

@@ -6,9 +6,14 @@ import { useEffect } from "react";
 
 function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL }) {
     const [isShortMovies, setIsShortMovies] = useState(false);
-    let shortMoviesArray = movies.filter((movie) =>
-        movie.duration <= 40
-    )
+    const [shortMoviesArray, setIsShortMoviesArray] = useState([]);
+
+    useEffect(() => {
+        if (movies !== null && movies.length > 0) {  
+            setIsShortMoviesArray(movies.filter((movie) =>
+                movie.duration <= 40))
+        }
+    }, [movies])
 
     function handleIsShortMovies() { // вкл выкл короткометражки
         isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)

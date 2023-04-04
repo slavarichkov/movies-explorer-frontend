@@ -5,15 +5,13 @@ import Preloader from '../Preloader/Preloader';
 
 function Movies({ handleClickFavoriteMovies, handleClickFavoriteMoviesDelete, movies, onSubmitSearch, loading, isListIdMoviesFavorite, SavedMoviesArray }) {
 
-    const [isShortMovies, setIsShortMovies] = useState(false);
-    const [shortMoviesArray, setIsShortMoviesArray] = useState([]);
+    const [isShortMovies, setIsShortMovies] = useState(false); // переключены ли на короткометражки
+    const [shortMoviesArray, setIsShortMoviesArray] = useState([]); // список короткометражек
 
-    useEffect(() => {
-        if (movies !== null) {
-            if (movies.lenght > 0) {
-                setIsShortMoviesArray(movies.filter((movie) =>
-                    movie.duration <= 40))
-            }
+    useEffect(() => { // отображать список короткометражек
+        if (movies !== null && movies.length > 0) {
+            setIsShortMoviesArray(movies.filter((movie) =>
+                movie.duration <= 40))
         }
     }, [movies])
 
@@ -39,9 +37,9 @@ function Movies({ handleClickFavoriteMovies, handleClickFavoriteMoviesDelete, mo
                 <MoviesCardList
                     moviesArray={!isShortMovies ? movies : shortMoviesArray}
                     handleClick={handleClickFavoriteMovies}
-                    handleClickFavoriteMoviesDelete = {handleClickFavoriteMoviesDelete}
+                    handleClickFavoriteMoviesDelete={handleClickFavoriteMoviesDelete}
                     isListIdMoviesFavorite={isListIdMoviesFavorite}
-                    SavedMoviesArray ={SavedMoviesArray}
+                    SavedMoviesArray={SavedMoviesArray}
                 />
                 : <Preloader />}
         </section>

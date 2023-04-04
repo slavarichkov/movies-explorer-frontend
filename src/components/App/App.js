@@ -24,14 +24,14 @@ import { openInfoToolSub, closeInfoToolSub, listenInfoToolClose } from '../../ut
 
 function App() {
 
-  const [stateAccauntActive, setStateAccauntActive] = useState(true);
-  const [loading, setLoading] = useState(false); // отображение лоадера
+  const [stateAccauntActive, setStateAccauntActive] = useState(true); // для отображения футера
+  const [loading, setLoading] = useState(false); // для отображения лоадера ( определять идет загрузка или нет)
   const [isTextMassageInfoTool, setTextMassageInfoTool] = useState(''); // текс в инфотул
   const [isAuth, setIsAuth] = useState(true); // проверить авторизован ли пользователь для защиты путей и отображения кнопок в хедере
-  const [isInfoTool, setIsInfoTool] = useState(false); // стейт для открытия информационного окна
-  const [isUserInfo, setIsUserInfo] = useState({}) // данные юзера
   const [isLoggin, setIsLoggin] = useState(false); // проверять выполнен ли вход для редиректа после входа
   const [isRegister, setIsRegister] = useState(false); // проверять выполнена ли регистрация для редиректа на вход
+  const [isInfoToolOpen, setIsInfoToolOpen] = useState(false); // стейт для открытия информационного окна
+  const [isUserInfo, setIsUserInfo] = useState({}) // данные юзера
   const [isMoviesArray, setIsMoviesArray] = useState([]) // фильмы со сторонненго АПИ
   const [isSavedMoviesArray, setIsSavedMoviesArray] = useState([]) // сохраненные фильмы
   const [isFindMovies, setIsFindMovies] = useState([]) // найденные фильмы
@@ -43,7 +43,7 @@ function App() {
 
   // общие функции
   function openInfoTool(text) { // открыть инфотул
-    openInfoToolSub(text, setIsInfoTool, setTextMassageInfoTool)
+    openInfoToolSub(text, setIsInfoToolOpen, setTextMassageInfoTool)
   }
 
   function handlePageAccaunt() { // следить за открытием страницы аккаунта для скрытия футера
@@ -74,7 +74,7 @@ function App() {
   };
 
   function handleLogout() { //  разлогиниться
-    handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoTool, openInfoTool, setIsFindMovies)
+    handleLogoutSub(apiMain, setIsUserInfo, setIsAuth, setIsLoggin, setIsInfoToolOpen, openInfoTool, setIsFindMovies)
   }
 
   function handleChangeUserData(dataUser) { // редактировать данные пользователя
@@ -100,7 +100,7 @@ function App() {
   }
 
   function closeInfoTool() { // свернуть инфотул
-    closeInfoToolSub(setIsInfoTool, setTextMassageInfoTool)
+    closeInfoToolSub(setIsInfoToolOpen, setTextMassageInfoTool)
   }
 
   //закрыть инфотул на оверлей или эск 
@@ -115,8 +115,8 @@ function App() {
   }, [isLoggin])
 
   useEffect(() => { // слушатели на закрытие инфотул 
-    listenInfoToolClose(isInfoTool, handleCloseInfoTool); // свернуть на esc или клик на оверлей
-  }, [isInfoTool])
+    listenInfoToolClose(isInfoToolOpen, handleCloseInfoTool); // свернуть на esc или клик на оверлей
+  }, [isInfoToolOpen])
 
   useEffect(() => { // получить фильмы со стороннего АПИ
     takeMovies(setLoading, MovieApi, setIsMoviesArray)
@@ -154,7 +154,7 @@ function App() {
         <Header loggedInState={isAuth} handlePageAccaunt={handlePageAccaunt} />
         <main className="app">
           <NavTab />
-          <InfoTooltip isOpen={isInfoTool} text={isTextMassageInfoTool} isClose={closeInfoTool} />
+          <InfoTooltip isOpen={isInfoToolOpen} text={isTextMassageInfoTool} isClose={closeInfoTool} />
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path={"/signin"} element={isLoggin ? <Navigate to="/movies" replace /> : <Login onLogin={handleLogin} setIsLoggin={setIsLoggin} />} />
@@ -168,7 +168,7 @@ function App() {
                   movies={isFindMoviesOn ? isFindMovies : isMoviesArray}
                   onSubmitSearch={handleSearchMovies}
                   isListIdMoviesFavorite={isSavedMoviesArray}
-                  isSavedMoviesArray={isSavedMoviesArray}
+                  SavedMoviesArray={isSavedMoviesArray} // прокинуть сохраненные фильмы из локалстор
                   loading={loading}
                 /> : <Navigate to="/" replace />
             }
@@ -178,7 +178,7 @@ function App() {
                 <SavedMovies
                   onSubmitSearch={handleSearchSavedMovies}
                   handleClickFavoriteMovies={handleMoviesDelete}
-                  movies={isSavedMoviesArray} />
+                  movies={isSavedMoviesArray} /> // прокинуть сохраненные фильмы из локалстор
                 : <Navigate to="/" replace />} />
             <Route path="/profile" element={isAuth ? <Profile onSubmit={handleChangeUserData} logout={handleLogout} /> : <Navigate to="/" replace />} />
           </Routes>

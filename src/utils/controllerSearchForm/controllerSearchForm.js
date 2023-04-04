@@ -11,14 +11,15 @@ function handleSearchMoviesSub( // вернуть массив фильмов с
   setIsSubmitFind,
   setLoading
 ) { 
-  if (nameMovie.length > 0 && isURL === "/movies") { // проверить пустой или нет запрос на поиск
+
+  if (nameMovie.length > 0 && isURL === "/movies") { // проверить пустой или нет запрос на поиск и страницу всех фильмов
     setLoading(true);
-    MovieApi.getMovies()
+    MovieApi.getMovies() // после поиска запрос для получения всех фильмов к АПИ
       .then(
         (moviesArray) => {
           setIsFindMovies(true);
           setIsSubmitFind(true);
-          let movies = moviesArray.filter(
+          let movies = moviesArray.filter( // поиск нужного фильма
             (movie) =>
               movie.nameRU.toLowerCase().includes(nameMovie.toLowerCase())
               || movie.nameEN.toLowerCase().includes(nameMovie.toLowerCase()));
@@ -28,8 +29,6 @@ function handleSearchMoviesSub( // вернуть массив фильмов с
             setLoading(false)
           } else {
             openInfoTool("ничего не найдено");
-            localStorage.setItem('moviesFind', JSON.stringify(movies)); // записать в хранилище поиск по всем фильмам
-            localStorage.setItem('moviesFindInput', JSON.stringify(nameMovie)); // записать в хранилище значение инпута поиска
             setLoading(false)
           }
         }
@@ -38,18 +37,20 @@ function handleSearchMoviesSub( // вернуть массив фильмов с
         console.log(err);
         setLoading(false);
       })
+  // если адрес страницы - сохраненные фильмы
   } else if (nameMovie.length > 0 && isURL === "/saved-movies") {
-    setLoading(true);
+    //setLoading(true);
+    console.log(1)
     let movies = isMoviesArray.filter(
       (movie) =>
         movie.nameRU.toLowerCase().includes(nameMovie.toLowerCase())
         || movie.nameEN.toLowerCase().includes(nameMovie.toLowerCase()));
     if (movies.length > 0) {
       setIsMoviesArray(movies);
-      setLoading(false);
+      //setLoading(false);
     } else {
       openInfoTool("ничего не найдено");
-      setLoading(false);
+      //setLoading(false);
     }
   } else if (nameMovie.length === 0) {
     openInfoTool("Введите слово для поиска")

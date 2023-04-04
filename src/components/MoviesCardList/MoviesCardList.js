@@ -85,7 +85,7 @@ function MoviesCardList({ moviesArray, handleClick, handleClickFavoriteMoviesDel
                             handleClick={handleClick}
                             handleClickFavoriteMoviesDelete={handleClickFavoriteMoviesDelete}
                             isListIdMoviesFavorite={isListIdMoviesFavorite}
-                            SavedMoviesArray={SavedMoviesArray}
+                            SavedMoviesArray={SavedMoviesArray} // прокинуть сохраненные фильмы из локалстор
                         />
                     )
                 })}

@@ -9,14 +9,14 @@ function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, 
 
     function changeFavorites(e) {
         e.preventDefault();
-        isCheckFavorites ? setIsCheckFavorites(false) : setIsCheckFavorites(true);
-        if // проверить главная страницаактивна ли избр
+        if // проверить главная страница активна и активна кнопка избранного
             (
             location.pathname === "/movies" &&
-            document.querySelector(".movies-card__favourites").classList.contains("movies-card__favourites_on")
+            document.getElementById(id).querySelector(".movies-card__favourites").classList.contains("movies-card__favourites_on")
         ) { // получить айди фильма из сохраненных и передать в метод АПИ удаления, переданный отдельно через пропс
             let movie = SavedMoviesArray.find((movie) => movie.movieId === id)
             handleClickFavoriteMoviesDelete(movie._id)
+            isCheckFavorites ? setIsCheckFavorites(false) : setIsCheckFavorites(true);
         } else {
             handleClick(id);
         }
@@ -29,14 +29,13 @@ function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, 
 
 
     useEffect(() => { // получить фильмы из хранилища и проставить избранное
-        let movies = JSON.parse(localStorage.getItem('savedMovies'))
-        if (location.pathname === "/movies" && movies !== null) {
-            let moviesId = movies.map((movie) => movie.movieId);
+        if (location.pathname === "/movies" && SavedMoviesArray !== null) {
+            let moviesId = SavedMoviesArray.map((movie) => movie.movieId); // вернуть новый массив из айди добавленных в избранное фильмов
             if (moviesId.includes(id)) {
                 setIsCheckFavorites(true);
             }
         }
-    }, [location, id])
+    }, [location, SavedMoviesArray, id])
 
 
     return (

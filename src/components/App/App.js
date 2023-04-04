@@ -165,7 +165,7 @@ function App() {
                 <Movies
                   handleClickFavoriteMovies={handleAddMovies}
                   handleClickFavoriteMoviesDelete={handleMoviesDelete}
-                  movies={isFindMoviesOn ? isFindMovies : isMoviesArray}
+                  movies={isFindMoviesOn ? isFindMovies : isMoviesArray} // если производился поиск, то массив найденных фильмов
                   onSubmitSearch={handleSearchMovies}
                   SavedMoviesArray={isSavedMoviesArray} // прокинуть сохраненные фильмы из локалстор
                   loading={loading}

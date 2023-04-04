@@ -8,13 +8,7 @@ function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL 
     const [isShortMovies, setIsShortMovies] = useState(false);
     const [shortMoviesArray, setIsShortMoviesArray] = useState([]);
 
-    useEffect(() => {
-        if (movies !== null && movies.length > 0) {  
-            setIsShortMoviesArray(movies.filter((movie) =>
-                movie.duration <= 40))
-        }
-    }, [movies])
-
+    
     function handleIsShortMovies() { // вкл выкл короткометражки
         isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
         if (JSON.parse(localStorage.getItem('isCheckSavedMovies')) === true) {
@@ -25,6 +19,13 @@ function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL 
             localStorage.setItem('isCheckSavedMovies', JSON.stringify(true))
         }
     }
+
+    useEffect(() => {
+        if (movies !== null && movies.length > 0) {  
+            setIsShortMoviesArray(movies.filter((movie) =>
+                movie.duration <= 40))
+        }
+    }, [movies])
 
     useEffect(() => {
         setIsShortMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')))

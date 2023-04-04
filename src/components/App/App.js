@@ -167,7 +167,6 @@ function App() {
                   handleClickFavoriteMoviesDelete={handleMoviesDelete}
                   movies={isFindMoviesOn ? isFindMovies : isMoviesArray}
                   onSubmitSearch={handleSearchMovies}
-                  isListIdMoviesFavorite={isSavedMoviesArray}
                   SavedMoviesArray={isSavedMoviesArray} // прокинуть сохраненные фильмы из локалстор
                   loading={loading}
                 /> : <Navigate to="/" replace />

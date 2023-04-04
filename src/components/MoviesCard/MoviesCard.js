@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, SavedMoviesArray, handleClickFavoriteMoviesDelete, isListIdMoviesFavorite }) {
+function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, SavedMoviesArray, handleClickFavoriteMoviesDelete }) {
 
     const [isCheckFavorites, setIsCheckFavorites] = useState(false); // добавление в избранное
     const [isSavedMoviesPage, setIsSavedMoviesPage] = useState(false); // открыта страница сохраненных фильмов

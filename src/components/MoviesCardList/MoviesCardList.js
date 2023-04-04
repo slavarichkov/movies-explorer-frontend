@@ -12,6 +12,7 @@ function MoviesCardList({ moviesArray, handleClick, handleClickFavoriteMoviesDel
     const location = useLocation();
 
     useEffect(() => { // проверка приходящего массива фильмов
+        console.log(moviesArray)
         if (moviesArray !== null) {
             setMoviesPart(moviesArray.slice(0, isQuantityMovies))
         }

@@ -123,8 +123,11 @@ function App() {
   }, [])
 
   useEffect(() => { // получить фильмы сохраненные
-    takeMoviesSaved(apiMain, setIsSavedMoviesArray)
-  }, [isLoggin])
+    takeMoviesSaved(apiMain, setIsSavedMoviesArray);
+    if (location.pathname !== '/saved-movies') { // обновить стейт при уходе со страницы для отображения всех сохр фильмов
+      takeMoviesSaved(apiMain, setIsSavedMoviesArray);
+    }
+  }, [isLoggin, location])
 
   useEffect(() => { // следить за URL 
     setIsURL(location.pathname)

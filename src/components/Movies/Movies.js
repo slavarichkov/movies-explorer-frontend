@@ -40,6 +40,7 @@ function Movies({ handleClickFavoriteMovies, handleClickFavoriteMoviesDelete, mo
                     handleClickFavoriteMoviesDelete={handleClickFavoriteMoviesDelete}
                     isListIdMoviesFavorite={isListIdMoviesFavorite}
                     SavedMoviesArray={SavedMoviesArray}
+                    isShortMovies={isShortMovies}
                 />
                 : <Preloader />}
         </section>

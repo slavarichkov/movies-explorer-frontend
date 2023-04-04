@@ -39,6 +39,7 @@ function App() {
   const [isURL, setIsURL] = useState('') // URL 
   const [isSubmitFindMovies, setIsSubmitFindMovies] = useState(false);
   const [isDataRegister, setIsDataRegister] = useState([]); // данные для автоматического входа после регистрации
+  const [test, settest] = useState([]);
   const location = useLocation();
 
   // общие функции
@@ -54,7 +55,6 @@ function App() {
 
   //удаление фильма из сохраненных
   function handleMoviesDelete(movieId) {
-    console.log(movieId)
     handleMoviesDeleteSub(setLoading, movieId, apiMain, setIsSavedMoviesArray)
   }
 
@@ -151,6 +151,11 @@ function App() {
     }
   }, [isRegister, isDataRegister])
 
+
+  useEffect(() => { // получить фильмы из хранилища и проставить избранное
+      settest(isSavedMoviesArray.map((movie) => movie.movieId)) // вернуть новый массив из айди добавленных в избранное фильмов
+  }, [location, isSavedMoviesArray])
+
   return (
     <currentUserContext.Provider value={isUserInfo}>
       <div className="app">
@@ -178,6 +183,7 @@ function App() {
             <Route path="/saved-movies" element=
               {isAuth ?
                 <SavedMovies
+                  test={1}
                   onSubmitSearch={handleSearchSavedMovies}
                   handleClickFavoriteMovies={handleMoviesDelete}
                   movies={isSavedMoviesArray} /> // прокинуть сохраненные фильмы из локалстор

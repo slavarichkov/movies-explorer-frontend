@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
 
-function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, SavedMoviesArray, handleClickFavoriteMoviesDelete }) {
+function MoviesCard({
+    nameFilm,
+    duration,
+    src,
+    trailLink,
+    id,
+    alt,
+    handleClick,
+    handleClickFavoriteMoviesDelete,
+    SavedMoviesArray,
+    isShortMovies
+}) {
 
     const [isCheckFavorites, setIsCheckFavorites] = useState(false); // добавление в избранное
     const [isSavedMoviesPage, setIsSavedMoviesPage] = useState(false); // открыта страница сохраненных фильмов
+    const [moviesId, setMoviesId] = useState([]);
     const location = useLocation();
 
     function changeFavorites(e) {
         e.preventDefault();
+        isCheckFavorites ? setIsCheckFavorites(false) : setIsCheckFavorites(true);
         if // проверить главная страница активна и активна кнопка избранного
             (
             location.pathname === "/movies" &&
@@ -30,12 +44,13 @@ function MoviesCard({ nameFilm, duration, src, trailLink, id, alt, handleClick, 
 
     useEffect(() => { // получить фильмы из хранилища и проставить избранное
         if (location.pathname === "/movies" && SavedMoviesArray !== null) {
-            let moviesId = SavedMoviesArray.map((movie) => movie.movieId); // вернуть новый массив из айди добавленных в избранное фильмов
+            setMoviesId(SavedMoviesArray.map((movie) => movie.movieId)) // вернуть новый массив из айди добавленных в избранное фильмов
             if (moviesId.includes(id)) {
                 setIsCheckFavorites(true);
             }
+            else if (!moviesId.includes(id)) { setIsCheckFavorites(false) }
         }
-    }, [location, SavedMoviesArray, id])
+    }, [location, SavedMoviesArray, id, isShortMovies, isCheckFavorites, changeFavorites])
 
 
     return (

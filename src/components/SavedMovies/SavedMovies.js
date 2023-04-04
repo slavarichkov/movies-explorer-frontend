@@ -7,7 +7,6 @@ import { useEffect } from "react";
 function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL }) {
     const [isShortMovies, setIsShortMovies] = useState(false);
     const [shortMoviesArray, setIsShortMoviesArray] = useState([]);
-
     
     function handleIsShortMovies() { // вкл выкл короткометражки
         isShortMovies ? setIsShortMovies(false) : setIsShortMovies(true)
@@ -28,7 +27,7 @@ function SavedMovies({ movies, handleClickFavoriteMovies, onSubmitSearch, isURL 
     }, [movies])
 
     useEffect(() => {
-        setIsShortMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')))
+        setIsShortMovies(JSON.parse(localStorage.getItem('isCheckSavedMovies')));
     }, [])
 
     return (

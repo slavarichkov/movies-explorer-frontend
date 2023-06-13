@@ -9,7 +9,7 @@ function Header({ loggedInState }) {
 
     useEffect(() => { // отследить url для хедера в целом
         location.pathname.toString() === "/signin" ? setStateShowHeader(false) :
-            location.pathname.toString() === "/sign-up" ? setStateShowHeader(false) :
+            location.pathname.toString() === "/signup" ? setStateShowHeader(false) :
                 setStateShowHeader(true)
     }, [location])
 
@@ -60,7 +60,7 @@ function Header({ loggedInState }) {
                                     </>
                                     :
                                     <>
-                                        <Link to={'/sign-up'} className="header__link header__link_notcolor">Регистрация</Link>
+                                        <Link to={'/signup'} className="header__link header__link_notcolor">Регистрация</Link>
                                         <Link to={'/signin'} className="header__link header__link_color" >Войти</Link>
                                     </>
                             }

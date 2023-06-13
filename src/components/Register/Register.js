@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import PopupWithForm from "../PopupWithForm/PopupWithForm"
 import img from './../../images/logo-header.svg'
 
-function Register() {
+function Register({ onRegister }) {
 
     const navigate = useNavigate();
     // Стейты, в которых содержятся значения инпута
@@ -25,12 +25,20 @@ function Register() {
     function handleChangePassword(e) {
         setIsPassword(e.target.value);
         setValidationMassegePassword(e.target.validationMessage);
-        console.log(e.target.validationMessage)
     }
 
     function handleChangeEmail(e) {
         setIsEmail(e.target.value);
         setValidationMassegeEmail(e.target.validationMessage);
+    }
+
+    function handleSubmit(e) { //пробросить данные из инпутов наверх
+        e.preventDefault();
+        onRegister({
+            name: isName,
+            email: isEmail,
+            password: isPassword,
+        });
     }
 
 
@@ -50,6 +58,7 @@ function Register() {
                 withEmail={true}
                 withPassword={true}
                 withSubmitButtons={true}
+                onSubmit={handleSubmit}
                 validationOptions={validationAll}
                 handleChangeName={handleChangeName}
                 handleChangePassword={handleChangePassword}
@@ -66,7 +75,9 @@ function Register() {
                     </div>
                 }
                 buttonUp={
-                    <img className="popup__img-up-form" src={img} alt="лого" />
+                    <Link to='/'>
+                        <img className="popup__img-up-form" src={img} alt="лого" />
+                    </Link>
                 }
             />
         </div>

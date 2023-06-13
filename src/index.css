@@ -81,6 +81,8 @@
 @import url(./components/MoviesCardList/style/movies-card-list__container.css);
 @import url(./components/MoviesCardList/style/movies-card__still.css);
 @import url(./components/MoviesCard/style/movies-card__img.css);
+@import url(./components/MoviesCard/style/movies-card__trailer.css);
+@import url(./components/MoviesCard/style/movies-card__favourites-saved.css.css);
 @import url(./components/Login/style/login.css);
 @import url(./components/PopupWithForm/style/popup.css);
 @import url(./components/PopupWithForm/style/popup__content.css);
@@ -116,3 +118,11 @@
 @import url(./components/NotFoundPage/style/not-found-page__content.css);
 @import url(./components/NotFoundPage/style/not-found-page__link.css);
 @import url(./components/NavTab/style/navtab__button_border-show.css);
+@import url(./components/InfoTooltip/style/info-tooltip.css);
+@import url(./components/InfoTooltip/style/info-tooltip__container.css);
+@import url(./components/InfoTooltip/style/tooltip__massage.css);
+@import url(./components/InfoTooltip/style/info-tooltip__close-button.css);
+@import url(./components/InfoTooltip/style/info-tooltip_show.css);
+
+@import url(./components/Preloader/Preloader.css);
+

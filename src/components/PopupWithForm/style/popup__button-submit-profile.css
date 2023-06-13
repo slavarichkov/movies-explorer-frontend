@@ -5,8 +5,9 @@
     text-align: center;
     background-color: white;
     color: black;
-    margin: 196px auto 0;
+    margin: 196px auto 20px;
     transition: opacity 1s;
+    height: 25px;
 }
 
 .popup__button-submit-profile:hover {
